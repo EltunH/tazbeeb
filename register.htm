@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <style>
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 12px;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .custom-checkbox .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-checkbox input:checked+.checkmark {
+            border-color: #0000EE;
+        }
+
+        .custom-checkbox .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid #0000EE;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input:checked+.checkmark::after {
+            display: block;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="max-md:px-4 font-['Inter'] md:w-[360px] md:mx-auto pb-15">
+        <div class="flex justify-center items-center pt-[70px] md:pt-[100px] mb-[50px] md:mb-[60px]">
+            <img src="img/logo_small.png" alt="logo" class="w-[156px] h-[32px]" />
+        </div>
+        <p class="font-[700] text-[18px] text-center mb-[26px] md:mb-[30px]">Create an account</p>
+        <form>
+            <label for="firstName" class="font-[500] text-[14px] cursor-pointer">First name</label>
+            <input
+                class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                type="text" name="firstName" id="firstName" />
+
+            <label for="lastName" class="font-[500] text-[14px] inline-block mt-5 cursor-pointer">Last name</label>
+            <input
+                class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                type="text" name="lastName" id="lastName" />
+
+            <label for="email" class="font-[500] text-[14px] mt-[20px] inline-block cursor-pointer">Email</label>
+            <input
+                class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                placeholder="fullname@gmail.com" type="text" name="email" id="email" />
+
+            <label class="font-[500] text-[14px] mt-[20px] inline-block">Gender</label>
+            <div class="relative w-full mt-[12px] flex justify-center">
+                <select id="gender"
+                    class="text-[14px] w-full h-[50px] px-[20px] rounded-[6px] border border-[#E9E9E9] outline-none focus:!border-[#868686] appearance-none text-[#CDCDCD]"
+                    onclick="this.classList.remove('text-[#CDCDCD]')">
+                    <option value="female" class="text-black">Female</option>
+                    <option value="male" class="text-black">Male</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-2 md:right-[20px] flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+
+            <label for="phoneNumber" class="font-[500] text-[14px] mt-[20px] inline-block">Phone Number</label>
+            <div class="flex gap-x-4 md:gap-x-6 items-center">
+                <div class="relative w-[74px] mt-[12px]">
+                    <select
+                        class="text-[14px] w-[74px] h-[50px] md:h-[45px] px-[12px] rounded-[6px] border border-[#E9E9E9] outline-none focus:!border-[#868686] appearance-none text-black">
+                        <option value="+971">+971</option>
+                        <option value="+994">+994</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 left-[47px] flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+                <input
+                    class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                    type="number" name="phoneNumber" id="phoneNumber" />
+            </div>
+
+            <label for="password" class="font-[500] text-[14px] inline-block mt-[20px] cursor-pointer">Password</label>
+            <div class="relative">
+                <input
+                    class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                    type="password" name="password" id="password" />
+                <img src="img/eye_password_hidden.png" alt="eye" id="hiddenPasswordImg"
+                    class="absolute w-[17px] cursor-pointer h-[12px] right-[20px] top-[31px]" />
+            </div>
+
+            <label for="confirmPassword" class="font-[500] text-[14px] inline-block mt-[20px] cursor-pointer">Confirm
+                Password</label>
+            <div class="relative">
+                <input
+                    class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                    type="password" name="confirmPassword" id="confirmPassword" />
+                <img src="img/eye_password_hidden.png" alt="eye" id="confirmHiddenPasswordImg"
+                    class="absolute w-[17px] cursor-pointer h-[12px] right-[20px] top-[31px]" />
+            </div>
+
+            <label for="birthDate" class="font-[500] text-[14px] mt-[20px] inline-block cursor-pointer">Birth
+                date</label>
+            <input onchange="this.classList.remove('text-[#CDCDCD]')"
+                class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] text-[#CDCDCD] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                placeholder="fullname@gmail.com" type="date" name="birthDate" id="birthDate" />
+
+            <div class="flex items-center mt-5">
+                <label id="remember" class="custom-checkbox text-[12px] flex justify-center">
+                    <input id="termsConditions" type="checkbox" class="w-[16px] h-[16px] mr-[12px]" />
+                    <span class="checkmark"></span>
+                    Terms & Conditions
+                </label>
+            </div>
+
+            <button type="submit" id="createBtn" disabled="true"
+                class="h-[50px] md:h-[45px] bg-[#C8C8C8] text-white font-[500] mt-[30px] rounded-[6px] cursor-not-allowed text-[14px] w-full">
+                Create
+            </button>
+            <div class="flex justify-center items-center mt-[40px] md:mt-[30px]">
+                <span class="text-[14px] text-[#616161] mr-1">Already have an account?</span>
+                <a href="login.htm" class="text-[#0000EE] text-[14px] underline underline-offset-4 font-[500]">Log
+                    in</a>
+            </div>
+        </form>
+    </main>
+
+    <script>
+    const hiddenPasswordImg = document.getElementById('hiddenPasswordImg');
+    const confirmHiddenPasswordImg = document.getElementById('confirmHiddenPasswordImg');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const createBtn = document.getElementById('createBtn');
+
+    hiddenPasswordImg.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            hiddenPasswordImg.src = 'img/eye_password.png';
+        } else {
+            passwordInput.type = 'password';
+            hiddenPasswordImg.src = 'img/eye_password_hidden.png';
+        }
+    });
+
+    confirmHiddenPasswordImg.addEventListener('click', () => {
+        if (confirmPasswordInput.type === 'password') {
+            confirmPasswordInput.type = 'text';
+            confirmHiddenPasswordImg.src = 'img/eye_password.png';
+        } else {
+            confirmPasswordInput.type = 'password';
+            confirmHiddenPasswordImg.src = 'img/eye_password_hidden.png';
+        }
+    });
+
+
+    const inputs = [
+        document.getElementById('firstName'),
+        document.getElementById('lastName'),
+        document.getElementById('email'),
+        document.getElementById('gender'),
+        document.getElementById('phoneNumber'),
+        document.getElementById('password'),
+        document.getElementById('confirmPassword'),
+        document.getElementById('birthDate'),
+        document.getElementById('termsConditions')
+    ];
+
+    function validateForm() {
+        const allFilled = inputs.every(input => {
+            if (input.type === 'checkbox') return input.checked;
+            return input.value.trim() !== '';
+        });
+
+        if (allFilled) {
+            createBtn.disabled = false;
+            createBtn.style.backgroundColor = '#0000EE';
+            createBtn.style.cursor = 'pointer';
+        } else {
+            createBtn.disabled = true;
+            createBtn.style.backgroundColor = '#C8C8C8';
+            createBtn.style.cursor = 'not-allowed';
+        }
+    }
+
+    inputs.forEach(input => {
+        input.addEventListener('input', validateForm);
+        input.addEventListener('change', validateForm);
+    });
+</script>
+
+</body>
+
+</html>

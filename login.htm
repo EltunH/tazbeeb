@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <style>
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 12px;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .custom-checkbox .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-checkbox input:checked+.checkmark {
+            border-color: #0000EE;
+        }
+
+        .custom-checkbox .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid #0000EE;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input:checked+.checkmark::after {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="max-md:px-4 font-['Inter'] md:w-[360px] md:mx-auto pb-15">
+        <div class="flex justify-center items-center pt-[70px] md:pt-[100px] mb-[50px] md:mb-[60px]">
+            <img src="img/logo_small.png" alt="logo" class="w-[156px] h-[32px]" />
+        </div>
+        <p class="font-[700] text-[18px] text-center mb-[26px] md:mb-[30px]">Log in</p>
+        <form>
+            <label for="email" class="font-[500] text-[14px] cursor-pointer">Email</label>
+            <input
+                class="h-[50px] md:h-[45px] mt-[12px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                placeholder="fullname@gmail.com" type="text" name="email" id="email" />
+            <div id="wrongEmail" class="mt-[12px] flex items-center gap-[14px]">
+                <div class="w-[14px] h-[14px] border border-[#F41735] rounded-full flex justify-center items-center">
+                    <span class="text-[#F41735] text-[12px]">i</span>
+                </div>
+                <span class="text-[12px] text-[#F41735]">Email is wrong</span>
+            </div>
+
+            <label for="password"
+                class="font-[500] text-[14px] inline-block mt-[20px] md:mt-[25px] cursor-pointer">Password</label>
+            <div class="relative">
+                <input
+                    class="h-[50px] md:h-[45px] mt-[12px] mb-[20px] border border-[#D9D9D9] outline-none focus:!border-[#868686] rounded-[6px] font-[400] text-[14px] p-[16px_20px] w-full"
+                    placeholder="1234567890" type="password" name="password" id="password" />
+                <img src="img/eye_password_hidden.png" alt="eye" id="hiddenPassword"
+                    class="absolute w-[17px] cursor-pointer h-[12px] right-[20px] top-[31px]" />
+            </div>
+            <div class="flex justify-between items-center">
+                <label id="remember" class="custom-checkbox text-[12px] flex justify-center">
+                    <input type="checkbox" class="w-[16px] h-[16px] mr-[12px]" />
+                    <span class="checkmark"></span>
+                    Remember
+                </label>
+
+                <div id="wrongPassword" class="flex items-center gap-[14px]">
+                    <div
+                        class="w-[14px] h-[14px] border border-[#F41735] rounded-full flex justify-center items-center">
+                        <span class="text-[#F41735] text-[12px]">i</span>
+                    </div>
+                    <span class="text-[12px] text-[#F41735]">Email is wrong</span>
+                </div>
+
+                <a href="forgot-password.htm"
+                    class="text-[14px] text-[#0000EE] underline underline-offset-4 font-[500]">Forgot your
+                    password?</a>
+            </div>
+
+            <button type="submit"
+                class="h-[50px] md:h-[45px] bg-[#0000EE] mb-[40px] md:mb-[30px] text-white font-[500] mt-10 rounded-[6px] cursor-pointer text-[14px] w-full">Log
+                in</button>
+            <div class="flex justify-center items-center">
+                <span class="text-[14px] text-[#616161] mr-1">Still not registered?</span>
+                <a href="register.htm" class="text-[#0000EE] text-[14px] underline underline-offset-4 font-[500]"> Create
+                    Account</a>
+            </div>
+        </form>
+        <div
+            class="mt-[40px] md:mt-[50px] rounded-[6px] border border-[#E9E9E9] h-[50px] md:h-[45px] flex justify-center items-center gap-[15px] cursor-pointer">
+            <img src="img/google-logo-icon.png" alt="google" class="w-[21px] h-[21px]" />
+            <span class="text-[14px] font-[500] text-[#000000]">Log in with Google</span>
+        </div>
+        <div
+            class="mt-[20px] rounded-[6px] border border-[#E9E9E9] h-[50px] md:h-[45px] flex justify-center items-center gap-[15px] cursor-pointer">
+            <i class="fa-brands fa-apple text-[23px]"></i>
+            <span class="text-[14px] font-[500] text-[#000000]">Sign in with Apple</span>
+        </div>
+    </main>
+
+    <script>
+        const hiddenPassword = document.getElementById('hiddenPassword');
+        const passwordInput = document.getElementById('password');
+        const emailInput = document.getElementById('email');
+        const wrongEmail = document.getElementById('wrongEmail');
+        const remember = document.getElementById('remember');
+
+        const flag = false
+
+        remember.style.display = flag ? 'none' : 'flex';
+        passwordInput.style.border = emailInput.style.border = flag ? '1px solid #F41735' : '1px solid #D9D9D9';
+        wrongEmail.style.display = wrongPassword.style.display = flag ? 'flex' : 'none';
+
+        hiddenPassword.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                hiddenPassword.src = 'img/eye_password.png';
+            } else {
+                passwordInput.type = 'password';
+                hiddenPassword.src = 'img/eye_password_hidden.png';
+            }
+        });
+    </script>
+</body>
+
+</html>

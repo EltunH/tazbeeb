@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./src/output.css" />
+
+</head>
+
+<body>
+    <header class="font-['Inter']">
+        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-[#0000EE] flex items-center gap-x-10">
+            <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-x-10">
+                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                        <option class="text-black" value="english">En</option>
+                        <option class="text-black" value="arabic">Ar</option>
+                    </select>
+                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                        <option class="text-black" value="usd">USD</option>
+                        <option class="text-black" value="uae">UAE</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-x-5">
+                    <a href="#" class="text-white text-[15px] font-[500]">News</a>
+                    <a href="#" class="text-white text-[15px] font-[500]">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
+            <div class="flex gap-x-[30px] items-center mr-10">
+                <i onclick="showHamburgerMenu()"
+                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-[#0000EE]"></i>
+                <a href="index.htm">
+                    <img src="./img/logo_small.png" width="116" height="24" alt="logo" />
+                </a>
+            </div>
+
+            <div class="max-tablet:hidden flex items-center gap-x-[40px] lg:gap-x-[80px] xl:gap-x-[166px]">
+                <div id="searchAndCategoryParentDiv"
+                    class="w-[450px] relative rounded-[6px] h-[45px] bg-[#F7F7F7] flex items-center">
+                    <button id="categoryDropDownBtn" onclick="hideCategoryDropDown()"
+                        class="cursor-pointer flex items-center gap-x-[28px] h-full w-[150px] text-[14px]">
+                        <span class="ml-5 pointer-events-none">Category</span>
+                        <i class="fa-solid fa-caret-down text-[11px] pointer-events-none"></i>
+                    </button>
+                    <input type="text" name="search" id="searchInp" placeholder="search"
+                        class="w-[300px] h-[28px] outline-none text-[14px] pl-4 pr-11 border-l border-l-[#7C7C7C]" />
+                    <img src="./img/search.png" alt="search" class="absolute right-4" width="14" height="14" />
+                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+
+                    <!-- Category dropdown div -->
+                    <div id="categoryDropDownDiv"
+                        class="absolute w-[262px] hidden shadow-[0_6px_15px_-3px_#00000033] flex flex-col justify-start items-start rounded-[0_0_6px_6px] left-0 top-[45px] z-[999] bg-white pt-[10px] pb-5">
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start font-[700] items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">
+                            <i class="fa-solid fa-check mr-[6px]"></i>
+                            All Categories</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Electronic
+                            & Gadget</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Fashion
+                            & Apparel</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Beauty
+                            & Personal Care</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Home
+                            & Living</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Toys,Kids
+                            & Baby</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-b-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Health
+                            & Wellness</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">
+                            All Categories</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Electronic
+                            & Gadget</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Fashion
+                            & Apparel</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Beauty
+                            & Personal Care</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Home
+                            & Living</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Toys,Kids
+                            & Baby</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-b-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Health
+                            & Wellness</a>
+                    </div>
+
+                    <!-- Search dropdown div -->
+                    <div id="searchDropDownDiv"
+                        class="absolute w-[450px] hidden shadow-[0_6px_15px_-3px_#00000033] rounded-[0_0_6px_6px] left-0 top-[45px] z-[999] bg-white py-5">
+                        <div class="flex items-center justify-between w-full px-5">
+                            <p class="text-[13px] font-[600] leading-[24px]">Previous Searches</p>
+                            <button class="text-[13px] cursor-pointer underline underline-offset-2">Delete all</button>
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            Collagen Face Cream
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            Bvlgari Serpenti
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            SMEG 50's
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            Stanley IceFlow
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] leading-[24px] w-full">
+                            Cartier Watch
+                        </div>
+                        <p class="text-[13px] font-[600] leading-[24px] px-5 mt-[16px] mb-[20px]">Popular Searches</p>
+                        <div class="flex flex-wrap gap-[10px] px-5">
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                watch
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                cream
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                accessories
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                personal car
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                personal care
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                lor
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                cream
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                accessories
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#"
+                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF] cursor-pointer">
+                    <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
+                    <span>Pro Membership</span>
+                    <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
+                </a>
+            </div>
+
+            <div class="flex gap-x-[30px] ml-[20px] xl:ml-[30px] items-center">
+                <a href="#"
+                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF] cursor-pointer">
+                    <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
+                    <span>Pro Membership</span>
+                    <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
+                </a>
+                <button onclick="hideLoginModal()" class="relative cursor-pointer">
+                    <img id="openBtn" src="./img/group.png" alt="group"
+                        class="max-w-[18px] max-h-[22px] w-full h-full" />
+                    <div onclick="event.stopPropagation()" id="loginModal"
+                        class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
+                        <a href="login.htm"
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-[#0000EE]">Sign
+                            up</a>
+                        <a href="register.htm"
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
+                    </div>
+                </button>
+                <a href="#">
+                    <img src="./img/heart.png" alt="heart" class="max-w-[25px] max-h-[22px] w-full h-full" />
+                </a>
+                <a href="#">
+                    <img src="./img/shop.png" alt="shop" class="max-w-[18px] max-h-[22px] w-full h-full" />
+                </a>
+            </div>
+        </div>
+        <nav class="max-w-[1152px] max-tablet:hidden w-full px-3 mx-auto flex items-center h-[25px]">
+            <menu class="flex w-full justify-between text-[14px] font-[600] text-[#000]">
+                <li>
+                    <a href="#">All categories</a>
+                </li>
+                <li>
+                    <a href="#">Electronic & Gadget</a>
+                </li>
+                <li>
+                    <a href="#">Fashion & Apparel</a>
+                </li>
+                <li>
+                    <a href="#">Beauty & Personal</a> Care
+                </li>
+                <li>
+                    <a href="#">Home & Living</a>
+                </li>
+                <li>
+                    <a href="#">Toys,Kids & Baby</a>
+                </li>
+                <li>
+                    <a href="#">Health & Wellness</a>
+                </li>
+            </menu>
+        </nav>
+
+        <!-- Hamburger menu mobile -->
+        <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
+            class="fixed hidden inset-0 bg-[#0F0F3240] z-[9999999]">
+            <div onclick="event.stopPropagation()" id="sideBar"
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-[#0000EE] transition-all duration-300 px-5 overflow-y-auto">
+                <div
+                    class="flex justify-between items-center text-white font-[600] pb-5 border-b border-[#E7EEFF] mb-5">
+                    Menu
+                    <i onclick="hideHamburgerMenu()" class="fa-solid fa-xmark cursor-pointer"></i>
+                </div>
+                <div class="relative mb-10">
+                    <input type="text" name="search" id="searchInp" placeholder="search"
+                        class="w-full bg-white h-[45px] rounded-[6px] outline-none text-[14px] pl-4 pr-11" />
+                    <img src="./img/search.png" alt="search" class="absolute right-4 top-[15px]" width="14"
+                        height="14" />
+                </div>
+                <menu class="border-b border-[#E7EEFF]">
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">All categories</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Electronic & Gadget</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Fashion & Apparel</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Beauty & Personal Care</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Home & Living</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Toys,Kids & Baby</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Health & Wellness</span>
+                        >
+                    </li>
+                </menu>
+                <div class="mt-10 pb-10 border-b border-[#E7EEFF] flex flex-col">
+                    <a href="#" class="text-white w-fit font-[500] mb-10">News</a>
+                    <a href="#" class="text-white w-fit font-[500]">Contact</a>
+                </div>
+                <div class="mt-10 mb-20 flex justify-between">
+                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                        <option class="text-black" value="english">En</option>
+                        <option class="text-black" value="arabic">Ar</option>
+                    </select>
+                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                        <option class="text-black" value="usd">USD</option>
+                        <option class="text-black" value="uae">UAE</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Category sidebar -->
+            <div onclick="event.stopPropagation()" id="categorySideBar"
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-[#0000EE] transition-all duration-300 px-5 overflow-y-auto">
+                <div
+                    class="flex justify-between items-center text-white font-[600] pb-[30px] border-b border-[#E7EEFF] mb-[30px]">
+                    <span>
+                        <i onclick="hideCategorySideBar()" class="fa-solid fa-arrow-left mr-[7px] cursor-pointer"></i>
+                        Electronic & Gadget
+                    </span>
+                    <i onclick="hideHamburgerMenu()" class="fa-solid fa-xmark cursor-pointer"></i>
+                </div>
+
+                <menu>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Laptops</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>
+                                Gaming Computers
+                            </span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Desktops</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Monitors</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Computer Accessories</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Computer Components</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Printers & Scanners</span>
+                            >
+                        </a>
+                    </li>
+                </menu>
+            </div>
+        </div>
+
+        </div>
+    </header>
+
+
+    <main class="max-w-[1152px] w-full mx-auto px-4 md:px-3">
+        <section class="mt-5 md:mt-[57px] font-['Inter']">
+            <div class="md:flex justify-end">
+                <div class="md:w-1/2">
+                    <h1 class="mb-[20px] font-['Clash_Display'] font-[700] text-[22px] md:text-[52px] leading-[153%] md:leading-[121%]">About Us</h1>
+                    <p class="max-md:text-[14px] leading-[25px] mb-[20px] md:mb-[40px]">Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an lorem ipsum </p>
+                </div>
+            </div>
+
+            <div class="mb-[30px] md:mb-[50px]">
+                <img src="./img/about-us-img.jpg" alt="about-us-img" class="max-h-[245px] md:max-h-[529px] w-full object-cover" />
+            </div>
+
+            <div class="md:flex justify-between gap-x-5 mb-[75px] md:mb-[100px]">
+                <h3 class="font-['Clash_Display'] font-[700] text-[20px] md:text-[38px] md:max-w-[400px] leading-[130%] max-md:mb-[35px]">Lorem Ipsum Dolor lorem inmuto lorem ipsum doloret color for lor</h3>
+                <div class="space-y-[19px] md:space-y-[27px] md:w-1/2">
+                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.d more recently with desktop publishing software like Aldus PageMaker including versions </p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-y-5 md:gap-[24px] mb-[50px] md:mb-[100px] md:justify-between">
+                <div class="w-full h-[225px] md:w-[48%] bg-[#F6F6F6] rounded-[6px] flex flex-col justify-between items-start">
+                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-black">Brand count</span>
+                    <span class="text-[70px] font-['Clash_Display'] leading-[74%] font-[300]">1256</span>
+                </div>
+
+                <div class="w-full h-[225px] md:w-[48%] bg-[#0000EE] rounded-[6px] flex flex-col justify-between items-start">
+                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-white text-white">Customer count</span>
+                    <div class="font-['Clash_Display'] font-[300] flex justify-between items-center w-full">
+                        <span class="text-[80px] leading-[74%] text-white">235</span>
+                        <span class="pr-5 text-[16px] text-white font-[600]">MLN</span>
+                    </div>
+                </div>
+
+                <div class="w-full h-[225px] md:w-[48%] bg-[#C0C0C0] rounded-[6px] flex flex-col justify-between items-start">
+                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-white text-white">Product count</span>
+                    <div class="font-['Clash_Display'] font-[300] flex justify-between items-center w-full">
+                        <span class="text-[80px] leading-[74%] text-white">50</span>
+                        <span class="pr-5 text-[16px] text-white font-[600]">MLN</span>
+                    </div>
+                </div>
+                
+                <div class="w-full h-[225px] md:w-[48%] bg-[#D4FF05] rounded-[6px] flex flex-col justify-between items-start">
+                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-black">Brand count</span>
+                    <div class="font-['Clash_Display'] font-[300] flex justify-between items-center w-full">
+                        <span class="text-[80px] leading-[74%]">1256</span>
+                        <span class="pr-5 text-[16px] font-[600]">MLN</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:flex justify-between gap-x-5 mb-[120px] md:mb-[200px]">
+                <h3 class="font-['Clash_Display'] font-[700] text-[20px] md:text-[38px] md:max-w-[400px] leading-[130%] max-md:mb-[35px] md:text-right md:order-2">Lorem Ipsum Dolor lorem inmuto</h3>
+                <div class="space-y-[19px] md:space-y-[27px] md:w-1/2 md:order-1">
+                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever stype and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-[#0000EE] font-['Inter'] max-md:pb-[130px] text-white">
+        <!-- Pro membership/mobile -->
+        <div
+            class="bg-white p-[25px] w-full md:hidden fixed bottom-0 h-[100px] z-[999999] shadow-[0px_0px_10px_6px_#002C961F] left-0 right-0">
+            <a href="#"
+                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF]">
+                <span>
+                    <i class="fa-solid fa-crown text-[#F79E1B] text-[17px]"></i>
+                    Pro Membership
+                </span>
+                <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
+            </a>
+        </div>
+
+        <div class="max-w-[1152px] w-full mx-auto md:px-3 md:flex justify-between md:mb-[50px]">
+            <div
+                class="flex w-full justify-between pt-[30px] md:pt-[84px] max-md:px-4 max-md:pb-[30px] max-md:border-b border-[#FFFFFF] gap-x-2 md:mx-5 md:max-w-[535px] md:order-5">
+                <div class="text-[14px] flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">About</p>
+                    <a class="w-fit" href="#">About us</a>
+                    <a class="w-fit" href="#">Blog</a>
+                    <a class="w-fit" href="#">Brands</a>
+                </div>
+                <div class="text-[14px] flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Support</p>
+                    <a class="w-fit" href="#">Help Centre</a>
+                    <a class="w-fit" href="#">Shipping</a>
+                    <a class="w-fit" href="#">Returns</a>
+                </div>
+                <div class="text-[14px] flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Customer service</p>
+                    <a class="w-fit" href="#">FAQ</a>
+                    <a class="w-fit" href="#">Contact us</a>
+                    <a class="w-fit" href="#">Returns</a>
+                </div>
+            </div>
+            <div
+                class="max-md:pt-5 text-[14px] max-md:px-4 md:pt-[84px] md:pb-[35px] md:hidden md:min-w-[253px] md:pr-[40px] max-md:flex justify-between md:order-1">
+                <div class="flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Contact</p>
+                    <a href="https://www.google.com/maps/place/Dubai,+United+Arab+Emirates" target="_blank"
+                        class="font-[100] max-w-[258px] flex ">
+                        <i class="fa-solid fa-location-dot mr-[10px] mt-[5px]"></i>
+                        Dubai, United Arab Emirates, Lorem ipsum dolor lorem ipsum
+                    </a>
+                    <a href="tel:+994505555555" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-phone mr-[10px]"></i>
+                        +99450 555 55 55
+                    </a>
+                    <a href="mailto:info@tazbeeb.com" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-envelope mr-[10px]"></i>
+                        info@tazbeeb.com
+                    </a>
+                </div>
+                <div class="flex max-md:flex-col items-center gap-y-[20px] md:gap-x-[15px] md:mt-[15px]">
+                    <img src="./img/new-visa-payments-credit-card-logo-white-font-blue-background-removebg-preview.png"
+                        class="mt-[-25px] mb-[-18px]" alt="visa" width="55" />
+                    <div class="text-[7px] flex flex-col items-center">
+                        <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp"
+                            class="md:h-[37px] w-[37px]" alt="visa">
+                        <span class="mt-[-5px] cursor-default">mastercard</span>
+                    </div>
+                    <div class="w-[41px] h-[26px] rounded-[6px] border border-white grid place-items-center">
+                        <i class="fa-brands fa-apple-pay text-[22px]"></i>
+                    </div>
+                    <i class="fa-brands fa-google-pay text-[35px]"></i>
+                </div>
+            </div>
+
+            <div class="pt-[84px] tablet:mr-[80px] mr-[40px] max-md:hidden">
+                <img src="./img/logo_big.png" alt="logo" class="tablet:max-w-[290px] max-w-[250px]" />
+
+                <div class="flex gap-x-[34px] mt-10">
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        <i class="text-[18px] fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        <i class="text-[18px] fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        <i class="text-[18px] fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        <i class="text-[18px] fa-solid fa-share"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="max-md:pt-5 text-[14px] max-md:px-4 md:pt-[84px] md:pb-[35px] md:min-w-[213px] max-md:hidden justify-between md:order-1">
+                <div class="flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Contact</p>
+                    <a href="https://www.google.com/maps/place/Dubai,+United+Arab+Emirates" target="_blank"
+                        class="font-[100] max-w-[258px] flex ">
+                        <i class="fa-solid fa-location-dot mr-[10px] mt-[5px]"></i>
+                        Dubai, United Arab Emirates, Lorem ipsum dolor lorem ipsum
+                    </a>
+                    <a href="tel:+994505555555" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-phone mr-[10px]"></i>
+                        +99450 555 55 55
+                    </a>
+                    <a href="mailto:info@tazbeeb.com" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-envelope mr-[10px]"></i>
+                        info@tazbeeb.com
+                    </a>
+                </div>
+            </div>
+            <div
+                class="max-md:mt-10 md:hidden max-md:px-4 max-md:pb-[30px] md:pt-[86px] max-md:border-b border-[#FFFFFF] md:order-11">
+                <p class="text-[13px] font-[500] max-md:mb-[15px] md:mb-[20px]">Mobile Application</p>
+                <div class="flex justify-between items-center md:flex-col md:gap-y-[10px]">
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <i class="fa-brands fa-apple text-[19px]"></i>
+                        <span class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Apple store
+                        </span>
+                    </a>
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <img src="./img/logos_google-play-icon.png" alt="google" width="17" height="19" />
+                        <span class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Google Play
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="md:border-b border-[#FFFFFF]"></div>
+        <img src="./img/logo_big.png" alt="logo" class="md:hidden" />
+        <div
+            class="max-w-[1152px] w-full mx-auto md:px-3 pt-[30px] pb-[60px] flex items-center justify-between max-md:hidden">
+            <div>
+                <p class="font-[500] text-[13px]">Mobile Application</p>
+                <div class="flex items-center md:gap-x-[30px] mt-5">
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <i class="fa-brands fa-apple text-[19px]"></i>
+                        <p class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Apple store
+                        </p>
+                    </a>
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <img src="./img/logos_google-play-icon.png" alt="google" width="17" height="19" />
+                        <p class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Google Play
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex max-md:flex-col md:items-center md:gap-x-[30px] md:mt-[15px]">
+                <img src="./img/new-visa-payments-credit-card-logo-white-font-blue-background-removebg-preview.png"
+                    class="mt-[-12px]" alt="visa" width="55" />
+                <div class="text-[7px] flex flex-col">
+                    <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp" class="md:h-[37px]"
+                        alt="visa">
+                    <span class="mt-[-5px] cursor-default">mastercard</span>
+                </div>
+                <div class="w-[55px] h-[35px] rounded-[6px] border border-white grid place-items-center">
+                    <i class="fa-brands fa-apple-pay text-[28px]"></i>
+                </div>
+                <i class="fa-brands fa-google-pay text-[35px]"></i>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scripts
+        const loginModal = document.getElementById('loginModal');
+        const openBtn = document.getElementById('openBtn');
+        const categoryDropDownBtn = document.getElementById('categoryDropDownBtn');
+        const categoryDropDownDiv = document.getElementById('categoryDropDownDiv');
+        const searchDropDownDiv = document.getElementById('searchDropDownDiv');
+        const searchInp = document.getElementById('searchInp');
+        const searchAndCategoryParentDiv = document.getElementById('searchAndCategoryParentDiv');
+        const hamburgerMenuDiv = document.getElementById('hamburgerMenuDiv');
+        const sideBar = document.getElementById('sideBar');
+        const categorySideBar = document.getElementById('categorySideBar');
+
+        const hideLoginModal = () => loginModal.classList.toggle('hidden')
+        document.addEventListener('click', function (e) {
+            if (!loginModal.contains(e.target) && e.target !== openBtn) {
+                loginModal.classList.add('hidden');
+            }
+        });
+
+        const hideCategoryDropDown = () => categoryDropDownDiv.classList.toggle('hidden')
+        document.addEventListener('click', function (e) {
+            if (!categoryDropDownDiv.contains(e.target) && e.target !== categoryDropDownBtn) {
+                categoryDropDownDiv.classList.add('hidden');
+            }
+        });
+
+        searchInp.addEventListener('focus', () => {
+            searchDropDownDiv.classList.remove('hidden');
+        });
+
+        searchInp.addEventListener('blur', () => {
+            setTimeout(() => {
+                if (!searchDropDownDiv.contains(document.activeElement)) {
+                    searchDropDownDiv.classList.add('hidden');
+                }
+            }, 100);
+        });
+
+        searchDropDownDiv.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+        });
+
+        const showHamburgerMenu = () => {
+            hamburgerMenuDiv.classList.remove('hidden');
+            setTimeout(() => {
+                sideBar.style.left = '0';
+            }, 100);
+            document.body.style.overflow = 'hidden';
+            sideBar.scrollTo({ top: 0 });
+        }
+
+        const hideHamburgerMenu = () => {
+            setTimeout(() => {
+                hamburgerMenuDiv.classList.add('hidden');
+            }, 250);
+            sideBar.style.left = '-100%';
+            categorySideBar.style.left = '-100%';
+            document.body.style.overflow = 'auto';
+        }
+
+        const hideCategorySideBar = () => {
+            categorySideBar.style.left = '-100%';
+            sideBar.style.left = '0';
+            sideBar.scrollTo({ top: 0 });
+        }
+
+        const showCategorySideBar = () => {
+            categorySideBar.style.left = '0';
+            sideBar.style.left = '-100%';
+        }
+
+    </script>
+</body>
+
+</html>

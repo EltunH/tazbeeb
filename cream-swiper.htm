@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail swiper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/output.css" />
+
+    <style>
+        .creamSwiper.swiper {
+            width: 100%;
+            height: 240px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .creamSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #F2F2F2;
+            border: 1px solid #D1D1D1;
+            opacity: 1;
+        }
+
+        .creamSwiper .swiper-pagination-bullet-active {
+            width: 14px;
+            height: 14px;
+            background: black;
+            border: none;
+            position: relative;
+        }
+
+        .creamSwiper .swiper-pagination-bullet-active::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 11px;
+            height: 11px;
+            background-color: #000;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            transform: translate(-50%, -50%);
+        }
+
+        .creamSwiper .swiper-pagination-horizontal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .creamSwiper.swiper {
+                height: 334px;
+                background-color: white;
+            }
+
+            .creamSwiper .swiper-slide {
+                height: 240px;
+            }
+
+            .creamSwiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="max-w-[1250px] mx-auto">
+
+
+    <div class="swiper creamSwiper mt-[60px] md:mt-[100px] font-['Inter'] text-white">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="flex w-full h-full">
+                    <div class="w-[50%] h-full bg-[#F7FFD1] py-[45px] px-[15px] md:px-[30px] tablet:px-[50px]">
+                        <div class="max-w-[184px] w-full">
+                            <p class="text-black font-[600] block text-start text-[12px] truncate">Apple
+                                    watch 42 mm Rose Gold Seria two model</p>
+                                <div class="flex items-center mt-4 mb-5">
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                    <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                    <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                </div>
+                                <p class="font-[800] max-md:text-[14px] mb-5 text-[#F41735] text-start">AED 1298</p>
+                                <a href="#" class="w-[143px] h-[38px] flex justify-center items-center font-[500] text-[14px] text-black rounded-[6px] border border-black">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="w-[50%] h-full bg-[url('/img/cream-carousel.png')] border border-[#E8E8E8] rounded-[0_6px_6px_0] bg-center bg-cover bg-no-repeat"></div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="flex w-full h-full">
+                    <div class="w-[50%] h-full bg-[#E7EEFF] py-[45px] px-[15px] md:px-[30px] tablet:px-[50px]">
+                        <div class="max-w-[184px] w-full">
+                            <p class="text-black font-[600] block text-start text-[12px] truncate">Apple
+                                    watch 42 mm Rose Gold Seria two model</p>
+                                <div class="flex items-center mt-4 mb-5">
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                    <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                    <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                </div>
+                                <p class="font-[800] max-md:text-[14px] mb-5 text-[#F41735] text-start">AED 1298</p>
+                                <a href="#" class="w-[143px] h-[38px] flex justify-center items-center font-[500] text-[14px] text-black rounded-[6px] border border-black">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="w-[50%] h-full bg-[url('/img/glass-carousel.png')] border border-[#E8E8E8] rounded-[0_6px_6px_0] bg-center bg-contain bg-no-repeat">
+                        <!-- <img src="img/glass-carousel.png" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination cream-swiper-pagination"></div>
+    </div>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".creamSwiper", {
+            pagination: {
+                el: ".cream-swiper-pagination",
+                clickable: true,
+            },
+            slidesPerView: '1',
+            spaceBetween: 16,
+            watchOverflow: false,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best deals swiper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/output.css" />
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .monthSaleSwiper .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
+        .monthSaleSwiper.swiper {
+            width: 100%;
+            height: 291px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            content: '❯❯';
+            font-size: 18px;
+            color: black;
+            font-weight: 100;
+        }
+
+        .swiper-button-prev:after {
+            content: '❮❮';
+        }
+
+        .swiper-container-wrapper-deals .swiper-button-next {
+            right: 0;
+        }
+
+        .swiper-container-wrapper-deals .swiper-button-prev {
+            left: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .monthSaleSwiper.swiper {
+                height: 335px;
+            }
+
+            .monthSaleSwiper .swiper-slide {
+                height: 291px;
+            }
+
+            .couponSwiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper-container-wrapper px-4 md:px-[25px] w-full relative">
+        <div class="swiper-button-prev max-md:hidden!"></div>
+        <div class="swiper-button-next max-md:hidden!"></div>
+
+        <div class="swiper monthSaleSwiper font-['Inter'] text-white">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#2BC600]">
+                            Best sales
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/month-carousel-1.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Iphone 16
+                                Pro Max 256 GB</a>
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+                        
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#2BC600]">
+                            Top rated
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/month-carousel-2.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Apple
+                                watch 42 mm Rose Gold Seria two model</a>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+                        
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#2BC600]">
+                            Best price
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+                        
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/month-carousel-3.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Instax
+                                Fujifilm</a>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+                        
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#007AC6]">
+                            In stock
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+                        
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/best-carousel-4.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Nikon
+                                camera D7000</a>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+                        
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#BFBFBF]">
+                            Stock out
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+                        
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/best-carousel-1.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Iphone 16
+                                Pro Max 256 GB</a>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+                        
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#2BC600]">
+                            Best sales
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+                        
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/best-carousel-1.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Iphone 16
+                                Pro Max 256 GB</a>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <div
+                        class="bg-white relative border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-end p-4 gap-y-2">
+                        
+                        <div class="absolute w-[65px] h-[24px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[10px] left-0 bg-[#2BC600]">
+                            Best sales
+                        </div>
+                        <div class="absolute w-[38px] h-[22px] text-[10px] font-[500] flex justify-center items-center rounded-[0_8px_8px_0] top-[44px] left-0 bg-[#F41735]">
+                            -30%
+                        </div>
+                        
+                        <i class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-5 right-5"></i>
+                        <img src="./img/best-carousel-1.png" alt="carousel photo"
+                            class="max-h-[100px] w-full object-contain!" />
+                        <div class="h-[136px]">
+                            <a href="#" class="text-[#A8A8A8] block text-start text-[14px] mb-[8px] truncate">Iphone 16
+                                Pro Max 256 GB</a>
+
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                            </div>
+                            <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
+                            <button
+                                class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-[#0000EE] text-[#0000EE] border border-[#0000EE] rounded-[6px] transition-all duration-200 cursor-pointer">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination coupon-swiper-pagination md:hidden!"></div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".monthSaleSwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".coupon-swiper-pagination",
+                clickable: true,
+            },
+            slidesPerView: 2,
+            spaceBetween: 16,
+            breakpoints: {
+                580: {
+                    slidesPerView: 3,
+                    spaceBetween: 16,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 16,
+                },
+                992: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                },
+                1280: {
+                    slidesPerView: 6,
+                    spaceBetween: 24,
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

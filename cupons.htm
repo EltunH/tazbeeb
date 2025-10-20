@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail swiper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/output.css" />
+
+    <style>
+        .couponSwiper.swiper {
+            width: 100%;
+            height: 159px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .couponSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #F2F2F2;
+            border: 1px solid #D1D1D1;
+            opacity: 1;
+        }
+
+        .couponSwiper .swiper-pagination-bullet-active {
+            width: 14px;
+            height: 14px;
+            background: black;
+            border: none;
+            position: relative;
+        }
+
+        .couponSwiper .swiper-pagination-bullet-active::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 11px;
+            height: 11px;
+            background-color: #000;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            transform: translate(-50%, -50%);
+        }
+
+        .couponSwiper .swiper-pagination-horizontal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .couponSwiper.swiper {
+                height: 204px;
+                background-color: white;
+            }
+
+            .couponSwiper .swiper-slide {
+                height: 159px;
+            }
+
+            .couponSwiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+                bottom: 0;
+            }
+        }
+
+        .my-dashed {
+            border-style: dashed;
+            border-image: repeating-linear-gradient(to bottom,
+                    white 0,
+                    white 8px,
+                    transparent 8px,
+                    transparent 18px
+                ) 1;
+        }
+    </style>
+</head>
+
+<body class="max-w-[1250px] mx-auto pt-[60px] px-[16px]">
+
+
+    <div class="swiper couponSwiper font-['Inter'] text-white">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="flex w-full h-full rounded-[16px] overflow-hidden">
+                    <div
+                        class="relative w-[42%] border-r-[3px] my-dashed border-white h-full bg-gradient-to-b from-[#144DF5] to-[#6272F3]">
+                        <div class="absolute w-[17px] h-[17px] top-[-9px] right-[-9px] bg-white rounded-full"></div>
+                        <div class="absolute w-[17px] h-[17px] bottom-[-9px] right-[-9px] bg-white rounded-full"></div>
+                        <p
+                            class="w-[55px] leading-[28px] text-[26px] font-[700] font-['Clash_Display'] my-[30px] ml-[40px] md:ml-[50px]">
+                            10% OFF</p>
+                        <p class="text-[10px] text-start ml-[37px] md:ml-[45px]">Tazbeeb.com</p>
+                    </div>
+                    <div class="w-[58%] h-full pl-[30px] pt-[30px] bg-gradient-to-b tablet:pl-[15px] xlg:pl-[30px] from-[#144DF5] to-[#6272F3]">
+                        <p class="w-[106px] text-[10px] leading-[16px] text-start mb-[25px]">10% OFF on total orders
+                            within 30 days of registration</p>
+                        <div onclick="copyCuponCode(this)"
+                            class="w-[158px] h-[35px] relative px-[15px] text-[10px] active:scale-95 transition-transform cursor-pointer flex items-center justify-between rounded-[8px] bg-[rgba(255,255,255,0.3)] bg-blend-color text-white">
+                            <p>Code:<strong class="text-[12px] ml-[2px]">TAZNEW10</strong></p>
+                            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span
+                                class="absolute top-full left-1/2 -translate-x-1/2 mt-1 text-[10px] text-green-300 opacity-0 transition-opacity">
+                                Copied!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="flex w-full h-full rounded-[16px] overflow-hidden text-black">
+                    <div
+                        class="relative w-[42%] border-r-[3px] my-dashed border-white h-full bg-gradient-to-b from-[#D4FF05] to-[#98B800]">
+                        <div class="absolute w-[17px] h-[17px] top-[-9px] right-[-9px] bg-white rounded-full"></div>
+                        <div class="absolute w-[17px] h-[17px] bottom-[-9px] right-[-9px] bg-white rounded-full"></div>
+                        <p
+                            class="w-[55px] leading-[28px] text-[26px] font-[700] font-['Clash_Display'] my-[30px] ml-[40px] md:ml-[50px]">
+                            10% OFF</p>
+                        <p class="text-[10px] text-start ml-[37px] md:ml-[45px]">Tazbeeb.com</p>
+                    </div>
+                    <div class="w-[58%] h-full pl-[30px] tablet:pl-[15px] xlg:pl-[30px] pt-[30px] bg-gradient-to-b from-[#D4FF05] to-[#98B800]">
+                        <p class="w-[106px] text-[10px] leading-[16px] text-start mb-[25px]">10% OFF on total orders
+                            within 30 days of registration</p>
+                        <div onclick="copyCuponCode(this)"
+                            class="w-[158px] h-[35px] relative px-[15px] text-[10px] active:scale-95 transition-transform cursor-pointer flex items-center justify-between rounded-[8px] bg-[rgba(255,255,255,0.3)] bg-blend-color text-black">
+                            <p>Code:<strong class="text-[12px] ml-[2px]">TAZNEW10</strong></p>
+                            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span
+                                class="absolute top-full left-1/2 -translate-x-1/2 mt-1 text-[10px] text-green-300 opacity-0 transition-opacity">
+                                Copied!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="flex w-full h-full rounded-[16px] overflow-hidden">
+                    <div
+                        class="relative w-[42%] border-r-[3px] my-dashed border-white h-full bg-gradient-to-b from-[#144DF5] to-[#6272F3]">
+                        <div class="absolute w-[17px] h-[17px] top-[-9px] right-[-9px] bg-white rounded-full"></div>
+                        <div class="absolute w-[17px] h-[17px] bottom-[-9px] right-[-9px] bg-white rounded-full"></div>
+                        <p
+                            class="w-[55px] leading-[28px] text-[26px] font-[700] font-['Clash_Display'] my-[30px] ml-[40px] md:ml-[50px]">
+                            10% OFF</p>
+                        <p class="text-[10px] text-start ml-[37px] md:ml-[45px]">Tazbeeb.com</p>
+                    </div>
+                    <div class="w-[58%] h-full pl-[30px] pt-[30px] bg-gradient-to-b tablet:pl-[15px] xlg:pl-[30px] from-[#144DF5] to-[#6272F3]">
+                        <p class="w-[106px] text-[10px] leading-[16px] text-start mb-[25px]">10% OFF on total orders
+                            within 30 days of registration</p>
+                        <div onclick="copyCuponCode(this)"
+                            class="w-[158px] h-[35px] relative px-[15px] text-[10px] active:scale-95 transition-transform cursor-pointer flex items-center justify-between rounded-[8px] bg-[rgba(255,255,255,0.3)] bg-blend-color text-white">
+                            <p>Code:<strong class="text-[12px] ml-[2px]">TAZNEW10</strong></p>
+                            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span
+                                class="absolute top-full left-1/2 -translate-x-1/2 mt-1 text-[10px] text-green-300 opacity-0 transition-opacity">
+                                Copied!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination coupon-swiper-pagination md:hidden!"></div>
+    </div>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".couponSwiper", {
+            pagination: {
+                el: ".coupon-swiper-pagination",
+                clickable: true,
+            },
+            slidesPerView: 1,
+            spaceBetween: 16,
+            watchOverflow: false,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                },
+            }
+        });
+
+        function copyCuponCode(element) {
+            const code = element.querySelector("strong").innerText;
+            const copiedText = element.querySelector("span");
+
+            navigator.clipboard.writeText(code)
+                .then(() => {
+                    copiedText.classList.remove("opacity-0");
+                    copiedText.classList.add("opacity-100");
+
+                    setTimeout(() => {
+                        copiedText.classList.add("opacity-0");
+                        copiedText.classList.remove("opacity-100");
+                    }, 1000);
+                })
+                .catch(err => console.error(err));
+        }
+
+    </script>
+</body>
+
+</html>

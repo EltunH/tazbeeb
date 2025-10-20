@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail swiper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/output.css" />
+
+    <style>
+
+        .detailSwiper .swiper {
+            width: 100%;
+            height: 566px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .detailSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #F2F2F2;
+            border: 1px solid #D1D1D1;
+            opacity: 1;
+        }
+
+        .detailSwiper .swiper-pagination-bullet-active {
+            width: 14px;
+            height: 14px;
+            background: black;
+            border: none;
+            position: relative;
+        }
+
+        .detailSwiper .swiper-pagination-bullet-active::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 11px;
+            height: 11px;
+            background-color: #000;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            transform: translate(-50%, -50%);
+        }
+
+        .detailSwiper .swiper-pagination-horizontal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .detailSwiper .swiper {
+                height: 337px;
+                background-color: white;
+            }
+
+            .detailSwiper .swiper-slide {
+                height: 293px;
+            }
+
+            .detailSwiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="swiper detailSwiper font-['Clash_Display'] text-white">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div
+                    class="bg-[url('/img/detail-carousel.png')] bg-cover w-full h-full py-12 px-5 md:pl-[100px] flex flex-col justify-between md:justify-center items-start">
+                    <div class="flex flex-col items-start leading-[36px] md:leading-[58px]">
+                        <span class="text-[31px] md:text-[52px] font-[600]">Looking for</span>
+                        <span class="text-[31px] md:text-[52px] font-[600] text-[#CDFF24]">a new headphone?</span>
+                    </div>
+                    <p class="font-[500] max-md:text-[14px] tracking-[1px] md:mt-5 md:mb-[30px]">Get <span class="text-[#CDFF24]">new Phone 16
+                            Pro</span> from our shop now!</p>
+                    <a href="#"
+                        class="font-[500] border h-[50px] max-w-[343px] w-full md:max-w-[143px] flex items-center justify-center border-[#FFFFFF] rounded-[6px]">Order
+                        now</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div
+                    class="bg-[url('/img/detail-carousel.png')] bg-cover w-full h-full py-12 px-5 md:pl-[100px] flex flex-col justify-between md:justify-center items-start">
+                    <div class="flex flex-col items-start leading-[36px] md:leading-[58px]">
+                        <span class="text-[31px] md:text-[52px] font-[600]">Looking for</span>
+                        <span class="text-[31px] md:text-[52px] font-[600] text-[#CDFF24]">a new headphone?</span>
+                    </div>
+                    <p class="font-[500] max-md:text-[14px] tracking-[1px] md:mt-5 md:mb-[30px]">Get <span class="text-[#CDFF24]">new Phone 16
+                            Pro</span> from our shop now!</p>
+                    <a href="#"
+                        class="font-[500] border h-[50px] max-w-[343px] w-full md:max-w-[143px] flex items-center justify-center border-[#FFFFFF] rounded-[6px]">Order
+                        now</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div
+                    class="bg-[url('/img/detail-carousel.png')] bg-cover w-full h-full py-12 px-5 md:pl-[100px] flex flex-col justify-between md:justify-center items-start">
+                    <div class="flex flex-col items-start leading-[36px] md:leading-[58px]">
+                        <span class="text-[31px] md:text-[52px] font-[600]">Looking for</span>
+                        <span class="text-[31px] md:text-[52px] font-[600] text-[#CDFF24]">a new headphone?</span>
+                    </div>
+                    <p class="font-[500] max-md:text-[14px] tracking-[1px] md:mt-5 md:mb-[30px]">Get <span class="text-[#CDFF24]">new Phone 16
+                            Pro</span> from our shop now!</p>
+                    <a href="#"
+                        class="font-[500] border h-[50px] max-w-[343px] w-full md:max-w-[143px] flex items-center justify-center border-[#FFFFFF] rounded-[6px]">Order
+                        now</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div
+                    class="bg-[url('/img/detail-carousel.png')] bg-cover w-full h-full py-12 px-5 md:pl-[100px] flex flex-col justify-between md:justify-center items-start">
+                    <div class="flex flex-col items-start leading-[36px] md:leading-[58px]">
+                        <span class="text-[31px] md:text-[52px] font-[600]">Looking for</span>
+                        <span class="text-[31px] md:text-[52px] font-[600] text-[#CDFF24]">a new headphone?</span>
+                    </div>
+                    <p class="font-[500] max-md:text-[14px] tracking-[1px] md:mt-5 md:mb-[30px]">Get <span class="text-[#CDFF24]">new Phone 16
+                            Pro</span> from our shop now!</p>
+                    <a href="#"
+                        class="font-[500] border h-[50px] max-w-[343px] w-full md:max-w-[143px] flex items-center justify-center border-[#FFFFFF] rounded-[6px]">Order
+                        now</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div
+                    class="bg-[url('/img/detail-carousel.png')] bg-cover w-full h-full py-12 px-5 md:pl-[100px] flex flex-col justify-between md:justify-center items-start">
+                    <div class="flex flex-col items-start leading-[36px] md:leading-[58px]">
+                        <span class="text-[31px] md:text-[52px] font-[600]">Looking for</span>
+                        <span class="text-[31px] md:text-[52px] font-[600] text-[#CDFF24]">a new headphone?</span>
+                    </div>
+                    <p class="font-[500] max-md:text-[14px] tracking-[1px] md:mt-5 md:mb-[30px]">Get <span class="text-[#CDFF24]">new Phone 16
+                            Pro</span> from our shop now!</p>
+                    <a href="#"
+                        class="font-[500] border h-[50px] max-w-[343px] w-full md:max-w-[143px] flex items-center justify-center border-[#FFFFFF] rounded-[6px]">Order
+                        now</a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+    <h1>tyguhijkl,;</h1>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".detailSwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            // autoplay: {
+            //         delay: 2500,
+            //         disableOnInteraction: false,
+            //     },
+            loop: true,
+        });
+    </script>
+</body>
+
+</html>

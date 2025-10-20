@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/output.css" />
+</head>
+
+<body>
+    <main
+        class="bg-[#00002D]/50 bg-[url('/img/login-bg.jpg')] font-['Inter'] bg-cover bg-center bg-blend-color min-h-screen grid place-items-center max-md:px-4">
+        <div
+            class="bg-white md:w-[552px] w-full relative md:h-[364px] h-[304px] border border-[#E9E9E9] rounded-[4px] md:pt-[28px] pt-[25px] px-5">
+            <div class="flex flex-col items-center">
+                <img src="img/close.png" alt="close"
+                    class="absolute top-[30px] right-[30px] w-[16px] h-[16px] cursor-pointer" />
+                <img src="img/logo_small.png" alt="logo" class="w-[98px] h-[20px]" />
+            </div>
+            <div class="relative w-full mt-[30px] mb-[20px] flex justify-center">
+                <select
+                    class="md:w-[360px] max-md:text-[14px] w-full h-[50px] font-[500] px-[20px] rounded-[6px] border border-[#E9E9E9] appearance-none text-black">
+                    <option value="uae">UAE</option>
+                    <option value="usd">USD</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-2 md:right-[90px] flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="relative w-full mb-[30px] flex justify-center">
+                <select
+                    class="md:w-[360px] max-md:text-[14px] w-full h-[50px] font-[500] px-[20px] rounded-[6px] border border-[#E9E9E9] appearance-none text-black">
+                    <option value="english">English</option>
+                    <option value="arabic">Arabic</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-2 md:right-[90px] flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+            <a href="login.htm"
+                class="bg-[#0000EE] flex justify-center items-center cursor-pointer h-[50px] rounded-[6px] font-[500] md:w-[360px] mx-auto text-white w-full">Save
+                and Continue</a>
+        </div>
+    </main>
+</body>
+
+</html>

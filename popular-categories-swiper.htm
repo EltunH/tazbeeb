@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popular category swiper</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/output.css" />
+
+    <style>
+        
+
+        .popularCategorySwiper .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
+        .popularCategorySwiper.swiper {
+            width: 100%;
+            height: 185px;
+        }
+
+        .swiper-container-wrapper .swiper-button-next,
+        .swiper-container-wrapper .swiper-button-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            content: '❯❯';
+            font-size: 18px;
+            color: black;
+            font-weight: 100;
+        }
+
+        .swiper-button-prev:after {
+            content: '❮❮';
+        }
+
+        .swiper-container-wrapper .swiper-button-next {
+            right: 0;
+        }
+
+        .swiper-container-wrapper .swiper-button-prev {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper-container-wrapper px-[25px] w-full relative">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        
+        <div class="swiper popularCategorySwiper font-['Inter'] text-white">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-1.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Electronic & Gadgets</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-2.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Fashion & Apparel</p>
+                    </div>
+                </div> 
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-3.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Beauty & Personal Care</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-4.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Electronic & Gadgets</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-5.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Toys, Kids & Baby</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-6.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Health & Wellness</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-1.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Electronic & Gadgets</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-2.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Fashion & Apparel</p>
+                    </div>
+                </div> 
+                <div class="swiper-slide">
+                    <div class="bg-[#F7F7F7] border border-[#E2E2E2] w-full h-full rounded-[6px] flex flex-col justify-between px-2 pt-5">
+                        <img src="./img/pop-carousel-3.png" alt="carousel photo"
+                            class="max-h-[112px] object-contain!" />
+                        <p class="text-black text-[14px] font-[500] mb-5">Beauty & Personal Care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".popularCategorySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 2,
+            spaceBetween: 16,
+            breakpoints: {
+                500: {
+                    slidesPerView: 3,
+                    spaceBetween: 16,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 16,
+                },
+                992: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                },
+                1280: {
+                    slidesPerView: 6,
+                    spaceBetween: 24,
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
