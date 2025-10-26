@@ -25,7 +25,7 @@
         .paginationjs .paginationjs-pages li>a,
         .paginationjs .paginationjs-pages li.active>a {
             height: 32px;
-            width: 32px;
+            min-width: 32px;
             border-radius: 50%;
             font-size: 13px;
             font-weight: 600;
@@ -73,7 +73,7 @@
 
 <body>
     <header class="font-['Inter']">
-        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-[#0000EE] flex items-center gap-x-10">
+        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-main flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-x-10">
                     <select name="" id="" class="text-[15px] font-[500] text-white">
@@ -95,7 +95,7 @@
             class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
             <div class="flex gap-x-[30px] items-center mr-10">
                 <i onclick="showHamburgerMenu()"
-                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-[#0000EE]"></i>
+                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-main"></i>
                 <a href="index.htm">
                     <img src="./img/logo_small.png" width="116" height="24" alt="logo" />
                 </a>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
                 <a href="#"
-                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -236,7 +236,7 @@
 
             <div class="flex gap-x-[30px] ml-[20px] xl:ml-[30px] items-center">
                 <a href="#"
-                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -247,7 +247,7 @@
                     <div onclick="event.stopPropagation()" id="loginModal"
                         class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
                         <a href="login.htm"
-                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-[#0000EE]">Sign
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-main">Sign
                             up</a>
                         <a href="register.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
@@ -290,7 +290,7 @@
         <!-- Hamburger menu mobile -->
         <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv" class="fixed hidden inset-0 bg-[#0F0F3240] z-[9999999]">
             <div onclick="event.stopPropagation()" id="sideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-[#0000EE] transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-5 border-b border-[#E7EEFF] mb-5">
                     Menu
@@ -356,7 +356,7 @@
             </div>
             <!-- Category sidebar -->
             <div onclick="event.stopPropagation()" id="categorySideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-[#0000EE] transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-[30px] border-b border-[#E7EEFF] mb-[30px]">
                     <span>
@@ -434,12 +434,12 @@
     </main>
 
 
-    <footer class="w-full bg-[#0000EE] font-['Inter'] max-md:pb-[130px] text-white">
+    <footer class="w-full bg-main font-['Inter'] max-md:pb-[130px] text-white">
         <!-- Pro membership/mobile -->
         <div
             class="bg-white p-[25px] w-full md:hidden fixed bottom-0 h-[100px] z-[999999] shadow-[0px_0px_10px_6px_#002C961F] left-0 right-0">
             <a href="#"
-                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF]">
+                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
                 <span>
                     <i class="fa-solid fa-crown text-[#F79E1B] text-[17px]"></i>
                     Pro Membership

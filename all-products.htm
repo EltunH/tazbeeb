@@ -10,14 +10,170 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.css" />
+    
+    
     <link rel="stylesheet" href="./src/output.css" />
+
+    <style>
+        /* custom input checkbox */
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 12px;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .custom-checkbox .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-checkbox input:checked+.checkmark {
+            border-color: #0000EE;
+        }
+
+        .custom-checkbox .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid #0000EE;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input:checked+.checkmark::after {
+            display: block;
+        }
+
+
+        /* Scrollbar */
+        .filterScroll ::-webkit-scrollbar {
+        width: 6px;
+        }
+
+        .filterScroll ::-webkit-scrollbar-track {
+        background: #E9E9E9; /* istəsən şəffaf da edə bilərsən */
+        }
+
+        .filterScroll ::-webkit-scrollbar-thumb {
+        background-color: #0000EE;
+        border-radius: 10px;
+        }
+
+        .filterScroll ::-webkit-scrollbar-thumb:hover {
+        background-color: #0000cc;
+        }
+
+        /* number input css */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: none;
+        }
+
+
+        /* slider css */
+        .ui-state-default, .ui-widget-content .ui-state-default{
+            border: 1px solid #0000EE;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0000EE;
+        }
+
+        .ui-widget.ui-widget-content {
+            border: 1px solid #f2f2f2;
+            background: #f2f2f2;
+            height: 4px;
+        }
+
+        .ui-slider-horizontal .ui-slider-range {
+            background: #E9E9E9;
+        }
+
+
+        /* Pagination css */
+        .paginationjs {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .paginationjs .paginationjs-pages li,
+        .paginationjs .paginationjs-pages li>a,
+        .paginationjs .paginationjs-pages li.active>a {
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #F1F1F1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .paginationjs .paginationjs-pages li.active>a {
+            background: #D4FF05;
+            color: black;
+            border: none;
+        }
+
+        .paginationjs-prev,
+        .paginationjs-next .paginationjs-ellipsis,
+        .paginationjs-page,
+        .J-paginationjs-next, .disabled {
+            margin-right: 5px;
+            border-radius: 50% !important;
+            font-size: 25px;
+        }
+
+        .paginationjs .paginationjs-pages li:last-child,
+        .paginationjs .paginationjs-pages li:last-child>a,
+        .paginationjs .paginationjs-pages li:first-child>a {
+            border-radius: 50%;
+            border: 1px solid #F1F1F1;
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 460px) {
+
+            .paginationjs .paginationjs-pages li,
+            .paginationjs .paginationjs-pages li>a,
+            .paginationjs .paginationjs-pages li.active>a {
+                min-width: 25px;
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
     <header class="font-['Inter']">
-        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-[#0000EE] flex items-center gap-x-10">
+        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-main flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-x-10">
                     <select name="" id="" class="text-[15px] font-[500] text-white">
@@ -39,7 +195,7 @@
             class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
             <div class="flex gap-x-[30px] items-center mr-10">
                 <i onclick="showHamburgerMenu()"
-                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-[#0000EE]"></i>
+                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-main"></i>
                 <a href="index.htm">
                     <img src="./img/logo_small.png" width="116" height="24" alt="logo" />
                 </a>
@@ -171,7 +327,7 @@
                     </div>
                 </div>
                 <a href="#"
-                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -180,7 +336,7 @@
 
             <div class="flex gap-x-[30px] ml-[20px] xl:ml-[30px] items-center">
                 <a href="#"
-                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -191,7 +347,7 @@
                     <div onclick="event.stopPropagation()" id="loginModal"
                         class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
                         <a href="login.htm"
-                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-[#0000EE]">Sign
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-main">Sign
                             up</a>
                         <a href="register.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
@@ -233,9 +389,9 @@
 
         <!-- Hamburger menu mobile -->
         <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
-            class="fixed hidden inset-0 bg-[#0F0F3240] z-[9999999]">
+            class="fixed hidden inset-0 bg-[#0F0F3240] z-[999999999]">
             <div onclick="event.stopPropagation()" id="sideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-[#0000EE] transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-5 border-b border-[#E7EEFF] mb-5">
                     Menu
@@ -301,7 +457,7 @@
             </div>
             <!-- Category sidebar -->
             <div onclick="event.stopPropagation()" id="categorySideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-[#0000EE] transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-[30px] border-b border-[#E7EEFF] mb-[30px]">
                     <span>
@@ -365,109 +521,611 @@
 
 
     <main class="max-w-[1152px] w-full mx-auto md:px-3">
-        <section class="mt-5 md:mt-9 font-['Inter']">
-            <h1
-                class="mt-5 md:mt-10 mb-[20px] font-['Clash_Display'] font-[700] text-[22px] md:text-[30px] leading-[153%] max-md:px-4">
-                FAQ</h1>
-            <div class="md:relative md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw] md:w-[calc(100vw-8px)] pt-5 pb-6 md:py-[50px] bg-[#F1F5FF] px-4">
-                <div class="max-w-[1152px] w-full mx-auto">
-                    <h3 class="font-['Clash_Display'] text-[20px] font-[600] leading-[100%] md:text-[32px] text-center">Help Center</h3>
-                    <p class="max-md:text-[14px] leading-[100%] mt-[14px] mb-[30px] md:mt-5 text-center text-[#909090]">Do you have a question? We are here to help you!</p>
-                    <div class="relative md:max-w-[550px] md:mx-auto mb-[30px] md:mb-[40px]">
-                        <input type="text" placeholder="Search" class="text-[14px] h-[50px] w-full py-[15px] pl-[20px] md:pl-[30px] outline-none focus:border focus:border-[#868686] pr-[50px] bg-white rounded-[6px]"/>
-                        <img src="./img/magnifying-glass.svg" alt="search" width="14" height="14" class="absolute top-[50%] -translate-y-[50%] right-[30px] md:right-[18px]" />
+        <section class="mt-5 md:mt-[50px] font-['Inter'] max-md:px-4 mb-[100px] md:mb-[200px]">
+            <div class="max-md:hidden text-[14px] text-[#A7A7A7] leading-[100%] mb-[47px]">
+                <span>Homepage</span>
+                <span class="mx-2">></span>
+                <span>Electronics</span>
+                <span class="mx-2">></span>
+                <span class="text-black font-[600]">Mobile phone</span>
+            </div>
+
+
+            <div class="md:hidden w-full flex justify-between items-center gap-x-[15px] mb-[30px]">
+                <div onclick="showHiddenSortByFilter('sortBy')"
+                    class="w-[49%] h-[45px] cursor-pointer bg-white border px-5 flex justify-between items-center border-[#E5E5E5] rounded-[6px]">
+                    <span class="text-[14px] font-[500] text-[#7D7D7D] leading-[100%]">Sort by</span>
+                    <img src="./img/angle-down.svg" alt="arrow down" width="16" />
+                </div>
+                <div onclick="showHiddenSortByFilter('filter')"
+                    class="w-[49%] h-[45px] cursor-pointer bg-white border px-5 flex justify-between items-center border-[#E5E5E5] rounded-[6px]">
+                    <img src="./img/filter_icon.png" alt="filter icon" />
+                    <span class="text-[16px] text-black leading-[20px]">Filter</span>
+                </div>
+            </div>
+
+            <!-- Sort by & Filter mobile -->
+            <div id="sortFilterMainDiv" class="fixed hidden p-[19px_16px] left-0 top-[75px] bottom-[0] z-[9999999] w-full bg-white">
+                <div class="text-[15px] leading-[100%] font-[500] text-center relative">
+                    <span data-key="sort-by" id="filterText">Filter</span>
+                    <img onclick="showHiddenSortByFilter()" src="./img/xmark-thin.svg" alt="close" width="12" class="absolute left-0 top-0 cursor-pointer" />
+                </div>
+
+                <!-- Sort by div -->
+                <div id="sortByDiv" class="hidden mt-[30px]">
+                    <label class="custom-checkbox text-[16px] font-[500] mb-[34px] justify-between">
+                        <input type="radio" checked name="sortByRadio" class="w-[16px] h-[16px] mr-[70px]" />
+                        Feature
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox text-[16px] font-[500] mb-[34px] justify-between">
+                        <input type="radio" name="sortByRadio" class="w-[16px] h-[16px] mr-[70px]" />
+                        Price: Low to High
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox text-[16px] font-[500] mb-[34px] justify-between">
+                        <input type="radio" name="sortByRadio" class="w-[16px] h-[16px] mr-[70px]" />
+                        Price: High to Low
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox text-[16px] font-[500] mb-[34px] justify-between">
+                        <input type="radio" name="sortByRadio" class="w-[16px] h-[16px] mr-[70px]" />
+                        Avg. Customer Review
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="custom-checkbox text-[16px] font-[500] mb-[34px] justify-between">
+                        <input type="radio" name="sortByRadio" class="w-[16px] h-[16px] mr-[70px]" />
+                        Best Sellers
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <!-- Filter div -->
+                <div id="filterDiv" class="hidden mt-[30px]">
+                    <div onclick="filterDivsFunction('genderFilter')" class="w-full h-[50px] cursor-pointer mb-[10px] rounded-[4px] border border-[#E4E4E4] px-5 flex justify-between items-center">
+                        <span>Gender</span>
+                        <img src="./img/angle-right.svg" alt="right arrow" class="h-[20px]" />
                     </div>
-                    <div class="flex flex-wrap gap-x-4 gap-y-[18px] justify-between">
-                        <div class="bg-white rounded-[6px] h-[139px] flex flex-col pb-[26px] gap-y-[7px] items-center justify-between w-[47%] md:w-[23%] pt-[23px]">
-                            <img src="./img/faq-image-1.png" alt="faq photo"/>
-                            <p class="md:text-[18px] font-[500] leading-[100%]">Order</p>
+                    <div onclick="filterDivsFunction('brandFilter')" class="w-full h-[50px] cursor-pointer mb-[10px] rounded-[4px] border border-[#E4E4E4] px-5 flex justify-between items-center">
+                        <span>Brands</span>
+                        <img src="./img/angle-right.svg" alt="right arrow" class="h-[20px]" />
+                    </div>
+                    <div onclick="filterDivsFunction('diameterFilter')" class="w-full h-[50px] cursor-pointer mb-[10px] rounded-[4px] border border-[#E4E4E4] px-5 flex justify-between items-center">
+                        <span>Diameter</span>
+                        <img src="./img/angle-right.svg" alt="right arrow" class="h-[20px]" />
+                    </div>
+                    <div onclick="filterDivsFunction('priceFilter')" class="w-full h-[50px] cursor-pointer mb-[10px] rounded-[4px] border border-[#E4E4E4] px-5 flex justify-between items-center">
+                        <span>Price</span>
+                        <img src="./img/angle-right.svg" alt="right arrow" class="h-[20px]" />
+                    </div>
+                </div>
+
+                <!-- Filter Options div -->
+                <div id="filterOptionsDiv">
+
+                    <!-- Gender filter div -->
+                    <div id="genderFilterDiv" class="hidden mt-[30px]">
+                        <p class="mb-[30px] font-[600] text-[14px] leading-[100%]">Gender</p>
+                        <div class="text-[16px] font-[500] leading-[100%]">
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Men
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Women
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Girls
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Unisex
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
-                        <div class="bg-white rounded-[6px] h-[139px] flex flex-col pb-[26px] gap-y-[7px] items-center justify-between w-[47%] md:w-[23%] pt-[40px]">
-                            <img src="./img/faq-image-2.png" alt="faq photo"/>
-                            <p class="md:text-[18px] font-[500] leading-[100%]">Payment</p>
+                    </div>
+
+                    <!-- Brand filter div -->
+                    <div id="brandFilterDiv" class="hidden mt-[30px]">
+                        <p class="mb-[30px] font-[600] text-[14px] leading-[100%]">Brands</p>
+                        <div class="text-[16px] font-[500] leading-[100%]">
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Cartier
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Bvlgari
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Gucci
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Rolex
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                Noname
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
-                        <div class="bg-white rounded-[6px] h-[139px] flex flex-col pb-[26px] gap-y-[7px] items-center justify-between w-[47%] md:w-[23%] pt-[23px]">
-                            <img src="./img/faq-image-3.png" alt="faq photo"/>
-                            <p class="md:text-[18px] font-[500] leading-[100%]">Shipment</p>
+                    </div>
+
+                    <!-- Diameter filter div -->
+                    <div id="diameterFilterDiv" class="hidden mt-[30px]">
+                        <p class="mb-[30px] font-[600] text-[14px] leading-[100%]">Diameter</p>
+                        <div class="text-[16px] font-[500] leading-[100%]">
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                26 MM
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                38 MM
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                44 MM
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                46 MM
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
-                        <div class="bg-white rounded-[6px] h-[139px] flex flex-col pb-[26px] gap-y-[7px] items-center justify-between w-[47%] md:w-[23%] pt-[35px]">
-                            <img src="./img/faq-image-4.png" alt="faq photo"/>
-                            <p class="md:text-[18px] font-[500] leading-[100%]">Refund</p>
+                    </div>
+
+                    <!-- Price filter div -->
+                    <div id="priceFilterDiv" class="hidden mt-[30px]">
+                        <p class="mb-3 font-[600] text-[14px] leading-[100%]">Price</p>
+                        <div class="mb-[30px] text-[12px] flex justify-between items-start gap-x-[15px]">
+                            <input type="number" placeholder="min" class="w-full h-[45px] rounded-[4px] bg-[#EEEEEE] px-5 outline-none focus:border focus:border-[#868686]"/>
+                            <input type="number" placeholder="max" class="w-full h-[45px] rounded-[4px] bg-[#EEEEEE] px-5 outline-none focus:border focus:border-[#868686]"/>
+                        </div>
+
+                        <div class="pl-[10px]">
+                            <div class="slider-range mb-[30px]"></div>
+                        </div>
+
+                        <div class="text-[16px] font-[500] leading-[100%]">
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                AED 0 - 50
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                AED 50 - 100
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                AED 100 - 200
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                AED 200 - 300
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                AED 300 - 500
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-checkbox justify-between mb-[30px]">
+                                AED 500 - 1000
+                                <input type="checkbox" class="w-[16px] h-[16px]" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Select all div  -->
+                <div id="selectAllDiv" class="h-[80px] px-5 text-[14px] font-[600] leading-[100%] fixed bottom-0 left-0 right-0 flex justify-between items-center bg-white shadow-[10px_0px_15px_0px_#00000026]">
+                    <button onclick="selectAllChecked(false)" class="text-main underline">Delete all</button>
+                    <button onclick="selectAllChecked(true)" class="w-[200px] h-[50px] rounded-[6px] bg-main text-white">Select All</button>
+                </div>
+            </div>
+
+            <div class="md:flex md:justify-between md:gap-x-[25px]">
+                
+                <!-- Filter desktop  -->
+                <div class="max-md:hidden w-[264px]">
+                    <div class="filterScroll">
+                        <p class="text-[14px] leading-[100%] font-[600] flex justify-between items-center mb-4">
+                            Gender
+                            <img src="./img/angle-down.svg" alt="down arow" width="20" class="cursor-pointer" />
+                        </p>
+                        <div class="max-h-[122px] overflow-y-scroll">
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Men
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Women
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Girls
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Unisex
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Men
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Women
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Girls
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Unisex
+                            </label>
+                        </div>
+                        <hr class="my-5 text-[#D6D6D6]" />
+
+                        <p class="text-[14px] leading-[100%] font-[600] flex justify-between items-center mb-3">
+                            Brands
+                            <img src="./img/angle-down.svg" alt="down arow" width="20" class="cursor-pointer" />
+                        </p>
+                        <input type="text" placeholder="search" class="w-full h-[30px] rounded-[4px] bg-[#EEEEEE] text-[12px] px-5 outline-none mb-4 focus:border focus:border-[#868686]"/>
+                        <div class="max-h-[153px] overflow-y-scroll">
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Cartier
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Bvlgari
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Gucci
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Rolex
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Noname
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Cartier
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Bvlgari
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Gucci
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Rolex
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                Noname
+                            </label>
+                        </div>
+                        <hr class="my-5 text-[#D6D6D6]" />
+
+                        <p class="text-[14px] leading-[100%] font-[600] flex justify-between items-center mb-4">
+                            Diameter
+                            <img src="./img/angle-down.svg" alt="down arow" width="20" class="cursor-pointer" />
+                        </p>
+                        <div class="max-h-[122px] overflow-y-scroll">
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                26 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                38 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                44 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                46 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                26 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                38 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                44 MM
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                46 MM
+                            </label>
+                        </div>
+                        <hr class="my-5 text-[#D6D6D6]" />
+
+                        <p class="text-[14px] leading-[100%] font-[600] flex justify-between items-center mb-3">
+                            Price
+                            <img src="./img/angle-down.svg" alt="down arow" width="20" class="cursor-pointer" />
+                        </p>
+                        <div class="mb-4 flex justify-between items-start gap-x-5">
+                            <input type="number" placeholder="min" class="w-full h-[30px] rounded-[4px] bg-[#EEEEEE] text-[12px] px-5 outline-none focus:border focus:border-[#868686]"/>
+                            <input type="number" placeholder="max" class="w-full h-[30px] rounded-[4px] bg-[#EEEEEE] text-[12px] px-5 outline-none focus:border focus:border-[#868686]"/>
+                        </div>
+
+                        <div class="px-2">
+                            <div class="slider-range mb-5"></div>
+                        </div>
+                        
+                        <div>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                AED 0 - 50
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                AED 50 - 100
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                AED 100 - 200
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                AED 200 - 300
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                AED 300 - 500
+                            </label>
+                            <label class="custom-checkbox text-[14px] font-[500] mb-3 !gap-[7px]">
+                                <input type="checkbox" class="w-[16px] h-[16px] mr-[70px]" />
+                                <span class="checkmark"></span>
+                                AED 500 - 1000
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div class="md:w-[calc(100%-289px)]">
+                    <div class="max-md:hidden">
+                        <p class="text-[14px] font-[500] leading-[100%]">
+                            <span>258</span> Product
+                        </p>
+                        <div class="flex items-start justify-between mt-[22px] mb-[30px] gap-x-5">
+                            <div class="flex flex-wrap items-center justify-start gap-x-[14px] gap-y-[10px]">
+                                <div class="h-[40px] px-[15px] flex justify-between items-center gap-x-[15px] text-[14px] text-[#7D7D7D] leading-[100%] bg-white border border-[#E6E6E6] rounded-[6px]">
+                                    Bvlgari
+                                    <img src="./img/xmark-thin.svg" class="h-[12px] w-[12px] cursor-pointer" alt="close" />
+                                </div>
+                                <div class="h-[40px] px-[15px] flex justify-between items-center gap-x-[15px] text-[14px] text-[#7D7D7D] leading-[100%] bg-white border border-[#E6E6E6] rounded-[6px]">
+                                    44 MM
+                                    <img src="./img/xmark-thin.svg" class="h-[12px] w-[12px] cursor-pointer" alt="close" />
+                                </div>
+                                <div class="h-[40px] px-[15px] flex justify-between items-center gap-x-[15px] text-[14px] text-[#7D7D7D] leading-[100%] bg-white border border-[#E6E6E6] rounded-[6px]">
+                                    50 - 100 AED
+                                    <img src="./img/xmark-thin.svg" class="h-[12px] w-[12px] cursor-pointer" alt="close" />
+                                </div>
+                            </div>
+                            
+                            <div id="sortDropdown" class="h-[40px] px-[15px] text-nowrap cursor-pointer relative flex justify-between items-center gap-x-[15px] text-[14px] text-[#7D7D7D] leading-[100%] bg-white border border-[#E6E6E6] rounded-[6px]">
+                                Sort by
+                                <img id="sortArrow" src="./img/angle-down.svg" alt="arrow down" width="16" class="transition-transform duration-300" />
+
+                                <div id="sortMenu" onclick="event.stopPropagation()" class="w-[198px] absolute right-0 top-[103%] z-[99] text-black bg-white rounded-[6px] py-[13px] shadow-[0px_4px_10px_0px_#00000029] hidden cursor-default">
+                                    <ul>
+                                        <li class="px-5 py-[7px] text-[14px] leading-[100%] hover:bg-[#EDF4FF] hover:text-main hover:font-[500] transition-all duration-200 cursor-pointer">Featured</li>
+                                        <li class="px-5 py-[7px] text-[14px] leading-[100%] hover:bg-[#EDF4FF] hover:text-main hover:font-[500] transition-all duration-200 cursor-pointer">Price: Low to High</li>
+                                        <li class="px-5 py-[7px] text-[14px] leading-[100%] hover:bg-[#EDF4FF] hover:text-main hover:font-[500] transition-all duration-200 cursor-pointer">Price: High to Low</li>
+                                        <li class="px-5 py-[7px] text-[14px] leading-[100%] hover:bg-[#EDF4FF] hover:text-main hover:font-[500] transition-all duration-200 cursor-pointer">Avg. Customer Review</li>
+                                        <li class="px-5 py-[7px] text-[14px] leading-[100%] hover:bg-[#EDF4FF] hover:text-main hover:font-[500] transition-all duration-200 cursor-pointer">Best Sellers</li>
+                                    </ul>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-x-[15px] gap-y-5 md:gap-y-6 flex-wrap">
+                        <div
+                            class="w-[47%] h-[246px] tablet:w-[31%] md:h-[428px] flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                            <i
+                                class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                            <div class="flex justify-center items-center">
+                                <img src="./img/watch-snake.png" alt="photo"
+                                    class="w-auto max-h-[80px] md:max-h-[158px] object-cover" />
+                            </div>
+                            <div>
+                                <a href="./product-page.htm"
+                                    class="text-[14px] leading-[20px] block font-[600] text-black truncate">Cartier</a>
+                                <p
+                                    class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                <p class="max-md:hidden text-[12px] text-[#FF5F00] leading-[100%] mb-[10px] font-[700]">
+                                    3K +
+                                    bought in past month</p>
+                                <div class=" max-md:hidden flex items-center mb-[14px]">
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                    <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                    <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                </div>
+                                <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                    <p class="text-[18px] text-main font-[700] leading-[24px]">AED 2895</p>
+                                    <p
+                                        class="text-[14px] text-[#7C7C7C] leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                        <span class="font-[700]">AED</span>4000
+                                    </p>
+                                </div>
+                                <button
+                                    class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                    +
+                                    <span class="text-[16px]">Add To Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-[47%] h-[246px] tablet:w-[31%] md:h-[428px] flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                            <i
+                                class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                            <div class="flex justify-center items-center">
+                                <img src="./img/gold-watch.png" alt=""
+                                    class="w-auto max-h-[80px] md:max-h-[158px] object-cover" />
+                            </div>
+                            <div>
+                                <a href="./product-page.htm" class="text-[14px] leading-[20px] block font-[600] text-black truncate">Serpenti Seduttori
+                                    103145</a>
+                                <p
+                                    class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                <p class="max-md:hidden text-[12px] text-[#FF5F00] leading-[100%] mb-[10px] font-[700]">
+                                    3K +
+                                    bought in past month</p>
+                                <div class=" max-md:hidden flex items-center mb-[14px]">
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                    <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                    <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                </div>
+                                <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                    <p class="text-[18px] text-main font-[700] leading-[24px]">AED 2895</p>
+                                    <p
+                                        class="text-[14px] text-[#7C7C7C] leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                        <span class="font-[700]">AED</span>4000
+                                    </p>
+                                </div>
+                                <button
+                                    class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                    +
+                                    <span class="text-[16px]">Add To Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-[47%] h-[246px] tablet:w-[31%] md:h-[428px] flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                            <i
+                                class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                            <div class="flex justify-center items-center">
+                                <img src="./img/gold-watch.png" alt=""
+                                    class="w-auto max-h-[80px] md:max-h-[158px] object-cover" />
+                            </div>
+                            <div>
+                                <a href="./product-page.htm" class="text-[14px] leading-[20px] font-[600] block text-black truncate">Serpenti Seduttori
+                                    103145</a>
+                                <p
+                                    class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                <p class="max-md:hidden text-[12px] text-[#FF5F00] leading-[100%] mb-[10px] font-[700]">
+                                    3K +
+                                    bought in past month</p>
+                                <div class=" max-md:hidden flex items-center mb-[14px]">
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star text-[14px] text-black"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-[14px] text-black"></i>
+                                    <i class="fa-regular fa-star text-[14px] text-black"></i>
+                                    <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                </div>
+                                <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                    <p class="text-[18px] text-main font-[700] leading-[24px]">AED 2895</p>
+                                    <p
+                                        class="text-[14px] text-[#7C7C7C] leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                        <span class="font-[700]">AED</span>4000
+                                    </p>
+                                </div>
+                                <button
+                                    class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                    +
+                                    <span class="text-[16px]">Add To Cart</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h3 class="font-['Clash_Display'] text-[20px] font-[600] leading-[100%] md:text-[32px] text-center mt-[50px] md:mt-[100px] mb-[30px] md:mb-[55px]">FAQ</h3>
-            <div class="max-md:px-4 md:flex items-center justify-between gap-x-10 pb-[60px] md:pb-[100px]">
-                <div class="w-full md:max-w-[512px]">
-                    <div class="w-full mb-5 md:mb-[50px]">
-                        <div class="font-[600] md:text-[18px] leading-[100%] flex items-center justify-between">
-                            <p>How can I order?</p>
-                            ▼
-                        </div>
-                        <p class="text-[#7B7B7B] text-[14px] mt-[19px] md:max-w-[480px] line-clamp-3 md:line-clamp-2">Lorem ipsum dolor lorem ipsum doloreimnbggukm loremittonet dolorimius notipmu diloremmua internatimu...</p>
-                    </div>
-                    <div class="w-full mb-5 md:mb-[50px]">
-                        <div class="font-[600] md:text-[18px] leading-[100%] flex items-center justify-between">
-                            <p>How can I order?</p>
-                            ▼
-                        </div>
-                        <p class="text-[#7B7B7B] text-[14px] mt-[19px] md:max-w-[480px] line-clamp-3 md:line-clamp-2">Lorem ipsum dolor lorem ipsum doloreimnbggukm loremittonet dolorimius notipmu diloremmua internatimu...</p>
-                    </div>
-                    <div class="w-full mb-5 md:mb-[50px]">
-                        <div class="font-[600] md:text-[18px] leading-[100%] flex items-center justify-between">
-                            <p>How can I order?</p>
-                            ▼
-                        </div>
-                        <p class="text-[#7B7B7B] text-[14px] mt-[19px] md:max-w-[480px] line-clamp-3 md:line-clamp-2">Lorem ipsum dolor lorem ipsum doloreimnbggukm loremittonet dolorimius notipmu diloremmua internatimu...</p>
-                    </div>
-                </div>
-
-                <div class="w-full md:max-w-[512px]">
-                    <div class="w-full mb-5 md:mb-[50px]">
-                        <div class="font-[600] md:text-[18px] leading-[100%] flex items-center justify-between">
-                            <p>How can I order?</p>
-                            ▼
-                        </div>
-                        <p class="text-[#7B7B7B] text-[14px] mt-[19px] md:max-w-[480px] line-clamp-3 md:line-clamp-2">Lorem ipsum dolor lorem ipsum doloreimnbggukm loremittonet dolorimius notipmu diloremmua internatimu...</p>
-                    </div>
-                    <div class="w-full mb-5 md:mb-[50px]">
-                        <div class="font-[600] md:text-[18px] leading-[100%] flex items-center justify-between">
-                            <p>How can I order?</p>
-                            ▼
-                        </div>
-                        <p class="text-[#7B7B7B] text-[14px] mt-[19px] md:max-w-[480px] line-clamp-3 md:line-clamp-2">Lorem ipsum dolor lorem ipsum doloreimnbggukm loremittonet dolorimius notipmu diloremmua internatimu...</p>
-                    </div>
-                    <div class="w-full mb-5 md:mb-[50px]">
-                        <div class="font-[600] md:text-[18px] leading-[100%] flex items-center justify-between">
-                            <p>How can I order?</p>
-                            ▼
-                        </div>
-                        <p class="text-[#7B7B7B] text-[14px] mt-[19px] md:max-w-[480px] line-clamp-3 md:line-clamp-2">Lorem ipsum dolor lorem ipsum doloreimnbggukm loremittonet dolorimius notipmu diloremmua internatimu...</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-[#D4FF05] relative md:h-[114px] max-md:p-[20px_16px_24px] mb-[120px] md:mb-[200px] md:flex justify-center items-center gap-x-12">
-                <img src="./img/subsribe-vector-1.png" alt="vector"
-                    class="w-[42px] h-[55px] md:w-[54px] object-contain max-md:hidden absolute top-[8%] left-[1%]" />
-                <img src="./img/subsribe-vector-3.png" alt="vector"
-                    class="w-[71px] h-[31px] md:w-[81px] md:h-[41px] object-contain max-md:hidden absolute top-[15%] md:top-[43%] right-[1%]" />
-                <img src="./img/subscribe-vector-5.png" alt="vector"
-                    class=" object-contain absolute max-md:hidden top-[30%] right-[5%]" />
-                <h3 class="font-['Clash_Display'] font-[600] text-[18px] md:text-[20px] leading-[24px] max-md:mb-5 max-md:text-center">Do you have question or need help?</h3>
-                <a href="#" class="bg-white h-[50px] md:h-[45px] w-full md:w-[154px] grid place-items-center rounded-[6px] font-[500] leading-[20px] active:scale-95 transition-all duration-200">Get in Touch</a>
-            </div>
+            <!-- Pagination -->
+            <button class="max-md:w-full h-[45px] md:w-[328px] cursor-pointer block mx-auto text-[14px] font-[600] leading-[100%] rounded-[6px] mt-10 mb-5 md:mt-[50px] bg-main text-white">Load the Next Page</button>
+            <div id="pageBtn" class=""></div>
         </section>
     </main>
 
-    <footer class="w-full bg-[#0000EE] font-['Inter'] max-md:pb-[130px] text-white">
+    <footer class="w-full bg-main font-['Inter'] max-md:pb-[130px] text-white">
         <!-- Pro membership/mobile -->
         <div
             class="bg-white p-[25px] w-full md:hidden fixed bottom-0 h-[100px] z-[999999] shadow-[0px_0px_10px_6px_#002C961F] left-0 right-0">
             <a href="#"
-                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-[#0000EE] to-[#00AEFF]">
+                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
                 <span>
                     <i class="fa-solid fa-crown text-[#F79E1B] text-[17px]"></i>
                     Pro Membership
@@ -536,19 +1194,19 @@
 
                 <div class="flex gap-x-[34px] mt-10">
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
                         <i class="text-[18px] fa-brands fa-linkedin-in"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
                         <i class="text-[18px] fa-brands fa-facebook-f"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
                         <i class="text-[18px] fa-brands fa-twitter"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-[#0000EE] grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
                         <i class="text-[18px] fa-solid fa-share"></i>
                     </a>
                 </div>
@@ -637,6 +1295,119 @@
         </div>
         </div>
     </footer>
+
+    <!-- JQuery and JQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
+
+
+    <script>
+        $(() => {
+        $(".slider-range").slider({
+            range: true,
+            step: 0.01,
+            min: 0,
+            max: 500,
+            values: [0, 500],
+            slide: function (event, ui) {
+                // console.log(ui.values);
+            }
+        });
+
+        const pageBtn = $('#pageBtn');
+        $('#pageBtn').pagination({
+            dataSource: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            pageSize: 1,
+            pageNumber: 1,
+            callback: function (data, pagination) {
+
+            }
+        });
+    });
+    </script>
+
+    <script>
+        const sortDropdown = document.getElementById("sortDropdown");
+        const sortMenu = document.getElementById("sortMenu");
+        const sortArrow = document.getElementById("sortArrow");
+        const sortFilterMainDiv = document.getElementById("sortFilterMainDiv");
+        const sortByDiv = document.getElementById("sortByDiv");
+        const filterDiv = document.getElementById("filterDiv");
+        const filterText = document.getElementById("filterText");
+        const selectAllDiv = document.getElementById("selectAllDiv");
+
+        sortDropdown.addEventListener("click", () => {
+            sortMenu.classList.toggle("hidden");
+            sortArrow.classList.toggle("rotate-180");
+        });
+
+        sortMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!sortDropdown.contains(e.target)) {
+                sortMenu.classList.add("hidden");
+                sortArrow.classList.remove("rotate-180");
+            }
+        });
+
+
+        let flag = ''
+
+        function showHiddenSortByFilter(arg) {
+            flag = arg;
+            if(arg == 'filter') {
+                sortByDiv.classList.add("hidden");
+                filterDiv.classList.remove("hidden");
+                filterText.innerHTML = "Filter";
+                filterText.dataset.key = "filter";
+            } else {
+                sortByDiv.classList.remove("hidden");
+                filterDiv.classList.add("hidden");
+                filterText.innerHTML = "Sort by";
+                filterText.dataset.key = "sort-by";
+                selectAllDiv.classList.remove("hidden");
+            }
+
+            if(arg == 'filter' || arg == 'sortBy') {
+                selectAllDiv.classList.add("hidden");
+            }
+
+            sortFilterMainDiv.classList.toggle("hidden");
+            document.body.style.overflow = sortFilterMainDiv.classList.contains("hidden") ? "auto" : "hidden";
+
+            const divs = document.querySelectorAll(`#filterOptionsDiv > div`);
+            divs.forEach( item => {
+                item.classList.add("hidden");
+            })
+        }
+
+        function filterDivsFunction(arg) {
+            const divs = document.querySelectorAll(`#filterOptionsDiv > div`);
+            const myDiv = document.getElementById(`${arg}Div`);
+            flag = arg;
+
+            filterDiv.classList.add("hidden");
+            divs.forEach( item => {
+                item.classList.add("hidden");
+            })
+
+            myDiv.classList.remove("hidden");
+            selectAllDiv.classList.remove("hidden");
+        }
+
+
+        function selectAllChecked(arg) {
+            const checkboxes = document.querySelectorAll(`#${flag}Div input[type="checkbox"]`);
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = arg;
+            });
+        }
+    </script>
+
 
     <script>
         // Header scripts

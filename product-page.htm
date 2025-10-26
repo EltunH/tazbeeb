@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@900,800,700,600,500,400,300&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./src/swiper.css">
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <style>
+        .diagonal-line {
+            opacity: .5;
+        }
+
+        .diagonal-line::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 2px;
+            background: #9E9E9E;
+            transform: translate(-50%, -50%) rotate(38deg);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .diagonal-line::before {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <header class="font-['Inter']">
+        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-main flex items-center gap-x-10">
+            <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-x-10">
+                    <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
+                        <option class="text-black" value="english">En</option>
+                        <option class="text-black" value="arabic">Ar</option>
+                    </select>
+                    <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
+                        <option class="text-black" value="usd">USD</option>
+                        <option class="text-black" value="uae">UAE</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-x-5">
+                    <a href="latest-post.htm" class="text-white text-[15px] font-[500]">News</a>
+                    <a href="contact.htm" class="text-white text-[15px] font-[500]">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
+            <div class="flex gap-x-[15px] xsm:gap-x-[30px] items-center xsm:mr-10">
+                <i onclick="showHamburgerMenu()"
+                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-main"></i>
+                <a href="index.htm">
+                    <img src="./img/logo_small.png" width="116" height="24"
+                        class="max-w-[116px] max-h-[24px] min-w-[116px] min-h-[24px]" alt="logo" />
+                </a>
+            </div>
+
+            <div class="max-tablet:hidden flex items-center gap-x-[30px] lg:gap-x-[60px] xl:gap-x-[166px]">
+                <div id="searchAndCategoryParentDiv"
+                    class="w-[450px] relative rounded-[6px] h-[45px] bg-[#F7F7F7] flex items-center">
+                    <button id="categoryDropDownBtn" onclick="hideCategoryDropDown()"
+                        class="cursor-pointer flex items-center gap-x-[28px] h-full w-[150px] text-[14px]">
+                        <span class="ml-5 pointer-events-none">Category</span>
+                        <i class="fa-solid fa-caret-down text-[11px] pointer-events-none"></i>
+                    </button>
+                    <input type="text" name="search" id="searchInp" placeholder="search"
+                        class="w-[300px] h-[28px] outline-none text-[14px] pl-4 pr-11 border-l border-l-[#7C7C7C]" />
+                    <img src="./img/search.png" alt="search" class="absolute right-4" width="14" height="14" />
+
+                    <!-- Category dropdown div -->
+                    <div id="categoryDropDownDiv"
+                        class="absolute w-[262px] hidden shadow-[0_6px_15px_-3px_#00000033] flex flex-col justify-start items-start rounded-[0_0_6px_6px] left-0 top-[45px] z-[999] bg-white pt-[10px] pb-5">
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start font-[700] items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">
+                            <i class="fa-solid fa-check mr-[6px]"></i>
+                            All Categories</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Electronic
+                            & Gadget</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Fashion
+                            & Apparel</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Beauty
+                            & Personal Care</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Home
+                            & Living</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Toys,Kids
+                            & Baby</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-b-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Health
+                            & Wellness</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">
+                            All Categories</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Electronic
+                            & Gadget</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Fashion
+                            & Apparel</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Beauty
+                            & Personal Care</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Home
+                            & Living</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-t-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Toys,Kids
+                            & Baby</a>
+                        <a href="#"
+                            class="w-full px-[20px] flex justify-start items-center h-[30px] rounded-b-[6px] text-black text-[12px] hover:bg-[#F7F7F7]">Health
+                            & Wellness</a>
+                    </div>
+
+                    <!-- Search dropdown div -->
+                    <div id="searchDropDownDiv"
+                        class="absolute w-[450px] hidden shadow-[0_6px_15px_-3px_#00000033] rounded-[0_0_6px_6px] left-0 top-[45px] z-[999] bg-white py-5">
+                        <div class="flex items-center justify-between w-full px-5">
+                            <p class="text-[13px] font-[600] leading-[24px]">Previous Searches</p>
+                            <button class="text-[13px] cursor-pointer underline underline-offset-2">Delete all</button>
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            Collagen Face Cream
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            Bvlgari Serpenti
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            SMEG 50's
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] border-b border-[#E8E8E8] leading-[24px] w-full">
+                            Stanley IceFlow
+                        </div>
+                        <div
+                            class="pt-[20px] px-5 cursor-pointer hover:bg-[#F7F7F7] hover:text-black text-[12px] transition-all duration-200 text-[#757575] pb-[14px] leading-[24px] w-full">
+                            Cartier Watch
+                        </div>
+                        <p class="text-[13px] font-[600] leading-[24px] px-5 mt-[16px] mb-[20px]">Popular Searches</p>
+                        <div class="flex flex-wrap gap-[10px] px-5">
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                watch
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                cream
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                accessories
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                personal car
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                personal care
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                lor
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                cream
+                            </div>
+                            <div
+                                class="bg-[#EDF4FF] rounded-[6px] cursor-pointer text-[12px] text-[#202082] p-[8px_20px] hover:bg-[#d8e8ff] hover:text-[#0f1b70] hover:shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-200">
+                                accessories
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#"
+                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
+                    <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
+                    <span>Pro Membership</span>
+                    <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
+                </a>
+            </div>
+
+            <div class="flex gap-x-[30px] ml-[20px] xl:ml-[30px] items-center">
+                <a href="#"
+                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
+                    <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
+                    <span>Pro Membership</span>
+                    <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
+                </a>
+                <button id="openBtn" onclick="hideLoginModal()" class="relative cursor-pointer">
+                    <img src="./img/group.png" alt="group"
+                        class="max-w-[18px] min-w-[18px] max-h-[22px] min-h-[22px] w-full h-full pointer-events-none" />
+                    <i
+                        class="fa-solid fa-crown text-[#F79E1B] absolute top-[-16px] text-[17px] left-[-2px] pointer-events-none"></i>
+                    <div onclick="event.stopPropagation()" id="loginModal"
+                        class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
+                        <a href="login.htm"
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-main">Sign
+                            up</a>
+                        <a href="register.htm"
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
+                    </div>
+                </button>
+                <a href="#">
+                    <img src="./img/heart.png" alt="heart"
+                        class="max-w-[25px] max-h-[22px] min-w-[25px] min-h-[22px] w-full h-full" />
+                </a>
+                <a href="#">
+                    <img src="./img/shop.png" alt="shop"
+                        class="max-w-[18px] max-h-[22px] min-w-[18px] min-h-[22px] w-full h-full" />
+                </a>
+            </div>
+        </div>
+        <nav class="max-w-[1152px] max-tablet:hidden w-full px-3 mx-auto flex items-center h-[25px]">
+            <menu class="flex w-full justify-between text-[14px] font-[600] text-[#000]">
+                <li>
+                    <a href="#">All categories</a>
+                </li>
+                <li>
+                    <a href="#">Electronic & Gadget</a>
+                </li>
+                <li>
+                    <a href="#">Fashion & Apparel</a>
+                </li>
+                <li>
+                    <a href="#">Beauty & Personal</a> Care
+                </li>
+                <li>
+                    <a href="#">Home & Living</a>
+                </li>
+                <li>
+                    <a href="#">Toys,Kids & Baby</a>
+                </li>
+                <li>
+                    <a href="#">Health & Wellness</a>
+                </li>
+            </menu>
+        </nav>
+
+        <!-- Hamburger menu mobile -->
+        <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
+            class="fixed hidden inset-0 bg-[#0F0F3240] z-[999999999]">
+            <div onclick="event.stopPropagation()" id="sideBar"
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
+                <div
+                    class="flex justify-between items-center text-white font-[600] pb-5 border-b border-[#E7EEFF] mb-5">
+                    Menu
+                    <i onclick="hideHamburgerMenu()" class="fa-solid fa-xmark cursor-pointer"></i>
+                </div>
+                <div class="relative mb-10">
+                    <input type="text" name="search" id="searchInp" placeholder="search"
+                        class="w-full bg-white h-[45px] rounded-[6px] outline-none focus:border focus:border-[#868686] text-[14px] pl-4 pr-11" />
+                    <img src="./img/search.png" alt="search" class="absolute right-4 top-[15px]" width="14"
+                        height="14" />
+                </div>
+                <menu class="border-b border-[#E7EEFF]">
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">All categories</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Electronic & Gadget</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Fashion & Apparel</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Beauty & Personal Care</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Home & Living</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Toys,Kids & Baby</span>
+                        >
+                    </li>
+                    <li onclick="showCategorySideBar()"
+                        class="mb-10 flex cursor-pointer justify-between items-center text-white w-full">
+                        <span class="font-[600]">Health & Wellness</span>
+                        >
+                    </li>
+                </menu>
+                <div class="mt-10 pb-10 border-b border-[#E7EEFF] flex flex-col">
+                    <a href="latest-post.htm" class="text-white w-fit font-[500] mb-10">News</a>
+                    <a href="contact.htm" class="text-white w-fit font-[500]">Contact</a>
+                </div>
+                <div class="mt-10 mb-20 flex justify-between">
+                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                        <option class="text-black" value="english">En</option>
+                        <option class="text-black" value="arabic">Ar</option>
+                    </select>
+                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                        <option class="text-black" value="usd">USD</option>
+                        <option class="text-black" value="uae">UAE</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Category sidebar -->
+            <div onclick="event.stopPropagation()" id="categorySideBar"
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
+                <div
+                    class="flex justify-between items-center text-white font-[600] pb-[30px] border-b border-[#E7EEFF] mb-[30px]">
+                    <span>
+                        <i onclick="hideCategorySideBar()" class="fa-solid fa-arrow-left mr-[7px] cursor-pointer"></i>
+                        Electronic & Gadget
+                    </span>
+                    <i onclick="hideHamburgerMenu()" class="fa-solid fa-xmark cursor-pointer"></i>
+                </div>
+
+                <menu>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Laptops</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>
+                                Gaming Computers
+                            </span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Desktops</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Monitors</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Computer Accessories</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Computer Components</span>
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mb-10 flex cursor-pointer justify-between items-center text-white w-full" href="#">
+                            <span>Printers & Scanners</span>
+                            >
+                        </a>
+                    </li>
+                </menu>
+            </div>
+        </div>
+
+        </div>
+    </header>
+
+
+    <main class="max-w-[1152px] w-full mx-auto md:px-3">
+        <section class="mt-6 md:mt-[50px] font-['Inter']">
+            <div class="max-md:hidden text-[14px] text-[#A7A7A7] leading-[100%] mb-[30px]">
+                <span>Homepage</span>
+                <span class="mx-2">></span>
+                <span>Electronics</span>
+                <span class="mx-2">></span>
+                <span class="text-black font-[600]">Mobile phone</span>
+            </div>
+
+            <!-- Product detail -->
+            <div class="md:flex gap-x-6">
+                <div class="md:w-[58%] max-md:px-4">
+                    <!-- Product Swiper -->
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                        class="swiper productSwiper2 md:rounded-[6px] md:border border-[#D8D8D8] relative">
+
+                        <a href="./all-products.htm">
+                            <img src="./img/angle-left.svg" alt="left arrow"
+                                class="w-[25px] absolute top-[-4px] left-[-8px] z-[99] md:hidden" />
+                        </a>
+                        <i id="likeIcon"
+                            class="fa-regular fa-heart text-[#B2B2B2] text-[18px] cursor-pointer z-[99] absolute top-0 right-0 md:hidden!"></i>
+                        <div
+                            class="md:hidden w-[32px] h-[32px] cursor-pointer rounded-full bg-white shadow-[0px_0px_8px_0px_#005AFF1F] absolute z-[999] right-0 bottom-0 grid place-items-center">
+                            <img src="./img/arrow-up-from-bracket.svg" alt="export photo" class="w-[14px]" />
+                        </div>
+
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next swiper-button-next-product max-md:hidden!"></div>
+                        <div class="swiper-button-prev swiper-button-prev-product max-md:hidden!"></div>
+                        <div class="swiper-pagination swiper-pagination-product md:hidden!"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper productSwiper mt-5 max-md:hidden!">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/watch-snake.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-[40%] max-md:mt-[43px] md:pt-2">
+                    <p class="text-[16px] md:text-[22px] text-black font-[600] leading-[20px] max-md:px-4">
+                        <span class="font-[900] underline">Bvlgari</span> Serpenti Tubogas watch
+                    </p>
+
+                    <div class="mt-5 md:flex md:items-center gap-x-[50px] gap-y-4 flex-wrap max-md:px-4">
+                        <p class="max-md:text-[14px] font-medium text-[#858585] leading-[100%] max-md:mb-4 ">Product ID:
+                            <span class="text-black ml-2">123456789</span>
+                        </p>
+                        <p class="text-[13px] leading-[100%] font-[600] text-[#FF5F00]">3K + bought in past month</p>
+                    </div>
+
+                    <p
+                        class="max-md:text-[14px] text-[#858585] font-medium leading-[100%] my-[22px] md:mb-[14px] max-md:px-4">
+                        Color: <span class="text-black">Silver</span></p>
+
+                    <div class="flex gap-x-[34px] md:gap-x-[15px] items-center max-md:px-4">
+                        <div
+                            class="w-[42px] h-[42px] md:w-[30px] md:h-[30px] rounded-full grid place-items-center border border-black cursor-pointer">
+                            <div
+                                class="w-[34px] h-[34px] md:w-[25px] md:h-[25px] rounded-full bg-[#D9D9D9] border border-[#ECE9E9]">
+                            </div>
+                        </div>
+                        <div
+                            class="w-[42px] h-[42px] md:w-[30px] md:h-[30px] rounded-full grid place-items-center border border-[#ECE9E9] cursor-pointer">
+                            <div
+                                class="w-[34px] h-[34px] md:w-[25px] md:h-[25px] rounded-full bg-[#E2DEFF] border border-[#ECE9E9]">
+                            </div>
+                        </div>
+                        <div
+                            class="w-[42px] h-[42px] md:w-[30px] md:h-[30px] rounded-full grid place-items-center border border-[#ECE9E9] cursor-pointer">
+                            <div
+                                class="w-[34px] h-[34px] md:w-[25px] md:h-[25px] rounded-full bg-[#D7FFF1] border border-[#ECE9E9]">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center max-md:justify-between gap-x-[30px] mt-[35px] md:mt-[22px] max-md:px-4">
+                        <span class="text-[#858585] font-[500] leading-[100%]">Quantity</span>
+                        <div
+                            class="quantityOutStock w-[141px] h-[50px] md:w-[105px] md:h-[40px] flex font-[600] leading-[28px] bg-[#F3F3F3] rounded-[6px]">
+                            <div
+                                class="quantityOutStock w-[33%] h-full grid place-items-center cursor-pointer border-r border-[#DCDCDC]">
+                                -</div>
+                            <div class="w-[33%] h-full grid place-items-center border-r border-[#DCDCDC]">1</div>
+                            <div class="quantityOutStock w-[33%] h-full grid place-items-center cursor-pointer">+</div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center max-md:justify-between gap-x-[63px] mt-[35px] md:mt-[22px] max-md:px-4">
+                        <span class="text-[#858585] font-[500] leading-[100%]">Size</span>
+                        <select id="sizeSelect"
+                            class="w-[141px] disabled:opacity-50 h-[50px] md:w-[121px] md:h-[40px] bg-[#F3F3F3] font-[600] leading-[28px] rounded-[4px] pl-5 outline-none">
+                            <option value="44MM">44 MM</option>
+                            <option value="64MM">64 MM</option>
+                            <option value="84MM">84 MM</option>
+                            <option value="94MM">94 MM</option>
+                        </select>
+                    </div>
+
+                    <div
+                        class="mt-10 md:mt-[22px] md:flex md:items-start md:justify-between flex-wrap gap-y-5 gap-x-3 max-md:px-4">
+                        <div>
+                            <p id="deliverPrice"
+                                class="priceOutStock max-md:text-[14px] font-medium text-[#858585] leading-[100%] mb-4 md:mb-[22px]">
+                                Delivery: <span class="text-black ml-4 leading-[24px] font-[700] text-[18px]">AED
+                                    35</span></p>
+
+                            <p id="freeDelivery"
+                                class="hidden text-[20px] md:text-[18px] font-[900] text-[#FF9801] leading-[100%] mb-[30px] md:mb-[27px]">
+                                FREE DELIVERY</p>
+
+                            <p class="priceOutStock max-md:text-[14px] font-medium text-[#858585] leading-[100%]">Price:
+                                <span class="text-black ml-2 leading-[24px] font-[700] text-[20px]">AED 2895</span></p>
+                        </div>
+
+                        <div id="goProDelivery"
+                            class="bg-[#FFF2DE] h-[42px] md:w-[218px] rounded-[40px] grid place-items-center max-md:mt-5 cursor-pointer">
+                            <p class="text-[13px] leading-[100%]">Go <span
+                                    class="text-[14px] text-[#E98B00] underline font-[600]">Pro</span> for free delivery
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Buy now -->
+                    <div id="buyNowDiv"
+                        class="hidden mt-5 md:mt-[30px] md:flex md:justify-between md:gap-x-1 max-md:px-4">
+                        <div class="md:flex md:flex-col md:w-[48%]">
+                            <div
+                                class="w-full h-[50px] bg-[#EBF3FE] text-[14px] md:order-2 text-[#1347F5] md:mt-[22px] leading-[100%] flex justify-center items-center rounded-[6px] cursor-pointer gap-x-2">
+                                <i class="fa-regular fa-paper-plane text-[13px]"></i>
+                                <span>Message seller</span>
+                            </div>
+                            <div
+                                class="w-full h-[50px] bg-[#F7F9FF] text-[14px] md:order-1 text-[#858585] max-md:mt-[15px] font-[500] leading-[100%] flex justify-center items-center rounded-[6px] cursor-pointer gap-x-[15px] flex-wrap">
+                                <span>Total: </span>
+                                <span class="text-[22px] text-main leading-[24px] font-[800]">AED 2895</span>
+                            </div>
+                        </div>
+                        <div
+                            class="md:w-[48%] max-md:bg-white max-md:fixed z-10 max-md:w-full max-md:h-[85px] max-md:flex max-md:items-center max-md:justify-between max-md:px-4 max-md:gap-x-[17px] max-md:bottom-0 max-md:left-0 max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
+                            <div
+                                class="w-full h-[50px] bg-[#D4FF05] rounded-[6px] leading-[100%] grid place-items-center font-[500] cursor-pointer">
+                                Add To Card</div>
+                            <div
+                                class="w-full h-[50px] bg-main text-white rounded-[6px] leading-[100%] grid place-items-center font-[500] cursor-pointer md:mt-[22px]">
+                                Buy Now</div>
+                        </div>
+                    </div>
+
+                    <!-- Buy now out of stock -->
+                    <div id="outOfStockDiv" class="mt-[28px] max-md:px-4">
+                        <div
+                            class="w-full h-[50px] bg-[#F0F0F0] text-[#7D7D7D] font-medium rounded-[6px] leading-[100%] flex items-center justify-center gap-x-5">
+                            <span>Total:</span>
+                            <span class="text-[18px] leading-[24px]">AED 2895</span>
+                        </div>
+                        <div
+                            class="w-full h-[50px] bg-[#F0F0F0] mt-5 text-[#5B5B5B] font-[700] rounded-[6px] leading-[100%] flex items-center justify-center gap-x-5">
+                            OUT OF STOCK
+                        </div>
+                    </div>
+
+                    <!-- Notify me -->
+                    <div id="notifyMeDiv">
+                        <p class="text-[20px] leading-[100%] mt-5 md:mt-[28px] font-[700] max-md:px-4">OUT OF STOCK</p>
+                        <p class="text-[14px] leading-[100%] mt-[20px] max-md:px-4">OUT OF STOCK BUT COMING BACK SOON
+                        </p>
+                        <div
+                            class="w-full max-md:bg-white left-0 max-md:fixed bottom-0 z-10 max-md:h-[85px] max-md:p-[18px_16px] md:mt-[22px] max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
+                            <button
+                                class="w-full h-[50px] rounded-[6px] cursor-pointer border border-main text-main text-[20px] font-medium leading-[100%] hover:bg-main hover:text-white transition-all duration-200">NOTIFY
+                                ME</button>
+                        </div>
+                    </div>
+
+                    <div class="md:flex flex-col">
+                        <!-- Pro membership mobile-->
+                        <div
+                            class="proMemberShipDiv w-full bg-[#E7EEFF] pt-[25px] pb-[22px] font-['Clash_Display'] max-md:mt-[30px] md:hidden">
+                            <p class="text-[#03038B] leading-[24px] text-center">Join now and start shopping smarter!
+                            </p>
+                            <div
+                                class="flex gap-x-[15px] justify-center items-center max-md:mt-[15px] max-md:mb-[25px]">
+                                <i class="fa-solid fa-crown text-[#F79E1B]"></i>
+                                <p class="text-[18px] leading-[24px] text-main">Save up to <span
+                                        class="font-[600]">30%</span> <span class="font-[500]">on Premium</span></p>
+                            </div>
+                            <a href="#"
+                                class="w-[283px] max-md:mx-auto relative px-[15px] text-[14px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
+                                <span>
+                                    <i class="fa-solid fa-crown text-[#F79E1B] mr-[10px] text-[11px]"></i>
+                                    Pro Membership
+                                </span>
+                                <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12"
+                                    class="ml-[15px]" />
+                            </a>
+                        </div>
+
+                        <div class="max-md:px-4 md:order-1">
+                            <hr class="w-full max-md:mt-[30px] my-5 text-[#DCDCDC] max-md:px-4" />
+                        </div>
+
+                        <!-- Compare with sellers -->
+                        <div id="compareSellerDiv" class="max-md:px-4 md:order-2">
+                            <p class="font-[600] leading-[100%] mb-5 md:mb-[25px]">Compare With Other Sellers</p>
+                            <div class="flex max-md:flex-col gap-5">
+                                <div
+                                    class="w-full h-[60px] bg-[#F7F9FF] cursor-pointer rounded-[6px] max-md:px-5 flex justify-between md:justify-center items-center gap-x-5 flex-wrap">
+                                    <p class="text-[12px] text-[#7F7F7F] leading-[21px]">
+                                        Seller: <span class="text-black underline">Noname</span>
+                                    </p>
+                                    <p class="text-[14px] text-main leading-[24px] font-[700]">AED 2895</p>
+                                </div>
+                                <div
+                                    class="w-full h-[60px] bg-[#F7F9FF] cursor-pointer rounded-[6px] max-md:px-5 flex justify-between md:justify-center items-center gap-x-5 flex-wrap">
+                                    <p class="text-[12px] text-[#7F7F7F] leading-[21px]">
+                                        Seller: <span class="text-black underline">Noname</span>
+                                    </p>
+                                    <p class="text-[14px] text-main leading-[24px] font-[700]">AED 2895</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Similar products Out of stock  -->
+                        <div id="similarProductDiv" class="hidden max-md:px-4 md:order-2">
+                            <p class="font-[600] leading-[100%] mb-5 md:mb-[25px]">Similar Products</p>
+                            <div class="flex max-md:flex-col justify-between gap-1 gap-y-5 flex-wrap">
+                                <div
+                                    class="w-full md:w-[216px] h-[60px] bg-[#F7F9FF] cursor-pointer rounded-[6px] max-md:px-5 p-[8px_20px] flex justify-start items-center gap-x-5 flex-wrap">
+                                    <div>
+                                        <img src="./img/similar-product-1.jpg" alt="similar photo"
+                                            class="w-[65px] h-[44px] object-cover rounded-[6px]" />
+                                    </div>
+                                    <div class="leading-[24px]">
+                                        <p class="text-[13px] text-[#717171]">Rolex</p>
+                                        <p class="text-[14px] font-[700] text-main">AED 2895</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-full md:w-[216px] h-[60px] bg-[#F7F9FF] cursor-pointer rounded-[6px] max-md:px-5 p-[8px_20px] flex justify-start items-center gap-x-5 flex-wrap">
+                                    <div>
+                                        <img src="./img/similar-product-2.jpg" alt="similar photo"
+                                            class="w-[65px] h-[44px] object-cover rounded-[6px]" />
+                                    </div>
+                                    <div class="leading-[24px]">
+                                        <p class="text-[13px] text-[#717171]">Cartier</p>
+                                        <p class="text-[14px] font-[700] text-main">AED 2895</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro membership destkop -->
+            <div
+                class="proMemberShipDiv h-[94px] bg-[#E7EEFF] font-['Clash_Display'] mt-[80px] md:relative md:w-[calc(100vw-8px)] md:max-w-[100vw] md:left-1/2 md:right-1/2 md:-ml-[50vw] md:-mr-[50vw] max-md:hidden">
+                <img src="./img/Vector-orange-1.png" alt="vector" class="absolute left-[121px] top-[10px]"/>
+                <img src="./img/Vector-orange-2.png" alt="vector" class="absolute right-[103px] top-0"/>
+                <div class="max-w-[1152px] w-full h-full mx-auto md:px-3 flex items-center gap-x-2 justify-between">
+                    <p class="text-[#03038B] text-[20px] leading-[24px] text-center">Join now and start shopping
+                        smarter!</p>
+                    <div
+                        class="flex gap-x-[15px] text-[20px] justify-center items-center max-md:mt-[15px] max-md:mb-[25px]">
+                        <i class="fa-solid fa-crown text-[#F79E1B]"></i>
+                        <p class="leading-[24px] text-main">Save up to <span class="font-[600]">30%</span> <span
+                                class="font-[500]">on Premium</span></p>
+                    </div>
+                    <a href="#"
+                        class="w-[283px] max-md:mx-auto relative px-[15px] text-[14px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
+                        <span>
+                            <i class="fa-solid fa-crown text-[#F79E1B] mr-[10px] text-[11px]"></i>
+                            Pro Membership
+                        </span>
+                        <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12"
+                            class="ml-[15px]" />
+                    </a>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="mt-[30px] md:mt-[50px] font-['Inter'] max-md:px-4">
+            <div class="flex flex-wrap max-md:justify-between gap-x-[30px] md:gap-x-5 gap-y-5 mb-4 md:mb-[30px]">
+                <div id="changeBorderDescription" onclick="changeDescription('descriptionDiv')"
+                    class="max-md:w-[45%] md:px-[25px] cursor-pointer py-3 flex justify-center items-center border border-main bg-[#F1F5FF] text-main rounded-[6px] font-[700] leading-[17px]">
+                    Description
+                </div>
+                <div id="changeBorderAdditionalInfo" onclick="changeDescription('additionalInfoDiv')"
+                    class="max-md:w-[45%] md:px-[25px] cursor-pointer py-3 flex justify-center items-center border border-[#ECECEC] bg-white text-[#7E7E7E] rounded-[6px] leading-[17px]">
+                    Additional info
+                </div>
+                <div id="changeBorderReviews" onclick="changeDescription('reviewsDiv')"
+                    class="max-md:w-[45%] md:px-[25px] cursor-pointer py-3 flex justify-center items-center gap-x-1 border border-[#ECECEC] bg-white text-[#7E7E7E] rounded-[6px] leading-[17px]">
+                    Reviews <span>(3)</span>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div id="descriptionDiv"
+                class="text-[12px] md:text-[14px] leading-7 text-[#7E7E7E] max-w-[972px] max-md:h-[370px] max-md:overflow-y-scroll">
+                <p>
+                    Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far
+                    quetzal goodness and from for grimaced
+                    goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily
+                    some and dear furiously this apart.
+                </p>
+                <p>
+                    Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that
+                    alas rethought much decently richly and
+                    wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over
+                    the bucolically hey precarious goldfinch
+                    mastodon goodness gnashed a jellyfish and one however because.
+                </p>
+                <ul class="list-disc list-inside mt-[25px] mb-[50px] capitalize grid gap-x-6 gap-y-2">
+                    <li>
+                        <span class="md:min-w-[200px] inline-block">Type of packing</span>
+                        <span class="max-md:float-right ml-[50px]">Bottle</span>
+                    </li>
+                    <li>
+                        <span class="md:min-w-[200px] inline-block">Color</span>
+                        <span class="max-md:float-right ml-[50px]">Green, Pink, Powder Blue, Purple</span>
+                    </li>
+                    <li>
+                        <span class="md:min-w-[200px] inline-block">Quantity Per Case</span>
+                        <span class="max-md:float-right ml-[50px]">100ml</span>
+                    </li>
+                    <li>
+                        <span class="md:min-w-[200px] inline-block">Ethyl Alcohol</span>
+                        <span class="max-md:float-right ml-[50px]">70%</span>
+                    </li>
+                    <li>
+                        <span class="md:min-w-[200px] inline-block">Piece In One</span>
+                        <span class="max-md:float-right ml-[50px]">Carton</span>
+                    </li>
+                </ul>
+
+                <p class="border-b border-[#7E7E7E] pb-[25px]">
+                    Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello far meadowlark
+                    imitatively egregiously hugged that yikes
+                    minimally unanimous pouted flirtatiously as beaver beheld above forward energetic across this
+                    jeepers beneficently cockily less a the
+                    raucously that magic upheld far so the this where crud then below after jeez enchanting drunkenly
+                    more much wow callously irrespective
+                    limpet.
+                </p>
+
+                <h2 class="text-[22px] text-[#253D4E] font-[700] mt-5 mb-[25px]">Packaging & Delivery</h2>
+                <p class="border-b border-[#7E7E7E] pb-[25px]">
+                    Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus
+                    cackled sheepishly rigid after due one
+                    assenting regarding censorious while occasional or this more crane went more as this less much amid
+                    overhung anathematic because much
+                    held one exuberantly sheep goodness so where rat wry well concomitantly.
+                </p>
+
+                <h2 class="text-[22px] text-[#253D4E] font-[700] mt-5 mb-[25px]">Other Ingredients</h2>
+                <p>Refrigeration not necessary.</p>
+                <p class="border-b border-[#7E7E7E] pb-[25px]">Stir before serving</p>
+
+                <h2 class="text-[22px] text-[#253D4E] font-[700] mt-5 mb-[25px]">Suggested Use</h2>
+                <p>Organic raw pecans, organic raw cashews.</p>
+                <p>This butter was produced using a LTG (Low Temperature Grinding) process</p>
+                <p class="border-b border-[#7E7E7E] pb-[25px]">Made in machinery that processes tree nuts but does not
+                    process peanuts, gluten, dairy or soy</p>
+
+                <h2 class="text-[22px] text-[#253D4E] font-[700] mt-5 mb-[25px]">Warnings</h2>
+                <p class="">Oil separation occurs naturally. May contain pieces of shell.</p>
+            </div>
+
+            <!-- Additional Info -->
+            <div id="additionalInfoDiv"
+                class="hidden text-[12px] md:text-[14px] leading-7 text-[#7E7E7E] max-w-[972px] max-md:h-[370px] max-md:overflow-y-scroll">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe ratione porro qui
+                    perspiciatis unde sed
+                    eligendi ullam, a mollitia modi eum quisquam reiciendis blanditiis hic laborum. Vitae, rem! Aut
+                    repellendus necessitatibus
+                    debitis. Dolorum eligendi perspiciatis dolores cupiditate quod harum recusandae numquam, quis
+                    laborum! Consequatur autem
+                    ipsam possimus atque voluptas? Vero, eaque. Consequuntur tempore iste corporis qui itaque ad
+                    repellat quidem nihil sint a
+                    illum totam cum libero delectus quam, suscipit dolores, aliquid temporibus tempora. Repudiandae
+                    beatae ipsam eveniet facere
+                    in magnam necessitatibus praesentium nulla.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe ratione porro qui
+                    perspiciatis unde sed
+                    eligendi ullam, a mollitia modi eum quisquam reiciendis blanditiis hic laborum. Vitae, rem! Aut
+                    repellendus necessitatibus
+                    debitis. Dolorum eligendi perspiciatis dolores cupiditate quod harum recusandae numquam, quis
+                    laborum! Consequatur autem
+                    ipsam possimus atque voluptas? Vero, eaque. Consequuntur tempore iste corporis qui itaque ad
+                    repellat quidem nihil sint a
+                    illum totam cum libero delectus quam, suscipit dolores, aliquid temporibus tempora. Repudiandae
+                    beatae ipsam eveniet facere
+                    in magnam necessitatibus praesentium nulla.
+                </p>
+            </div>
+
+            <!-- Reviews -->
+            <div id="reviewsDiv" class="hidden mt-[30px] md:mt-[40px]">
+                <div class="md:flex md:flex-row-reverse md:justify-between">
+                    <div>
+                        <h2 class="leading-[100%] font-medium">Average Customer Ratings</h2>
+                        <div class="leading-[100%] font-medium mt-5 mb-[30px] flex items-center gap-x-6">
+                            Overall
+                            <div class="flex items-center justify-between w-[152px]">
+                                <i class="fa-solid fa-star text-black"></i>
+                                <i class="fa-solid fa-star text-black"></i>
+                                <i class="fa-solid fa-star text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                <i class="fa-regular fa-star text-black"></i>
+                                <p class="ml-[6px]">4.7</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full h-[45px] md:w-[168px] border border-[#B1B1B1] rounded-[6px] cursor-pointer text-[14px] font-medium leading-[100%]">Write
+                            a comment</button>
+                    </div>
+                    <div class="max-md:mt-[30px]">
+                        <h2 class="leading-[100%] font-medium">Comments</h2>
+                        <div class="leading-[100%] font-medium mt-5 mb-[30px] flex items-center gap-x-2">
+                            <div class="flex items-center justify-between w-[152px]">
+                                <i class="fa-solid fa-star text-black"></i>
+                                <i class="fa-solid fa-star text-black"></i>
+                                <i class="fa-solid fa-star text-black"></i>
+                                <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                <i class="fa-regular fa-star text-black"></i>
+                                <p class="ml-[6px]">4.7</p>
+                            </div>
+                            <div class="border-l border-[#919191] font-[400] text-[14px] pl-2">154 Comment</div>
+                        </div>
+                        <div class="relative">
+                            <input type="text" name="searchReview" placeholder="Search"
+                                class="w-[264px] bg-[#F8F8F8] h-[45px] rounded-[6px] outline-none focus:border focus:border-[#868686] text-[14px] pl-4 pr-11" />
+                            <img src="./img/search.png" alt="search" class="absolute left-[230px] top-[15px]" width="14"
+                                height="14" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-[30px]">
+                    <h2 class="font-medium capitalize leading-[100%]">rating snapshots</h2>
+                    <p class="text-[14px] text-[#515151] leading-[100%] mt-[10px] mb-5">Select a row below to filter
+                        reviews</p>
+
+                    <div class="max-w-[247px] text-[14px] font-medium">
+                        <div class="flex justify-between items-center mt-[5px]">
+                            <span>
+                                5 <i class="fa-solid fa-star text-black text-[12px]"></i>
+                            </span>
+                            <div class="w-[180px] h-[8px] bg-[#F8F8F8]">
+                                <div class="w-[70%] h-full bg-[#ACACAC]"></div>
+                            </div>
+                            <span>119</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-[5px]">
+                            <span>
+                                4 <i class="fa-solid fa-star text-black text-[12px]"></i>
+                            </span>
+                            <div class="w-[180px] h-[8px] bg-[#F8F8F8]">
+                                <div class="w-[55%] h-full bg-[#ACACAC]"></div>
+                            </div>
+                            <span>85</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-[5px]">
+                            <span>
+                                3 <i class="fa-solid fa-star text-black text-[12px]"></i>
+                            </span>
+                            <div class="w-[180px] h-[8px] bg-[#F8F8F8]">
+                                <div class="w-[25%] h-full bg-[#ACACAC]"></div>
+                            </div>
+                            <span>34</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-[5px]">
+                            <span>
+                                2 <i class="fa-solid fa-star text-black text-[12px]"></i>
+                            </span>
+                            <div class="w-[180px] h-[8px] bg-[#F8F8F8]">
+                                <div class="w-[0%] h-full bg-[#ACACAC]"></div>
+                            </div>
+                            <span>0</span>
+                        </div>
+                        <div class="flex justify-between items-center mt-[5px]">
+                            <span>
+                                1 <i class="fa-solid fa-star text-black text-[12px]"></i>
+                            </span>
+                            <div class="w-[180px] h-[8px] bg-[#F8F8F8]">
+                                <div class="w-[8%] h-full bg-[#ACACAC]"></div>
+                            </div>
+                            <span>4</span>
+                        </div>
+                    </div>
+
+                    <p class="mt-10 text-sm text-[#515151]">2-8 of 154 Reviews</p>
+
+                    <div class="flex items-center mt-[30px]">
+                        <div class="flex items-center justify-between w-[106px]">
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                        </div>
+                        <span class="text-[14px] leading-[100%] ml-[22px]">NMarz</span>
+                        <span class="text-[14px] leading-[100%] ml-[36px]">a month ago</span>
+                    </div>
+
+                    <div class="leading-[100%] border-b border-[#CDCDCD] pb-5">
+                        <p class="font-[600] mt-[30px]">This will change everything...</p>
+                        <p class="text-[14px] mt-[15px]">A great product that does not over dry my sensitive skin and
+                            heals very quickly</p>
+                    </div>
+
+                    <div class="flex items-center mt-[30px]">
+                        <div class="flex items-center justify-between w-[106px]">
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                        </div>
+                        <span class="text-[14px] leading-[100%] ml-[22px]">NMarz</span>
+                        <span class="text-[14px] leading-[100%] ml-[36px]">a month ago</span>
+                    </div>
+
+                    <div class="leading-[100%] border-b border-[#CDCDCD] pb-5">
+                        <p class="font-[600] mt-[30px]">This will change everything...</p>
+                    </div>
+
+                    <div class="flex items-center mt-[30px]">
+                        <div class="flex items-center justify-between w-[106px]">
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                            <i class="fa-solid fa-star text-black"></i>
+                        </div>
+                        <span class="text-[14px] leading-[100%] ml-[22px]">NMarz</span>
+                        <span class="text-[14px] leading-[100%] ml-[36px]">a month ago</span>
+                    </div>
+
+                    <div class="leading-[100%]">
+                        <p class="font-[600] mt-[30px]">This will change everything...</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5 text-[#7E7E7E] max-w-[972px]" />
+        </section>
+
+        <section class="mt-5 md:mt-[100px] font-['Inter'] mb-[100px] md:mb-[200px]">
+            <h2 class="md:text-[26px] font-[600] leading-5 font-['Clash_Display'] mb-5 md:mb-[30px] max-md:px-4">Similar Products
+            </h2>
+            <div class="swiper-container-wrapper pl-4 md:px-[25px] w-full relative">
+                <div class="swiper-button-prev swiper-button-prev-similar max-md:hidden!"></div>
+                <div class="swiper-button-next swiper-button-next-similar max-md:hidden!"></div>
+
+                <div class="swiper similarProductSwiper font-['Inter'] text-white max-md:pr-4!">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div
+                                class="w-full h-full flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                                <i
+                                    class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                                <div class="flex justify-center items-center">
+                                    <img src="./img/gold-watch.png" alt="photo"
+                                        class="w-auto max-h-[80px] md:max-h-[171px] object-contain!" />
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[14px] leading-[20px] block font-[600] text-start text-black truncate">
+                                        Serpenti Seduttori 103145</p>
+                                    <p
+                                        class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                    <div class=" max-md:hidden flex items-center mb-[14px] text-[13px]">
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                        <i class="fa-regular fa-star text-black"></i>
+                                        <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                    </div>
+                                    <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p
+                                            class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                            <span class="font-[700]">AED</span>4000
+                                        </p>
+                                    </div>
+                                    <button
+                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        +
+                                        <span class="text-[16px]">Add To Cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="w-full h-full flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                                <i
+                                    class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                                <div class="flex justify-center items-center">
+                                    <img src="./img/kaslok.png" alt="photo"
+                                        class="w-auto max-h-[80px] md:max-h-[171px] object-contain!" />
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[14px] leading-[20px] block font-[600] text-start text-black truncate">
+                                        Serpenti Seduttori 103145</p>
+                                    <p
+                                        class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                    <div class=" max-md:hidden flex items-center mb-[14px] text-[13px]">
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                        <i class="fa-regular fa-star text-black"></i>
+                                        <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                    </div>
+                                    <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p
+                                            class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                            <span class="font-[700]">AED</span>4000
+                                        </p>
+                                    </div>
+                                    <button
+                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        +
+                                        <span class="text-[16px]">Add To Cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="w-full h-full flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                                <i
+                                    class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                                <div class="flex justify-center items-center">
+                                    <img src="./img/saat.png" alt="photo"
+                                        class="w-auto max-h-[80px] md:max-h-[171px] object-contain!" />
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[14px] leading-[20px] block font-[600] text-start text-black truncate">
+                                        Serpenti Seduttori 103145</p>
+                                    <p
+                                        class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                    <div class=" max-md:hidden flex items-center mb-[14px] text-[13px]">
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                        <i class="fa-regular fa-star text-black"></i>
+                                        <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                    </div>
+                                    <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p
+                                            class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                            <span class="font-[700]">AED</span>4000
+                                        </p>
+                                    </div>
+                                    <button
+                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        +
+                                        <span class="text-[16px]">Add To Cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="w-full h-full flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                                <i
+                                    class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                                <div class="flex justify-center items-center">
+                                    <img src="./img/watch-snake.png" alt="photo"
+                                        class="w-auto max-h-[80px] md:max-h-[171px] object-contain!" />
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[14px] leading-[20px] block font-[600] text-start text-black truncate">
+                                        Serpenti Seduttori 103145</p>
+                                    <p
+                                        class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                    <div class=" max-md:hidden flex items-center mb-[14px] text-[13px]">
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                        <i class="fa-regular fa-star text-black"></i>
+                                        <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                    </div>
+                                    <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p
+                                            class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                            <span class="font-[700]">AED</span>4000
+                                        </p>
+                                    </div>
+                                    <button
+                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        +
+                                        <span class="text-[16px]">Add To Cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="w-full h-full flex justify-between flex-col border border-[#E2E2E2] rounded-[6px] relative p-[10px] md:p-[30px_20px_20px_20px] pt-[30px]">
+                                <i
+                                    class="fa-regular fa-heart text-[#B2B2B2] cursor-pointer absolute top-[14px] right-[14px] md:top-5 md:right-5"></i>
+                                <div class="flex justify-center items-center">
+                                    <img src="./img/gold-watch.png" alt="photo"
+                                        class="w-auto max-h-[80px] md:max-h-[171px] object-contain!" />
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[14px] leading-[20px] block font-[600] text-start text-black truncate">
+                                        Serpenti Seduttori 103145</p>
+                                    <p
+                                        class="text-[14px] text-[#B5B5B5] leading-[20px] mt-[6px] mb-[15px] md:mt-[10px] md:mb-[9px] truncate">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                    <div class=" max-md:hidden flex items-center mb-[14px] text-[13px]">
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star text-black"></i>
+                                        <i class="fa-solid fa-star-half-stroke text-black"></i>
+                                        <i class="fa-regular fa-star text-black"></i>
+                                        <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
+                                    </div>
+                                    <div class="md:mb-5 md:flex gap-x-[7px] items-center">
+                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p
+                                            class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
+                                            <span class="font-[700]">AED</span>4000
+                                        </p>
+                                    </div>
+                                    <button
+                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        +
+                                        <span class="text-[16px]">Add To Cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination similar-swiper-pagination md:hidden!"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-main font-['Inter'] max-md:pb-[130px] text-white">
+        <div class="max-w-[1152px] w-full mx-auto md:px-3 md:flex justify-between md:mb-[50px]">
+            <div
+                class="flex w-full justify-between pt-[30px] md:pt-[84px] max-md:px-4 max-md:pb-[30px] max-md:border-b border-[#FFFFFF] gap-x-2 md:mx-5 md:max-w-[535px] md:order-5">
+                <div class="text-[14px] flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">About</p>
+                    <a class="w-fit" href="#">About us</a>
+                    <a class="w-fit" href="#">Blog</a>
+                    <a class="w-fit" href="#">Brands</a>
+                </div>
+                <div class="text-[14px] flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Support</p>
+                    <a class="w-fit" href="#">Help Centre</a>
+                    <a class="w-fit" href="#">Shipping</a>
+                    <a class="w-fit" href="#">Returns</a>
+                </div>
+                <div class="text-[14px] flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Customer service</p>
+                    <a class="w-fit" href="#">FAQ</a>
+                    <a class="w-fit" href="#">Contact us</a>
+                    <a class="w-fit" href="#">Returns</a>
+                </div>
+            </div>
+            <div
+                class="max-md:pt-5 text-[14px] max-md:px-4 md:pt-[84px] md:pb-[35px] md:hidden md:min-w-[253px] md:pr-[40px] max-md:flex justify-between md:order-1">
+                <div class="flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Contact</p>
+                    <a href="https://www.google.com/maps/place/Dubai,+United+Arab+Emirates" target="_blank"
+                        class="font-[100] max-w-[258px] flex ">
+                        <i class="fa-solid fa-location-dot mr-[10px] mt-[5px]"></i>
+                        Dubai, United Arab Emirates, Lorem ipsum dolor lorem ipsum
+                    </a>
+                    <a href="tel:+994505555555" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-phone mr-[10px]"></i>
+                        +99450 555 55 55
+                    </a>
+                    <a href="mailto:info@tazbeeb.com" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-envelope mr-[10px]"></i>
+                        info@tazbeeb.com
+                    </a>
+                </div>
+                <div class="flex max-md:flex-col items-center gap-y-[20px] md:gap-x-[15px] md:mt-[15px]">
+                    <img src="./img/new-visa-payments-credit-card-logo-white-font-blue-background-removebg-preview.png"
+                        class="mt-[-25px] mb-[-18px]" alt="visa" width="55" />
+                    <div class="text-[7px] flex flex-col items-center">
+                        <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp"
+                            class="md:h-[37px] w-[37px]" alt="visa">
+                        <span class="mt-[-5px] cursor-default">mastercard</span>
+                    </div>
+                    <div class="w-[41px] h-[26px] rounded-[6px] border border-white grid place-items-center">
+                        <i class="fa-brands fa-apple-pay text-[22px]"></i>
+                    </div>
+                    <i class="fa-brands fa-google-pay text-[35px]"></i>
+                </div>
+            </div>
+
+            <div class="pt-[84px] tablet:mr-[80px] mr-[40px] max-md:hidden">
+                <img src="./img/logo_big.png" alt="logo" class="tablet:max-w-[290px] max-w-[250px]" />
+
+                <div class="flex gap-x-[34px] mt-10">
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        <i class="text-[18px] fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        <i class="text-[18px] fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        <i class="text-[18px] fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        <i class="text-[18px] fa-solid fa-share"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="max-md:pt-5 text-[14px] max-md:px-4 md:pt-[84px] md:pb-[35px] md:min-w-[213px] max-md:hidden justify-between md:order-1">
+                <div class="flex flex-col gap-y-[20px]">
+                    <p class="font-[600]">Contact</p>
+                    <a href="https://www.google.com/maps/place/Dubai,+United+Arab+Emirates" target="_blank"
+                        class="font-[100] max-w-[258px] flex ">
+                        <i class="fa-solid fa-location-dot mr-[10px] mt-[5px]"></i>
+                        Dubai, United Arab Emirates, Lorem ipsum dolor lorem ipsum
+                    </a>
+                    <a href="tel:+994505555555" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-phone mr-[10px]"></i>
+                        +99450 555 55 55
+                    </a>
+                    <a href="mailto:info@tazbeeb.com" class="font-[100] max-w-[258px] flex items-center">
+                        <i class="fa-solid fa-envelope mr-[10px]"></i>
+                        info@tazbeeb.com
+                    </a>
+                </div>
+            </div>
+            <div
+                class="max-md:mt-10 md:hidden max-md:px-4 max-md:pb-[30px] md:pt-[86px] max-md:border-b border-[#FFFFFF] md:order-11">
+                <p class="text-[13px] font-[500] max-md:mb-[15px] md:mb-[20px]">Mobile Application</p>
+                <div class="flex justify-between items-center md:flex-col md:gap-y-[10px]">
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <i class="fa-brands fa-apple text-[19px]"></i>
+                        <span class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Apple store
+                        </span>
+                    </a>
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <img src="./img/logos_google-play-icon.png" alt="google" width="17" height="19" />
+                        <span class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Google Play
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="md:border-b border-[#FFFFFF]"></div>
+        <img src="./img/logo_big.png" alt="logo" class="md:hidden" />
+        <div
+            class="max-w-[1152px] w-full mx-auto md:px-3 pt-[30px] pb-[60px] flex items-center justify-between max-md:hidden">
+            <div>
+                <p class="font-[500] text-[13px]">Mobile Application</p>
+                <div class="flex items-center md:gap-x-[30px] mt-5">
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <i class="fa-brands fa-apple text-[19px]"></i>
+                        <p class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Apple store
+                        </p>
+                    </a>
+                    <a href="#"
+                        class="bg-[#3333f1] max-md:w-[48%] min-w-[141px] h-[50px] flex justify-center items-center rounded-[6px] font-[500] text-[12px]">
+                        <img src="./img/logos_google-play-icon.png" alt="google" width="17" height="19" />
+                        <p class="flex flex-col ml-[7px]">
+                            <span class="text-[#C3C3FF] text-[10px] font-[400]">Available on the</span>
+                            Google Play
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex max-md:flex-col md:items-center md:gap-x-[30px] md:mt-[15px]">
+                <img src="./img/new-visa-payments-credit-card-logo-white-font-blue-background-removebg-preview.png"
+                    class="mt-[-12px]" alt="visa" width="55" />
+                <div class="text-[7px] flex flex-col">
+                    <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp" class="md:h-[37px]"
+                        alt="visa">
+                    <span class="mt-[-5px] cursor-default">mastercard</span>
+                </div>
+                <div class="w-[55px] h-[35px] rounded-[6px] border border-white grid place-items-center">
+                    <i class="fa-brands fa-apple-pay text-[28px]"></i>
+                </div>
+                <i class="fa-brands fa-google-pay text-[35px]"></i>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".productSwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        var swiper2 = new Swiper(".productSwiper2", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next-product",
+                prevEl: ".swiper-button-prev-product",
+            },
+            pagination: {
+                el: ".swiper-pagination-product",
+                clickable: true,
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+        });
+
+        var swiper = new Swiper(".similarProductSwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next-similar",
+                prevEl: ".swiper-button-prev-similar",
+            },
+            pagination: {
+                el: ".similar-swiper-pagination",
+                clickable: true,
+            },
+            slidesPerView: 2,
+            spaceBetween: 16,
+            watchOverflow: false,
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 16,
+                },
+                992: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                }
+            }
+        });
+    </script>
+
+    <!-- Product page script -->
+    <script>
+        const swiperEl2 = document.querySelector('.productSwiper2');
+        const swiperEl = document.querySelector('.productSwiper');
+        const quantityOutStock = document.querySelectorAll('.quantityOutStock');
+        const priceOutStock = document.querySelectorAll('.priceOutStock');
+        const sizeSelect = document.getElementById('sizeSelect');
+        const compareSellerDiv = document.getElementById('compareSellerDiv');
+        const similarProductDiv = document.getElementById('similarProductDiv');
+        const buyNowDiv = document.getElementById('buyNowDiv')
+        const outOfStockDiv = document.getElementById('outOfStockDiv')
+        const notifyMeDiv = document.getElementById('notifyMeDiv')
+        const likeIcon = document.getElementById('likeIcon')
+
+        // Stocka olub olmamasina gore deyisiklikler ve notify me
+        const isOutOfStock = false;
+
+        quantityOutStock.forEach(div => div.classList.remove('pointer-events-none', 'cursor-not-allowed', 'opacity-50'));
+        priceOutStock.forEach(div => div.classList.remove('opacity-50'));
+        swiperEl2.classList.remove('diagonal-line');
+        swiperEl.classList.remove('opacity-50');
+        compareSellerDiv.classList.remove('hidden');
+        similarProductDiv.classList.add('hidden');
+        buyNowDiv.classList.remove('hidden', 'md:hidden');
+        outOfStockDiv.classList.add('hidden');
+        notifyMeDiv.classList.add('hidden');
+        likeIcon.classList.remove('pointer-events-none', 'cursor-not-allowed');
+        sizeSelect.disabled = false;
+
+        if (isOutOfStock === true) {
+            quantityOutStock.forEach(div => div.classList.add('pointer-events-none', 'cursor-not-allowed', 'opacity-50'));
+            sizeSelect.disabled = true;
+            priceOutStock.forEach(div => div.classList.add('opacity-50'));
+            swiperEl2.classList.add('diagonal-line');
+            swiperEl.classList.add('opacity-50');
+            compareSellerDiv.classList.add('hidden');
+            similarProductDiv.classList.remove('hidden');
+            buyNowDiv.classList.add('hidden', 'md:hidden');
+            outOfStockDiv.classList.remove('hidden');
+            likeIcon.classList.add('pointer-events-none', 'cursor-not-allowed');
+        }
+        else if (isOutOfStock === 'notify') {
+            priceOutStock.forEach(div => div.classList.add('opacity-50'));
+            swiperEl2.classList.add('diagonal-line');
+            swiperEl.classList.add('opacity-50');
+            compareSellerDiv.classList.add('hidden');
+            similarProductDiv.classList.remove('hidden');
+            buyNowDiv.classList.add('hidden', 'md:hidden');
+            outOfStockDiv.classList.add('hidden');
+            notifyMeDiv.classList.remove('hidden');
+            likeIcon.classList.add('pointer-events-none', 'cursor-not-allowed');
+        }
+
+        // Pro hesaba gore deyisiklikler
+        const deliverPrice = document.getElementById('deliverPrice')
+        const freeDelivery = document.getElementById('freeDelivery')
+        const goProDelivery = document.getElementById('goProDelivery')
+        const proMemberShipDiv = document.querySelectorAll('.proMemberShipDiv')
+
+        const isProMember = false;
+
+        if (isProMember === true) {
+            deliverPrice.classList.add('hidden');
+            goProDelivery.classList.add('hidden');
+            freeDelivery.classList.remove('hidden');
+            proMemberShipDiv.forEach(div => div.classList.add('hidden'));
+        } else {
+            deliverPrice.classList.remove('hidden');
+            goProDelivery.classList.remove('hidden');
+            freeDelivery.classList.add('hidden');
+            proMemberShipDiv.forEach(div => div.classList.remove('hidden'));
+        }
+
+        // Description, Additional info, Reviews deyisiklikleri
+        const descriptionDiv = document.getElementById('descriptionDiv');
+        const additionalInfoDiv = document.getElementById('additionalInfoDiv');
+        const reviewsDiv = document.getElementById('reviewsDiv');
+        const changeBorderDescription = document.getElementById('changeBorderDescription')
+        const changeBorderAdditionalInfo = document.getElementById('changeBorderAdditionalInfo')
+        const changeBorderReviews = document.getElementById('changeBorderReviews')
+
+        function changeDescription(divId) {
+            descriptionDiv.classList.add('hidden');
+            additionalInfoDiv.classList.add('hidden');
+            reviewsDiv.classList.add('hidden');
+
+            const allBorders = [changeBorderDescription, changeBorderAdditionalInfo, changeBorderReviews];
+
+            allBorders.forEach(item => {
+                item.style.borderColor = '#ECECEC';
+                item.style.backgroundColor = 'white';
+                item.style.color = '#7E7E7E';
+                item.style.fontWeight = '400';
+            });
+
+            if (divId === 'descriptionDiv') {
+                descriptionDiv.classList.remove('hidden');
+                changeBorderDescription.style.borderColor = '#0000EE';
+                changeBorderDescription.style.backgroundColor = '#F1F5FF';
+                changeBorderDescription.style.color = '#0000EE';
+                changeBorderDescription.style.fontWeight = '700';
+            }
+            else if (divId === 'additionalInfoDiv') {
+                additionalInfoDiv.classList.remove('hidden');
+                changeBorderAdditionalInfo.style.borderColor = '#0000EE';
+                changeBorderAdditionalInfo.style.backgroundColor = '#F1F5FF';
+                changeBorderAdditionalInfo.style.color = '#0000EE';
+                changeBorderAdditionalInfo.style.fontWeight = '700';
+            }
+            else if (divId === 'reviewsDiv') {
+                reviewsDiv.classList.remove('hidden');
+                changeBorderReviews.style.borderColor = '#0000EE';
+                changeBorderReviews.style.backgroundColor = '#F1F5FF';
+                changeBorderReviews.style.color = '#0000EE';
+                changeBorderReviews.style.fontWeight = '700';
+            }
+        }
+    </script>
+
+
+    <script>
+        // Header scripts
+        const loginModal = document.getElementById('loginModal');
+        const openBtn = document.getElementById('openBtn');
+        const categoryDropDownBtn = document.getElementById('categoryDropDownBtn');
+        const categoryDropDownDiv = document.getElementById('categoryDropDownDiv');
+        const searchDropDownDiv = document.getElementById('searchDropDownDiv');
+        const searchInp = document.getElementById('searchInp');
+        const searchAndCategoryParentDiv = document.getElementById('searchAndCategoryParentDiv');
+        const hamburgerMenuDiv = document.getElementById('hamburgerMenuDiv');
+        const sideBar = document.getElementById('sideBar');
+        const categorySideBar = document.getElementById('categorySideBar');
+
+        const hideLoginModal = () => loginModal.classList.toggle('hidden');
+        document.addEventListener('click', function (e) {
+            if (!loginModal.contains(e.target) && e.target !== openBtn) {
+                loginModal.classList.add('hidden');
+            }
+        });
+
+        const hideCategoryDropDown = () => categoryDropDownDiv.classList.toggle('hidden');
+        document.addEventListener('click', function (e) {
+            if (!categoryDropDownDiv.contains(e.target) && e.target !== categoryDropDownBtn) {
+                categoryDropDownDiv.classList.add('hidden');
+            }
+        });
+
+        searchInp.addEventListener('focus', () => {
+            searchDropDownDiv.classList.remove('hidden');
+        });
+
+        searchInp.addEventListener('blur', () => {
+            setTimeout(() => {
+                if (!searchDropDownDiv.contains(document.activeElement)) {
+                    searchDropDownDiv.classList.add('hidden');
+                }
+            }, 100);
+        });
+
+        searchDropDownDiv.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+        });
+
+        const showHamburgerMenu = () => {
+            hamburgerMenuDiv.classList.remove('hidden');
+            setTimeout(() => {
+                sideBar.style.left = '0';
+            }, 100);
+            document.body.style.overflow = 'hidden';
+            sideBar.scrollTo({ top: 0 });
+        }
+
+        const hideHamburgerMenu = () => {
+            setTimeout(() => {
+                hamburgerMenuDiv.classList.add('hidden');
+            }, 250);
+            sideBar.style.left = '-100%';
+            categorySideBar.style.left = '-100%';
+            document.body.style.overflow = 'auto';
+        }
+
+        const hideCategorySideBar = () => {
+            categorySideBar.style.left = '-100%';
+            sideBar.style.left = '0';
+            sideBar.scrollTo({ top: 0 });
+        }
+
+        const showCategorySideBar = () => {
+            categorySideBar.style.left = '0';
+            sideBar.style.left = '-100%';
+        }
+
+    </script>
+</body>
+
+</html>

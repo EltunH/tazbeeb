@@ -1,0 +1,257 @@
+.mainSwiper .swiper-slide {
+    background: transparent;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Detail swiper pagination  */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #F2F2F2;
+    border: 1px solid #D1D1D1;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    width: 14px;
+    height: 14px;
+    background: black;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-pagination-bullet-active::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.swiper-pagination-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 40px;
+}
+
+/* Popular category swiper */
+.popularCategorySwiper.swiper {
+    width: 100%;
+    height: 185px;
+}
+
+/* Popular category swiper next prev button */
+.swiper-container-wrapper .swiper-button-next:after,
+.swiper-container-wrapper .swiper-button-prev:after {
+    content: '❯❯';
+    font-size: 18px;
+    color: black;
+    font-weight: 100;
+}
+
+.swiper-container-wrapper .swiper-button-prev:after {
+    content: '❮❮';
+}
+
+.swiper-container-wrapper .swiper-button-next {
+    right: -10px;
+}
+
+.swiper-container-wrapper .swiper-button-prev {
+    left: -10px;
+}
+
+/* Best deals swiper */
+.bestDealsSwiper.swiper {
+    width: 100%;
+    height: 341px;
+}
+
+/* New Arrivals swiper */
+.newArrivalsSwiper.swiper {
+    width: 100%;
+    height: 306px;
+}
+
+/* Cream swiper */
+.creamSwiper.swiper {
+    width: 100%;
+    height: 240px;
+}
+
+/* Coupon swiper */
+.couponSwiper.swiper {
+    width: 100%;
+    height: 159px;
+}
+
+/* Month sale swiper */
+.monthSaleSwiper.swiper {
+    width: 100%;
+    height: 291px;
+}
+
+/* Weekend deal swiper */
+.weekendDealSwiper.swiper {
+    width: 100%;
+    height: 306px;
+}
+
+/* Popular brand swiper */
+.popularBrandSwiper.swiper {
+    width: 100%;
+    height: 110px;
+}
+
+.popularBrandSwiper.swiper .swiper-wrapper,
+.popularBrandSwiper.swiper .swiper-slide {
+    background: #F2F2F2;
+}
+
+/* Product swiper */
+.productSwiper2.swiper {
+    width: 100%;
+    height: 518px;
+    margin: 0;
+}
+
+.productSwiper.swiper {
+    width: 100%;
+    margin-inline: 0;
+}
+
+.productSwiper .swiper-wrapper .swiper-slide {
+    /* width: 147px !important; */
+    height: 118px !important;
+    border-radius: 6px;
+    border: 1px solid #D8D8D8;
+    overflow: hidden;
+}
+
+.productSwiper2 .swiper-slide img,
+.productSwiper .swiper-slide img {
+    object-fit: contain;
+}
+
+.productSwiper2 .swiper-button-next,
+.productSwiper2 .swiper-button-prev {
+    color: black;
+    width: 46px;
+    height: 46px;
+    background-color: #F0F0F0;
+    border-radius: 50%;
+}
+
+.productSwiper2 .swiper-button-next::after,
+.productSwiper2 .swiper-button-prev::after {
+    font-size: 16px;
+}
+
+/* Similar swiper */
+.similarProductSwiper.swiper {
+    width: 100%;
+    height: 406px;
+}
+
+@media screen and (max-width: 768px) {
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 0;
+    }
+
+    .swiper-container-wrapper .swiper-button-next {
+        right: 0;
+    }
+
+    .swiper-container-wrapper .swiper-button-prev {
+        left: 0;
+    }
+
+    .swiper-container-wrapper .swiper-button-next:after,
+    .swiper-container-wrapper .swiper-button-prev:after {
+        font-size: 14px;
+    }
+
+    .creamSwiper.swiper {
+        height: 284px;
+        background-color: white;
+    }
+
+    .creamSwiper .swiper-slide {
+        height: 240px;
+    }
+
+    .couponSwiper.swiper {
+        height: 204px;
+        background-color: white;
+    }
+
+    .couponSwiper .swiper-slide {
+        height: 159px;
+    }
+
+    .monthSaleSwiper.swiper {
+        height: 335px;
+    }
+
+    .monthSaleSwiper .swiper-slide {
+        height: 291px;
+    }
+
+    .newArrivalsSwiper.swiper {
+        height: 341px;
+    }
+
+    .weekendDealSwiper.swiper {
+        height: 351px;
+    }
+
+    .weekendDealSwiper .swiper-slide {
+        height: 306px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 0;
+    }
+
+    .productSwiper2.swiper {
+        width: 100%;
+        height: 230px;
+    }
+
+    .productSwiper2 .swiper-slide {
+        width: 100%;
+        height: 200px;
+    }
+
+    .similarProductSwiper.swiper {
+        height: 290px;
+    }
+
+    .similarProductSwiper .swiper-slide {
+        height: 246px;
+    }
+}

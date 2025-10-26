@@ -5,47 +5,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@900,800,700,600,500,400,300&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./src/output.css" />
 
 </head>
 
-<body>
+<body class="overflow-x-hidden">
     <header class="font-['Inter']">
         <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-main flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-x-10">
-                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                    <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
                         <option class="text-black" value="english">En</option>
                         <option class="text-black" value="arabic">Ar</option>
                     </select>
-                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                    <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
                         <option class="text-black" value="usd">USD</option>
                         <option class="text-black" value="uae">UAE</option>
                     </select>
                 </div>
                 <div class="flex items-center gap-x-5">
-                    <a href="#" class="text-white text-[15px] font-[500]">News</a>
-                    <a href="#" class="text-white text-[15px] font-[500]">Contact</a>
+                    <a href="latest-post.htm" class="text-white text-[15px] font-[500]">News</a>
+                    <a href="contact.htm" class="text-white text-[15px] font-[500]">Contact</a>
                 </div>
             </div>
         </div>
         <div
             class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
-            <div class="flex gap-x-[30px] items-center mr-10">
+            <div class="flex gap-x-[15px] xsm:gap-x-[30px] items-center xsm:mr-10">
                 <i onclick="showHamburgerMenu()"
                     class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-main"></i>
                 <a href="index.htm">
-                    <img src="./img/logo_small.png" width="116" height="24" alt="logo" />
+                    <img src="./img/logo_small.png" width="116" height="24"
+                        class="max-w-[116px] max-h-[24px] min-w-[116px] min-h-[24px]" alt="logo" />
                 </a>
             </div>
 
-            <div class="max-tablet:hidden flex items-center gap-x-[40px] lg:gap-x-[80px] xl:gap-x-[166px]">
+            <div class="max-tablet:hidden flex items-center gap-x-[30px] lg:gap-x-[60px] xl:gap-x-[166px]">
                 <div id="searchAndCategoryParentDiv"
                     class="w-[450px] relative rounded-[6px] h-[45px] bg-[#F7F7F7] flex items-center">
                     <button id="categoryDropDownBtn" onclick="hideCategoryDropDown()"
@@ -56,7 +58,6 @@
                     <input type="text" name="search" id="searchInp" placeholder="search"
                         class="w-[300px] h-[28px] outline-none text-[14px] pl-4 pr-11 border-l border-l-[#7C7C7C]" />
                     <img src="./img/search.png" alt="search" class="absolute right-4" width="14" height="14" />
-                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
 
                     <!-- Category dropdown div -->
                     <div id="categoryDropDownDiv"
@@ -185,23 +186,27 @@
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
                 </a>
-                <button onclick="hideLoginModal()" class="relative cursor-pointer">
-                    <img id="openBtn" src="./img/group.png" alt="group"
-                        class="max-w-[18px] max-h-[22px] w-full h-full" />
+                <button id="openBtn" onclick="hideLoginModal()" class="relative cursor-pointer">
+                    <img src="./img/group.png" alt="group"
+                        class="max-w-[18px] min-w-[18px] max-h-[22px] min-h-[22px] w-full h-full pointer-events-none" />
+                    <i
+                        class="fa-solid fa-crown text-[#F79E1B] absolute top-[-16px] text-[17px] left-[-2px] pointer-events-none"></i>
                     <div onclick="event.stopPropagation()" id="loginModal"
                         class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
-                        <a href="login.htm"
+                        <a href="register.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-main">Sign
                             up</a>
-                        <a href="register.htm"
+                        <a href="login.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
                     </div>
                 </button>
                 <a href="#">
-                    <img src="./img/heart.png" alt="heart" class="max-w-[25px] max-h-[22px] w-full h-full" />
+                    <img src="./img/heart.png" alt="heart"
+                        class="max-w-[25px] max-h-[22px] min-w-[25px] min-h-[22px] w-full h-full" />
                 </a>
                 <a href="#">
-                    <img src="./img/shop.png" alt="shop" class="max-w-[18px] max-h-[22px] w-full h-full" />
+                    <img src="./img/shop.png" alt="shop"
+                        class="max-w-[18px] max-h-[22px] min-w-[18px] min-h-[22px] w-full h-full" />
                 </a>
             </div>
         </div>
@@ -233,7 +238,7 @@
 
         <!-- Hamburger menu mobile -->
         <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
-            class="fixed hidden inset-0 bg-[#0F0F3240] z-[9999999]">
+            class="fixed hidden inset-0 bg-[#0F0F3240] z-[999999999]">
             <div onclick="event.stopPropagation()" id="sideBar"
                 class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
                 <div
@@ -243,7 +248,7 @@
                 </div>
                 <div class="relative mb-10">
                     <input type="text" name="search" id="searchInp" placeholder="search"
-                        class="w-full bg-white h-[45px] rounded-[6px] outline-none text-[14px] pl-4 pr-11" />
+                        class="w-full bg-white h-[45px] rounded-[6px] outline-none focus:border focus:border-[#868686] text-[14px] pl-4 pr-11" />
                     <img src="./img/search.png" alt="search" class="absolute right-4 top-[15px]" width="14"
                         height="14" />
                 </div>
@@ -285,8 +290,8 @@
                     </li>
                 </menu>
                 <div class="mt-10 pb-10 border-b border-[#E7EEFF] flex flex-col">
-                    <a href="#" class="text-white w-fit font-[500] mb-10">News</a>
-                    <a href="#" class="text-white w-fit font-[500]">Contact</a>
+                    <a href="latest-post.htm" class="text-white w-fit font-[500] mb-10">News</a>
+                    <a href="contact.htm" class="text-white w-fit font-[500]">Contact</a>
                 </div>
                 <div class="mt-10 mb-20 flex justify-between">
                     <select name="" id="" class="text-[15px] font-[500] text-white">
@@ -365,35 +370,313 @@
 
 
     <main class="max-w-[1152px] w-full mx-auto md:px-3">
-        <section class="mt-5 md:mt-[137px] font-['Inter'] md:flex md:justify-between md:items-center mb-[200px] md:mb-[180px]">
-            <div class="h-[372px] md:h-[660px] md:max-w-[508px] w-full md:order-2">
-                <img src="./img/not-found-1.png" alt="404" class="md:hidden w-full h-full" />
-                <img src="./img/not-found-2.png" alt="404" class="max-md:hidden w-full h-full" />
+        <section id="basketDiv" class="hidden mt-5 md:mt-10 font-['Inter'] mb-[100px] md:mb-[200px] max-md:px-4">
+            <div class="flex md:flex-col max-md:justify-between gap-y-8 font-[600] leading-[100%]">
+                <h1 class="text-[20px] md:text-[30px] font-['Clash_Display']">Shopping Cart</h1>
+                <span class="max-md:text-[14px] ">3 Products</span>
             </div>
-            <div class="md:order-1">
-                <p class="font-['Clash_Display'] text-main max-md:mt-[-90px] max-md:text-center font-[600] text-[160px] leading-[100%] md:text-[200px]">404</p>
-                <p class="text-[#0A0015] font-['Clash_Display'] font-bold text-[30px] leading-[100%] mt-[50px] max-md:text-center mb-5 md:text-[40px] max-md:px-4">Page Not Found</p>
-                <p class="text-[#77707F] text-[18px] md:text-[24px] max-md:text-center max-md:px-4">Sorry, the page you’re looking for does not exist or </p>
-                <p class="text-[#77707F] text-[18px] md:text-[24px] max-md:text-center max-md:px-4">has been moved please go back to the Home page</p>
-                <a href="#" class="w-[282px] h-[55px] grid place-items-center rounded-[6px] bg-main text-white leading-[100%] mt-[32px] max-md:mx-auto">Go back Home</a>
+
+            <div class="flex max-md:flex-col md:justify-between gap-x-2 gap-y-[30px]">
+                <div class="max-w-[768px] w-full">
+                    <div class="mt-5 md:flex items-center justify-between pb-5 border-b border-[#DCDCDC]">
+                        <label class="font-medium flex items-center gap-x-[14px]">
+                            <input type="checkbox" class="w-[15px] h-[15px]" />
+                            Remove all selected
+                        </label>
+                        <a href="#"
+                            class="max-md:hidden font-[500] leading-[100%] underline underline-offset-4">Continue
+                            Shopping</a>
+                    </div>
+
+                    <div class=" py-5 md:py-[30px] border-b border-[#DCDCDC]">
+                        <div class="md:flex md:justify-between gap-x-2">
+                            <!-- Sol hissə (şəkil + məlumat) -->
+                            <div class="flex">
+                                <div class="flex gap-x-[13px] items-center max-md:mr-[13px]">
+                                    <input type="checkbox" class="w-[15px] h-[15px]" />
+                                    <img src="./img/shopping-card-image.png" alt="photo"
+                                        class="max-h-[95px] md:max-h-[153px] md:max-w-[151px] object-cover" />
+                                </div>
+
+                                <div class="max-sm:w-[200px]">
+                                    <p class="font-[600] leading-5 md:leading-7 truncate">
+                                        Serpenti Tubogas Watch
+                                    </p>
+                                    <p class="text-[14px] text-[#848484] mt-[14px] md:mt-[6px] truncate">
+                                        Lorem ipsum dolor lorem ipsum dolor
+                                    </p>
+
+                                    <p class="md:hidden mt-[14px] text-[14px] text-[#848484]">Silver</p>
+
+                                    <div
+                                        class="max-md:hidden text-[14px] text-[#848484] font-medium flex items-center gap-x-[6px] mt-[10px]">
+                                        <img src="./img/delivery.png" alt="delivery photo" />
+                                        <span>Delivery 3 working days</span>
+                                    </div>
+
+                                    <!-- Quantity + Color (desktop) -->
+                                    <div class="mt-5 max-md:hidden flex items-center gap-x-5">
+                                        <!-- Quantity -->
+                                        <div
+                                            class="w-[105px] h-[38px] bg-[#F0F0F0] rounded-[6px] flex items-center font-[600] leading-7">
+                                            <button class="w-[30px] cursor-pointer">-</button>
+                                            <span class="w-[45px] text-center">1</span>
+                                            <button class="w-[30px] cursor-pointer">+</button>
+                                        </div>
+
+                                        <!-- Color -->
+                                        <div
+                                            class="w-[104px] h-[38px] text-[14px] font-medium leading-5 flex justify-center items-center gap-x-[6px] rounded-[6px] bg-[#F8F8F8]">
+                                            <div
+                                                class="w-[18px] h-[18px] rounded-full flex justify-center items-center bg-white border border-black">
+                                                <div class="w-[14px] h-[14px] rounded-full bg-[#D9D9D9]"></div>
+                                            </div>
+                                            <span>Silver</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sağ hissə (qiymət + silmək) -->
+                            <div class="flex flex-col justify-between items-end w-full md:w-auto">
+                                <!-- Desktop görünüş -->
+                                <div class="hidden h-full md:flex flex-col justify-between items-end">
+                                    <p></p>
+                                    <p class="text-[20px] text-main text-nowrap font-[700]">AED 2895</p>
+                                    <img src="./img/trash.png" alt="trash" class="w-[15px] h-[15px] cursor-pointer" />
+                                </div>
+
+                                <!-- Mobile görünüş -->
+                                <div class="md:hidden w-full flex items-center justify-between mt-[30px]">
+                                    <div
+                                        class="w-[105px] h-[38px] bg-[#F0F0F0] rounded-[6px] flex items-center font-[600] leading-7">
+                                        <button class="w-[30px] cursor-pointer">-</button>
+                                        <span class="w-[45px] text-center">1</span>
+                                        <button class="w-[30px] cursor-pointer">+</button>
+                                    </div>
+                                    <img src="./img/trash.png" alt="trash" class="w-[16px] h-[18px] cursor-pointer" />
+                                    <p class="text-main font-[700]">AED 2895</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" py-5 md:py-[30px] border-b border-[#DCDCDC]">
+                        <div class="md:flex md:justify-between gap-x-2">
+                            <!-- Sol hissə (şəkil + məlumat) -->
+                            <div class="flex">
+                                <div class="flex gap-x-[13px] items-center max-md:mr-[13px]">
+                                    <input type="checkbox" class="w-[15px] h-[15px]" />
+                                    <img src="./img/watch-snake.png" alt="photo"
+                                        class="max-h-[95px] md:max-h-[153px] md:max-w-[151px] object-cover" />
+                                </div>
+
+                                <div class="max-sm:w-[200px]">
+                                    <p class="font-[600] leading-5 md:leading-7 truncate">
+                                        Serpenti Tubogas Watch
+                                    </p>
+                                    <p class="text-[14px] text-[#848484] mt-[14px] md:mt-[6px] truncate">
+                                        Lorem ipsum dolor lorem ipsum dolor
+                                    </p>
+
+                                    <p class="md:hidden mt-[14px] text-[14px] text-[#848484]">Silver</p>
+
+                                    <div
+                                        class="max-md:hidden text-[14px] text-[#848484] font-medium flex items-center gap-x-[6px] mt-[10px]">
+                                        <img src="./img/delivery.png" alt="delivery photo" />
+                                        <span>Delivery 3 working days</span>
+                                    </div>
+
+                                    <!-- Quantity + Color (desktop) -->
+                                    <div class="mt-5 max-md:hidden flex items-center gap-x-5">
+                                        <!-- Quantity -->
+                                        <div
+                                            class="w-[105px] h-[38px] bg-[#F0F0F0] rounded-[6px] flex items-center font-[600] leading-7">
+                                            <button class="w-[30px] cursor-pointer">-</button>
+                                            <span class="w-[45px] text-center">1</span>
+                                            <button class="w-[30px] cursor-pointer">+</button>
+                                        </div>
+
+                                        <!-- Color -->
+                                        <div
+                                            class="w-[104px] h-[38px] text-[14px] font-medium leading-5 flex justify-center items-center gap-x-[6px] rounded-[6px] bg-[#F8F8F8]">
+                                            <div
+                                                class="w-[18px] h-[18px] rounded-full flex justify-center items-center bg-white border border-black">
+                                                <div class="w-[14px] h-[14px] rounded-full bg-[#D9D9D9]"></div>
+                                            </div>
+                                            <span>Silver</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sağ hissə (qiymət + silmək) -->
+                            <div class="flex flex-col justify-between items-end w-full md:w-auto">
+                                <!-- Desktop görünüş -->
+                                <div class="hidden h-full md:flex flex-col justify-between items-end">
+                                    <p></p>
+                                    <p class="text-[20px] text-main text-nowrap font-[700]">AED 2895</p>
+                                    <img src="./img/trash.png" alt="trash" class="w-[15px] h-[15px] cursor-pointer" />
+                                </div>
+
+                                <!-- Mobile görünüş -->
+                                <div class="md:hidden w-full flex items-center justify-between mt-[30px]">
+                                    <div
+                                        class="w-[105px] h-[38px] bg-[#F0F0F0] rounded-[6px] flex items-center font-[600] leading-7">
+                                        <button class="w-[30px] cursor-pointer">-</button>
+                                        <span class="w-[45px] text-center">1</span>
+                                        <button class="w-[30px] cursor-pointer">+</button>
+                                    </div>
+                                    <img src="./img/trash.png" alt="trash" class="w-[16px] h-[18px] cursor-pointer" />
+                                    <p class="text-main font-[700]">AED 2895</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" py-5 md:py-[30px] border-b border-[#DCDCDC]">
+                        <div class="md:flex md:justify-between gap-x-2">
+                            <!-- Sol hissə (şəkil + məlumat) -->
+                            <div class="flex">
+                                <div class="flex gap-x-[13px] items-center max-md:mr-[13px]">
+                                    <input type="checkbox" class="w-[15px] h-[15px]" />
+                                    <img src="./img/shopping-card-image.png" alt="photo"
+                                        class="max-h-[95px] md:max-h-[153px] md:max-w-[151px] object-cover" />
+                                </div>
+
+                                <div class="max-sm:w-[200px]">
+                                    <p class="font-[600] leading-5 md:leading-7 truncate">
+                                        Serpenti Tubogas Watch
+                                    </p>
+                                    <p class="text-[14px] text-[#848484] mt-[14px] md:mt-[6px] truncate">
+                                        Lorem ipsum dolor lorem ipsum dolor
+                                    </p>
+
+                                    <p class="md:hidden mt-[14px] text-[14px] text-[#848484]">Silver</p>
+
+                                    <div
+                                        class="max-md:hidden text-[14px] text-[#848484] font-medium flex items-center gap-x-[6px] mt-[10px]">
+                                        <img src="./img/delivery.png" alt="delivery photo" />
+                                        <span>Delivery 3 working days</span>
+                                    </div>
+
+                                    <!-- Quantity + Color (desktop) -->
+                                    <div class="mt-5 max-md:hidden flex items-center gap-x-5">
+                                        <!-- Quantity -->
+                                        <div
+                                            class="w-[105px] h-[38px] bg-[#F0F0F0] rounded-[6px] flex items-center font-[600] leading-7">
+                                            <button class="w-[30px] cursor-pointer">-</button>
+                                            <span class="w-[45px] text-center">1</span>
+                                            <button class="w-[30px] cursor-pointer">+</button>
+                                        </div>
+
+                                        <!-- Color -->
+                                        <div
+                                            class="w-[104px] h-[38px] text-[14px] font-medium leading-5 flex justify-center items-center gap-x-[6px] rounded-[6px] bg-[#F8F8F8]">
+                                            <div
+                                                class="w-[18px] h-[18px] rounded-full flex justify-center items-center bg-white border border-black">
+                                                <div class="w-[14px] h-[14px] rounded-full bg-[#D9D9D9]"></div>
+                                            </div>
+                                            <span>Silver</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sağ hissə (qiymət + silmək) -->
+                            <div class="flex flex-col justify-between items-end w-full md:w-auto">
+                                <!-- Desktop görünüş -->
+                                <div class="hidden h-full md:flex flex-col justify-between items-end">
+                                    <p></p>
+                                    <p class="text-[20px] text-main text-nowrap font-[700]">AED 2895</p>
+                                    <img src="./img/trash.png" alt="trash" class="w-[15px] h-[15px] cursor-pointer" />
+                                </div>
+
+                                <!-- Mobile görünüş -->
+                                <div class="md:hidden w-full flex items-center justify-between mt-[30px]">
+                                    <div
+                                        class="w-[105px] h-[38px] bg-[#F0F0F0] rounded-[6px] flex items-center font-[600] leading-7">
+                                        <button class="w-[30px] cursor-pointer">-</button>
+                                        <span class="w-[45px] text-center">1</span>
+                                        <button class="w-[30px] cursor-pointer">+</button>
+                                    </div>
+                                    <img src="./img/trash.png" alt="trash" class="w-[16px] h-[18px] cursor-pointer" />
+                                    <p class="text-main font-[700]">AED 2895</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Odenis bolmesi -->
+                <div class="md:max-w-[288px] w-full md:pt-[63px]">
+                    <div class="bg-[#F8F8F8] rounded-[6px] p-[30px_20px_22px]">
+                        <p class="text-[18px] font-[600] leading-[100%]">Summary</p>
+                        <p class="font-medium flex items-center justify-between mt-5 leading-[100%]">
+                            <span>Total price</span>
+                            <span class="text-[14px] leading-6">AED 2895</span>
+                        </p>
+
+                        <p class="font-medium flex items-center justify-between mt-5 pb-5 border-b border-[#C1C1C1] leading-[100%]">
+                            <span>Delivery</span>
+                            <span class="text-[14px] leading-6">AED 5</span>
+                        </p>
+
+                        <p class="font-medium flex items-center justify-between mt-5 leading-[100%]">
+                            <span>SubTotal:</span>
+                            <span class="text-main font-[700] leading-6">AED 2895</span>
+                        </p>
+                    </div>
+
+                    <div class="bg-[#F8F8F8] rounded-[6px] p-5 mt-[10px]">
+                        <p class="font-[600] leading-[100%]">Coupon</p>
+                        <div class="w-full h-[45px] flex items-center gap-x-[10px] mt-[10px] bg-white rounded-[6px] py-2 pr-[10px]">
+                            <input type="text" placeholder="TAZNEW10" class="w-[calc(100%-84px)] text-[13px] font-[500] leading-4 h-full outline-none pl-5" />
+                            <button class="min-w-[92px] md:min-w-[74px] h-[30px] rounded-[6px] bg-[#D4FF05] text-[12px] font-medium cursor-pointer">Apply</button>
+                        </div>
+                        <p class="text-[12px] leading-[100%] text-[#898989] mt-[10px]">Current Coupon</p>
+                    </div>
+
+                    <div class="bg-[#F8F8F8] rounded-[6px] p-[16px_23px] mt-[10px] flex items-center justify-between">
+                        <span class="text-[12px] font-medium leading-[100%]">We accept:</span>
+                        <div class="flex items-center gap-x-2">
+                            <img src="./img/VISA-logo-blue.png"
+                                alt="visa" width="20" />
+                            <div class="text-[4px] flex flex-col items-center">
+                                <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp"
+                                    class=" w-[20px]" alt="mastercard" />
+                                <span class="mt-[-5px] cursor-default">mastercard</span>
+                            </div>
+                            <img src="./img/paypal-photo.png"
+                                alt="visa" width="38" />
+                        </div>
+                    </div>
+
+                    <div class="max-md:fixed max-md:z-20 bottom-0 w-full max-md:bg-white left-0 max-md:p-[20px_16px] max-md:h-[124px] max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
+                        <p class="md:hidden font-medium flex items-center justify-between mb-5 leading-[100%]">
+                            <span>SubTotal:</span>
+                            <span class="text-main font-[700] leading-6">AED 2895</span>
+                        </p>
+                        <button class="w-full bg-main h-[50px] text-white rounded-[6px] md:mt-5">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Empty basket -->
+        <section id="emptyBasketDiv" class="mt-5 md:mt-10 font-['Inter'] mb-[100px] md:mb-[200px] max-md:px-4">
+            <h1 class="text-[20px] md:text-[30px] font-['Clash_Display'] font-[600] leading-[100%]">Shopping Cart</h1>
+
+            <div class="mt-[100px] md:w-[372px] md:mx-auto text-center">
+                <p class="text-[20px] md:text-[24px] font-[600] leading-[100%]">Your basket is empty :( </p>
+                <p class="max-md:text-[14px] leading-[26px] mt-4 md:mt-5 max-md:mx-auto max-md:max-w-[271px]">It looks like you haven’ t added anything to your cart. Go ahead and explore our products.</p>
+                <a href="#" class="w-full md:w-[288px] flex justify-center items-center md:mx-auto bg-main h-[50px] text-white mt-5 md:mt-8 rounded-[6px]">Continue shopping</a>
             </div>
         </section>
     </main>
 
     <footer class="w-full bg-main font-['Inter'] max-md:pb-[130px] text-white">
-        <!-- Pro membership/mobile -->
-        <div
-            class="bg-white p-[25px] w-full md:hidden fixed bottom-0 h-[100px] z-[999999] shadow-[0px_0px_10px_6px_#002C961F] left-0 right-0">
-            <a href="#"
-                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
-                <span>
-                    <i class="fa-solid fa-crown text-[#F79E1B] text-[17px]"></i>
-                    Pro Membership
-                </span>
-                <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
-            </a>
-        </div>
-
         <div class="max-w-[1152px] w-full mx-auto md:px-3 md:flex justify-between md:mb-[50px]">
             <div
                 class="flex w-full justify-between pt-[30px] md:pt-[84px] max-md:px-4 max-md:pb-[30px] max-md:border-b border-[#FFFFFF] gap-x-2 md:mx-5 md:max-w-[535px] md:order-5">
@@ -557,6 +840,21 @@
     </footer>
 
     <script>
+        const basketDiv = document.getElementById('basketDiv')
+        const emptyBasketDiv = document.getElementById('emptyBasketDiv')
+
+        const basketLength = true
+
+        if(basketLength) {
+            basketDiv.classList.remove('hidden')
+            emptyBasketDiv.classList.add('hidden')
+        }else {
+            basketDiv.classList.add('hidden')
+            emptyBasketDiv.classList.remove('hidden')
+        }
+    </script>
+
+    <script>
         // Header scripts
         const loginModal = document.getElementById('loginModal');
         const openBtn = document.getElementById('openBtn');
@@ -569,14 +867,14 @@
         const sideBar = document.getElementById('sideBar');
         const categorySideBar = document.getElementById('categorySideBar');
 
-        const hideLoginModal = () => loginModal.classList.toggle('hidden')
+        const hideLoginModal = () => loginModal.classList.toggle('hidden');
         document.addEventListener('click', function (e) {
             if (!loginModal.contains(e.target) && e.target !== openBtn) {
                 loginModal.classList.add('hidden');
             }
         });
 
-        const hideCategoryDropDown = () => categoryDropDownDiv.classList.toggle('hidden')
+        const hideCategoryDropDown = () => categoryDropDownDiv.classList.toggle('hidden');
         document.addEventListener('click', function (e) {
             if (!categoryDropDownDiv.contains(e.target) && e.target !== categoryDropDownBtn) {
                 categoryDropDownDiv.classList.add('hidden');
