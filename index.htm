@@ -69,7 +69,7 @@
 
 <body class="overflow-x-hidden">
     <header class="font-['Inter']">
-        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-main flex items-center gap-x-10">
+        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-primary flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-x-10">
                     <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
@@ -91,7 +91,7 @@
             class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
             <div class="flex gap-x-[15px] xsm:gap-x-[30px] items-center xsm:mr-10">
                 <i onclick="showHamburgerMenu()"
-                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-main"></i>
+                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-primary"></i>
                 <a href="index.htm">
                     <img src="./img/logo_small.png" width="116" height="24"
                         class="max-w-[116px] max-h-[24px] min-w-[116px] min-h-[24px]" alt="logo" />
@@ -223,7 +223,7 @@
                     </div>
                 </div>
                 <a href="#"
-                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -232,7 +232,7 @@
 
             <div class="flex gap-x-[30px] ml-[20px] xl:ml-[30px] items-center">
                 <a href="#"
-                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -245,7 +245,7 @@
                     <div onclick="event.stopPropagation()" id="loginModal"
                         class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
                         <a href="register.htm"
-                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-main">Sign
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-primary">Sign
                             up</a>
                         <a href="login.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
@@ -255,7 +255,7 @@
                     <img src="./img/heart.png" alt="heart"
                         class="max-w-[25px] max-h-[22px] min-w-[25px] min-h-[22px] w-full h-full" />
                 </a>
-                <a href="#">
+                <a href="./shopping-card.htm">
                     <img src="./img/shop.png" alt="shop"
                         class="max-w-[18px] max-h-[22px] min-w-[18px] min-h-[22px] w-full h-full" />
                 </a>
@@ -264,7 +264,7 @@
         <nav class="max-w-[1152px] max-tablet:hidden w-full px-3 mx-auto flex items-center h-[25px]">
             <menu class="flex w-full justify-between text-[14px] font-[600] text-[#000]">
                 <li>
-                    <a href="#">All categories</a>
+                    <a href="./all-products.htm">All categories</a>
                 </li>
                 <li>
                     <a href="#">Electronic & Gadget</a>
@@ -291,7 +291,7 @@
         <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
             class="fixed hidden inset-0 bg-[#0F0F3240] z-[999999999]">
             <div onclick="event.stopPropagation()" id="sideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-primary transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-5 border-b border-[#E7EEFF] mb-5">
                     Menu
@@ -357,7 +357,7 @@
             </div>
             <!-- Category sidebar -->
             <div onclick="event.stopPropagation()" id="categorySideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-primary transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-[30px] border-b border-[#E7EEFF] mb-[30px]">
                     <span>
@@ -474,7 +474,7 @@
                     </div>
                 </div>
 
-                <div class="seamless-marquee h-[40px] md:mt-[78px] mt-[45px] bg-[#D4FF05] text-[14px] font-[500] text-main"
+                <div class="seamless-marquee h-[40px] md:mt-[78px] mt-[45px] bg-[#D4FF05] text-[14px] font-[500] text-primary"
                     aria-live="polite">
                     <div class="track">
                         <span>SPEND OVER $200, GET 35% OFF</span>
@@ -1004,7 +1004,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1037,7 +1037,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1070,7 +1070,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1103,7 +1103,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1137,7 +1137,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1171,7 +1171,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1205,7 +1205,7 @@
                                     </div>
                                     <p class="my-3 font-[800] text-[#F41735] text-start text-[16px]">AED 1298</p>
                                     <button
-                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-main text-main border border-main rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
+                                        class="w-full h-[38px] text-[14px] font-[500] hover:text-white hover:bg-primary text-primary border border-primary rounded-[6px] transition-all duration-200 cursor-pointer active:scale-95">Add
                                         to cart</button>
                                 </div>
                             </div>
@@ -1220,7 +1220,7 @@
         <section class="mt-[60px] md:mt-[80px] tablet:mt-[100px]">
             <div class="md:h-[337px] w-full font-['Inter'] flex flex-col md:flex-row-reverse">
                 <div class="md:w-[50%] bg-[#F7FFD1] max-md:p-[16px_0_0_16px]">
-                    <span class="text-main md:hidden">Exclusive Offer</span>
+                    <span class="text-primary md:hidden">Exclusive Offer</span>
                     <img src="./img/creams.png" alt="cream"
                         class="max-md:max-h-[165px] w-[185px] md:w-[324px] mx-auto mb-[35px]" />
                 </div>
@@ -1228,12 +1228,12 @@
                     <div
                         class="absolute bg-[#E7EEFF] max-md:hidden w-[334px] h-[337px] rounded-full top-[-81px] left-[-70px] ">
                     </div>
-                    <span class="text-main z-[15] relative max-md:hidden">Exclusive Offer</span>
+                    <span class="text-primary z-[15] relative max-md:hidden">Exclusive Offer</span>
                     <p
-                        class="text-main z-[15] relative font-['Clash_Display'] max-md:my-[20px] font-[600] text-[26px] md:text-[34px] tablet:text-[42px] md:my-[26px] md:leading-[50px] max-md:text-center">
+                        class="text-primary z-[15] relative font-['Clash_Display'] max-md:my-[20px] font-[600] text-[26px] md:text-[34px] tablet:text-[42px] md:my-[26px] md:leading-[50px] max-md:text-center">
                         Grab up to 25% off in selected products</p>
                     <a href="#"
-                        class="text-main z-[15] relative border border-main active:scale-95 rounded-[6px] w-full h-[50px] md:w-[143px] md:text-black md:border-black flex justify-center items-center hover:bg-main hover:text-white md:hover:bg-black transition-all duration-200">Order
+                        class="text-primary z-[15] relative border border-primary active:scale-95 rounded-[6px] w-full h-[50px] md:w-[143px] md:text-black md:border-black flex justify-center items-center hover:bg-primary hover:text-white md:hover:bg-black transition-all duration-200">Order
                         now</a>
                 </div>
             </div>
@@ -1593,7 +1593,7 @@
                         <p class="text-[#5F5E6C] leading-[24px] line-clamp-2 pr-5">Lorem ipsum dolor lorem ipsum dolor
                             lorem ipsum dolor lorem...</p>
                         <div class="flex justify-end">
-                            <a href="#" class="w-[15px]">
+                            <a href="./latest-post.htm" class="w-[15px]">
                                 <img src="./img/right-arrow.png" alt="right arrow" />
                             </a>
                         </div>
@@ -1614,7 +1614,7 @@
                         <p class="text-[#5F5E6C] leading-[24px] line-clamp-2 pr-5">Lorem ipsum dolor lorem ipsum dolor
                             lorem ipsum dolor lorem...</p>
                         <div class="flex justify-end">
-                            <a href="#" class="w-[15px]">
+                            <a href="./latest-post.htm" class="w-[15px]">
                                 <img src="./img/right-arrow.png" alt="right arrow" />
                             </a>
                         </div>
@@ -1635,7 +1635,7 @@
                         <p class="text-[#5F5E6C] leading-[24px] line-clamp-2 pr-5">Lorem ipsum dolor lorem ipsum dolor
                             lorem ipsum dolor lorem...</p>
                         <div class="flex justify-end">
-                            <a href="#" class="w-[15px]">
+                            <a href="./latest-post.htm" class="w-[15px]">
                                 <img src="./img/right-arrow.png" alt="right arrow" />
                             </a>
                         </div>
@@ -1646,7 +1646,7 @@
 
         <!-- Subscribe  -->
         <section class="mt-[60px] md:mt-[80px] font-['Inter']">
-            <div class="w-full h-[147px] bg-main relative px-4 pt-5 pb-[27px] md:pl-[57px] md:flex items-center">
+            <div class="w-full h-[147px] bg-primary relative px-4 pt-5 pb-[27px] md:pl-[57px] md:flex items-center">
                 <img src="./img/subsribe-vector-1.png" alt="vector"
                     class="w-[42px] h-[55px] md:w-[54px] object-contain absolute top-[8%] left-[1%]" />
                 <img src="./img/subsribe-vector-2.png" alt="vector"
@@ -1666,7 +1666,7 @@
                     <input type="text" class="text-[14px] w-[60%] outline-none pl-5 md:pl-[30px]"
                         placeholder="your email" />
                     <button
-                        class="min-w-[134px] h-[45px] rounded-[6px] text-white flex items-center justify-center bg-gradient-to-l from-[#8181FF] to-main cursor-pointer active:scale-95 transition-all duration-200">
+                        class="min-w-[134px] h-[45px] rounded-[6px] text-white flex items-center justify-center bg-gradient-to-l from-[#8181FF] to-primary cursor-pointer active:scale-95 transition-all duration-200">
                         subscribe ➔
                     </button>
                 </div>
@@ -1808,7 +1808,7 @@
         <div
             class="bg-white p-[25px] w-full md:hidden fixed bottom-0 h-[100px] z-[999999] shadow-[0px_0px_10px_6px_#002C961F] left-0 right-0">
             <a href="#"
-                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
+                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF]">
                 <span>
                     <i class="fa-solid fa-crown text-[#F79E1B] text-[17px]"></i>
                     Pro Membership
@@ -1818,26 +1818,26 @@
         </div>
     </main>
 
-    <footer class="w-full bg-main font-['Inter'] max-md:pb-[130px] text-white">
+    <footer class="w-full bg-primary font-['Inter'] max-md:pb-[130px] text-white">
         <div class="max-w-[1152px] w-full mx-auto md:px-3 md:flex justify-between md:mb-[50px]">
             <div
                 class="flex w-full justify-between pt-[30px] md:pt-[84px] max-md:px-4 max-md:pb-[30px] max-md:border-b border-[#FFFFFF] gap-x-2 md:mx-5 md:max-w-[535px] md:order-5">
                 <div class="text-[14px] flex flex-col gap-y-[20px]">
                     <p class="font-[600]">About</p>
-                    <a class="w-fit" href="#">About us</a>
+                    <a class="w-fit" href="./about-us.htm">About us</a>
                     <a class="w-fit" href="#">Blog</a>
                     <a class="w-fit" href="#">Brands</a>
                 </div>
                 <div class="text-[14px] flex flex-col gap-y-[20px]">
                     <p class="font-[600]">Support</p>
-                    <a class="w-fit" href="#">Help Centre</a>
+                    <a class="w-fit" href="./faq.htm">Help Center</a>
                     <a class="w-fit" href="#">Shipping</a>
                     <a class="w-fit" href="#">Returns</a>
                 </div>
                 <div class="text-[14px] flex flex-col gap-y-[20px]">
                     <p class="font-[600]">Customer service</p>
-                    <a class="w-fit" href="#">FAQ</a>
-                    <a class="w-fit" href="#">Contact us</a>
+                    <a class="w-fit" href="./faq.htm">FAQ</a>
+                    <a class="w-fit" href="./contact.htm">Contact us</a>
                     <a class="w-fit" href="#">Returns</a>
                 </div>
             </div>
@@ -1879,19 +1879,19 @@
 
                 <div class="flex gap-x-[34px] mt-10">
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-brands fa-linkedin-in"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-brands fa-facebook-f"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-brands fa-twitter"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-solid fa-share"></i>
                     </a>
                 </div>
@@ -1991,9 +1991,6 @@
     <!-- Swiper script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/swiper.js"></script>
-    <script>
-        
-    </script>
 
     <script>
         // Header scripts

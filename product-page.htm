@@ -45,7 +45,7 @@
 
 <body class="overflow-x-hidden">
     <header class="font-['Inter']">
-        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-main flex items-center gap-x-10">
+        <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-primary flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-x-10">
                     <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
@@ -67,7 +67,7 @@
             class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
             <div class="flex gap-x-[15px] xsm:gap-x-[30px] items-center xsm:mr-10">
                 <i onclick="showHamburgerMenu()"
-                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-main"></i>
+                    class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-primary"></i>
                 <a href="index.htm">
                     <img src="./img/logo_small.png" width="116" height="24"
                         class="max-w-[116px] max-h-[24px] min-w-[116px] min-h-[24px]" alt="logo" />
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <a href="#"
-                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -208,7 +208,7 @@
 
             <div class="flex gap-x-[30px] ml-[20px] xl:ml-[30px] items-center">
                 <a href="#"
-                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF] cursor-pointer">
+                    class="w-[186px] md:flex tablet:hidden relative px-[15px] hidden items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF] cursor-pointer">
                     <i class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
@@ -221,7 +221,7 @@
                     <div onclick="event.stopPropagation()" id="loginModal"
                         class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
                         <a href="login.htm"
-                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-main">Sign
+                            class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-primary">Sign
                             up</a>
                         <a href="register.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
@@ -267,7 +267,7 @@
         <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
             class="fixed hidden inset-0 bg-[#0F0F3240] z-[999999999]">
             <div onclick="event.stopPropagation()" id="sideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-primary transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-5 border-b border-[#E7EEFF] mb-5">
                     Menu
@@ -333,7 +333,7 @@
             </div>
             <!-- Category sidebar -->
             <div onclick="event.stopPropagation()" id="categorySideBar"
-                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-main transition-all duration-300 px-5 overflow-y-auto">
+                class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-primary transition-all duration-300 px-5 overflow-y-auto">
                 <div
                     class="flex justify-between items-center text-white font-[600] pb-[30px] border-b border-[#E7EEFF] mb-[30px]">
                     <span>
@@ -476,20 +476,20 @@
                         class="max-md:text-[14px] text-[#858585] font-medium leading-[100%] my-[22px] md:mb-[14px] max-md:px-4">
                         Color: <span class="text-black">Silver</span></p>
 
-                    <div class="flex gap-x-[34px] md:gap-x-[15px] items-center max-md:px-4">
-                        <div
+                    <div class="flex gap-x-[34px] md:gap-x-[15px] flex-wrap gap-y-4 items-center max-md:px-4">
+                        <div onclick="selectColor()"
                             class="w-[42px] h-[42px] md:w-[30px] md:h-[30px] rounded-full grid place-items-center border border-black cursor-pointer">
                             <div
                                 class="w-[34px] h-[34px] md:w-[25px] md:h-[25px] rounded-full bg-[#D9D9D9] border border-[#ECE9E9]">
                             </div>
                         </div>
-                        <div
+                        <div onclick="selectColor()"
                             class="w-[42px] h-[42px] md:w-[30px] md:h-[30px] rounded-full grid place-items-center border border-[#ECE9E9] cursor-pointer">
                             <div
                                 class="w-[34px] h-[34px] md:w-[25px] md:h-[25px] rounded-full bg-[#E2DEFF] border border-[#ECE9E9]">
                             </div>
                         </div>
-                        <div
+                        <div onclick="selectColor()"
                             class="w-[42px] h-[42px] md:w-[30px] md:h-[30px] rounded-full grid place-items-center border border-[#ECE9E9] cursor-pointer">
                             <div
                                 class="w-[34px] h-[34px] md:w-[25px] md:h-[25px] rounded-full bg-[#D7FFF1] border border-[#ECE9E9]">
@@ -558,7 +558,7 @@
                             <div
                                 class="w-full h-[50px] bg-[#F7F9FF] text-[14px] md:order-1 text-[#858585] max-md:mt-[15px] font-[500] leading-[100%] flex justify-center items-center rounded-[6px] cursor-pointer gap-x-[15px] flex-wrap">
                                 <span>Total: </span>
-                                <span class="text-[22px] text-main leading-[24px] font-[800]">AED 2895</span>
+                                <span class="text-[22px] text-primary leading-[24px] font-[800]">AED 2895</span>
                             </div>
                         </div>
                         <div
@@ -566,9 +566,9 @@
                             <div
                                 class="w-full h-[50px] bg-[#D4FF05] rounded-[6px] leading-[100%] grid place-items-center font-[500] cursor-pointer">
                                 Add To Card</div>
-                            <div
-                                class="w-full h-[50px] bg-main text-white rounded-[6px] leading-[100%] grid place-items-center font-[500] cursor-pointer md:mt-[22px]">
-                                Buy Now</div>
+                            <a href="./shopping-card.htm"
+                                class="w-full h-[50px] bg-primary text-white rounded-[6px] leading-[100%] grid place-items-center font-[500] cursor-pointer md:mt-[22px]">
+                                Buy Now</a>
                         </div>
                     </div>
 
@@ -593,7 +593,7 @@
                         <div
                             class="w-full max-md:bg-white left-0 max-md:fixed bottom-0 z-10 max-md:h-[85px] max-md:p-[18px_16px] md:mt-[22px] max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
                             <button
-                                class="w-full h-[50px] rounded-[6px] cursor-pointer border border-main text-main text-[20px] font-medium leading-[100%] hover:bg-main hover:text-white transition-all duration-200">NOTIFY
+                                class="w-full h-[50px] rounded-[6px] cursor-pointer border border-primary text-primary text-[20px] font-medium leading-[100%] hover:bg-primary hover:text-white transition-all duration-200">NOTIFY
                                 ME</button>
                         </div>
                     </div>
@@ -607,11 +607,11 @@
                             <div
                                 class="flex gap-x-[15px] justify-center items-center max-md:mt-[15px] max-md:mb-[25px]">
                                 <i class="fa-solid fa-crown text-[#F79E1B]"></i>
-                                <p class="text-[18px] leading-[24px] text-main">Save up to <span
+                                <p class="text-[18px] leading-[24px] text-primary">Save up to <span
                                         class="font-[600]">30%</span> <span class="font-[500]">on Premium</span></p>
                             </div>
                             <a href="#"
-                                class="w-[283px] max-md:mx-auto relative px-[15px] text-[14px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
+                                class="w-[283px] max-md:mx-auto relative px-[15px] text-[14px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF]">
                                 <span>
                                     <i class="fa-solid fa-crown text-[#F79E1B] mr-[10px] text-[11px]"></i>
                                     Pro Membership
@@ -634,14 +634,14 @@
                                     <p class="text-[12px] text-[#7F7F7F] leading-[21px]">
                                         Seller: <span class="text-black underline">Noname</span>
                                     </p>
-                                    <p class="text-[14px] text-main leading-[24px] font-[700]">AED 2895</p>
+                                    <p class="text-[14px] text-primary leading-[24px] font-[700]">AED 2895</p>
                                 </div>
                                 <div
                                     class="w-full h-[60px] bg-[#F7F9FF] cursor-pointer rounded-[6px] max-md:px-5 flex justify-between md:justify-center items-center gap-x-5 flex-wrap">
                                     <p class="text-[12px] text-[#7F7F7F] leading-[21px]">
                                         Seller: <span class="text-black underline">Noname</span>
                                     </p>
-                                    <p class="text-[14px] text-main leading-[24px] font-[700]">AED 2895</p>
+                                    <p class="text-[14px] text-primary leading-[24px] font-[700]">AED 2895</p>
                                 </div>
                             </div>
                         </div>
@@ -658,7 +658,7 @@
                                     </div>
                                     <div class="leading-[24px]">
                                         <p class="text-[13px] text-[#717171]">Rolex</p>
-                                        <p class="text-[14px] font-[700] text-main">AED 2895</p>
+                                        <p class="text-[14px] font-[700] text-primary">AED 2895</p>
                                     </div>
                                 </div>
                                 <div
@@ -669,7 +669,7 @@
                                     </div>
                                     <div class="leading-[24px]">
                                         <p class="text-[13px] text-[#717171]">Cartier</p>
-                                        <p class="text-[14px] font-[700] text-main">AED 2895</p>
+                                        <p class="text-[14px] font-[700] text-primary">AED 2895</p>
                                     </div>
                                 </div>
                             </div>
@@ -689,11 +689,11 @@
                     <div
                         class="flex gap-x-[15px] text-[20px] justify-center items-center max-md:mt-[15px] max-md:mb-[25px]">
                         <i class="fa-solid fa-crown text-[#F79E1B]"></i>
-                        <p class="leading-[24px] text-main">Save up to <span class="font-[600]">30%</span> <span
+                        <p class="leading-[24px] text-primary">Save up to <span class="font-[600]">30%</span> <span
                                 class="font-[500]">on Premium</span></p>
                     </div>
                     <a href="#"
-                        class="w-[283px] max-md:mx-auto relative px-[15px] text-[14px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-main to-[#00AEFF]">
+                        class="w-[283px] max-md:mx-auto relative px-[15px] text-[14px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF]">
                         <span>
                             <i class="fa-solid fa-crown text-[#F79E1B] mr-[10px] text-[11px]"></i>
                             Pro Membership
@@ -710,7 +710,7 @@
         <section class="mt-[30px] md:mt-[50px] font-['Inter'] max-md:px-4">
             <div class="flex flex-wrap max-md:justify-between gap-x-[30px] md:gap-x-5 gap-y-5 mb-4 md:mb-[30px]">
                 <div id="changeBorderDescription" onclick="changeDescription('descriptionDiv')"
-                    class="max-md:w-[45%] md:px-[25px] cursor-pointer py-3 flex justify-center items-center border border-main bg-[#F1F5FF] text-main rounded-[6px] font-[700] leading-[17px]">
+                    class="max-md:w-[45%] md:px-[25px] cursor-pointer py-3 flex justify-center items-center border border-primary bg-[#F1F5FF] text-primary rounded-[6px] font-[700] leading-[17px]">
                     Description
                 </div>
                 <div id="changeBorderAdditionalInfo" onclick="changeDescription('additionalInfoDiv')"
@@ -1012,14 +1012,14 @@
                                         <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
                                     </div>
                                     <div class="md:mb-5 md:flex gap-x-[7px] items-center">
-                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p class="text-[18px] text-primary text-start font-[700] leading-[24px]">AED 2895</p>
                                         <p
                                             class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
                                             <span class="font-[700]">AED</span>4000
                                         </p>
                                     </div>
                                     <button
-                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        class="max-md:hidden w-full h-[45px] text-primary border border-primary rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-primary hover:text-white transition-all duration-200">
                                         +
                                         <span class="text-[16px]">Add To Cart</span>
                                     </button>
@@ -1051,14 +1051,14 @@
                                         <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
                                     </div>
                                     <div class="md:mb-5 md:flex gap-x-[7px] items-center">
-                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p class="text-[18px] text-primary text-start font-[700] leading-[24px]">AED 2895</p>
                                         <p
                                             class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
                                             <span class="font-[700]">AED</span>4000
                                         </p>
                                     </div>
                                     <button
-                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        class="max-md:hidden w-full h-[45px] text-primary border border-primary rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-primary hover:text-white transition-all duration-200">
                                         +
                                         <span class="text-[16px]">Add To Cart</span>
                                     </button>
@@ -1090,14 +1090,14 @@
                                         <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
                                     </div>
                                     <div class="md:mb-5 md:flex gap-x-[7px] items-center">
-                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p class="text-[18px] text-primary text-start font-[700] leading-[24px]">AED 2895</p>
                                         <p
                                             class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
                                             <span class="font-[700]">AED</span>4000
                                         </p>
                                     </div>
                                     <button
-                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        class="max-md:hidden w-full h-[45px] text-primary border border-primary rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-primary hover:text-white transition-all duration-200">
                                         +
                                         <span class="text-[16px]">Add To Cart</span>
                                     </button>
@@ -1129,14 +1129,14 @@
                                         <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
                                     </div>
                                     <div class="md:mb-5 md:flex gap-x-[7px] items-center">
-                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p class="text-[18px] text-primary text-start font-[700] leading-[24px]">AED 2895</p>
                                         <p
                                             class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
                                             <span class="font-[700]">AED</span>4000
                                         </p>
                                     </div>
                                     <button
-                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        class="max-md:hidden w-full h-[45px] text-primary border border-primary rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-primary hover:text-white transition-all duration-200">
                                         +
                                         <span class="text-[16px]">Add To Cart</span>
                                     </button>
@@ -1168,14 +1168,14 @@
                                         <p class="text-[#838383] text-[12px] ml-[6px]">(125)</p>
                                     </div>
                                     <div class="md:mb-5 md:flex gap-x-[7px] items-center">
-                                        <p class="text-[18px] text-main text-start font-[700] leading-[24px]">AED 2895</p>
+                                        <p class="text-[18px] text-primary text-start font-[700] leading-[24px]">AED 2895</p>
                                         <p
                                             class="text-[14px] text-[#7C7C7C] text-start leading-[24px] font-[500] line-through decoration-[#7C7C7C]">
                                             <span class="font-[700]">AED</span>4000
                                         </p>
                                     </div>
                                     <button
-                                        class="max-md:hidden w-full h-[45px] text-main border border-main rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-main hover:text-white transition-all duration-200">
+                                        class="max-md:hidden w-full h-[45px] text-primary border border-primary rounded-[6px] flex justify-center items-center gap-x-[10px] font-[500] text-[18px] leading-[16px] tracking-[1.25px] cursor-pointer active:scale-95 hover:bg-primary hover:text-white transition-all duration-200">
                                         +
                                         <span class="text-[16px]">Add To Cart</span>
                                     </button>
@@ -1189,7 +1189,7 @@
         </section>
     </main>
 
-    <footer class="w-full bg-main font-['Inter'] max-md:pb-[130px] text-white">
+    <footer class="w-full bg-primary font-['Inter'] max-md:pb-[130px] text-white">
         <div class="max-w-[1152px] w-full mx-auto md:px-3 md:flex justify-between md:mb-[50px]">
             <div
                 class="flex w-full justify-between pt-[30px] md:pt-[84px] max-md:px-4 max-md:pb-[30px] max-md:border-b border-[#FFFFFF] gap-x-2 md:mx-5 md:max-w-[535px] md:order-5">
@@ -1250,19 +1250,19 @@
 
                 <div class="flex gap-x-[34px] mt-10">
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-brands fa-linkedin-in"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-brands fa-facebook-f"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-brands fa-twitter"></i>
                     </a>
                     <a href="#" target="_blank"
-                        class="w-[30px] h-[30px] rounded-full bg-white text-main grid place-items-center">
+                        class="w-[30px] h-[30px] rounded-full bg-white text-primary grid place-items-center">
                         <i class="text-[18px] fa-solid fa-share"></i>
                     </a>
                 </div>

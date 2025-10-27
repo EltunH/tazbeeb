@@ -5,47 +5,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@900,800,700,600,500,400,300&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./src/output.css" />
-
 </head>
 
-<body>
+<body class="overflow-x-hidden">
     <header class="font-['Inter']">
         <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-primary flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
                 <div class="flex items-center gap-x-10">
-                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                    <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
                         <option class="text-black" value="english">En</option>
                         <option class="text-black" value="arabic">Ar</option>
                     </select>
-                    <select name="" id="" class="text-[15px] font-[500] text-white">
+                    <select name="" id="" class="text-[15px] outline-none font-[500] text-white">
                         <option class="text-black" value="usd">USD</option>
                         <option class="text-black" value="uae">UAE</option>
                     </select>
                 </div>
                 <div class="flex items-center gap-x-5">
-                    <a href="#" class="text-white text-[15px] font-[500]">News</a>
-                    <a href="#" class="text-white text-[15px] font-[500]">Contact</a>
+                    <a href="latest-post.htm" class="text-white text-[15px] font-[500]">News</a>
+                    <a href="contact.htm" class="text-white text-[15px] font-[500]">Contact</a>
                 </div>
             </div>
         </div>
         <div
             class="max-w-[1152px] w-full mx-auto px-3 max-tablet:h-[75px] max-md:px-4 md:pt-5 md:pb-[20px] flex justify-between items-center">
-            <div class="flex gap-x-[30px] items-center mr-10">
+            <div class="flex gap-x-[15px] xsm:gap-x-[30px] items-center xsm:mr-10">
                 <i onclick="showHamburgerMenu()"
                     class="fa-solid fa-bars text-[23px] tablet:!hidden cursor-pointer text-primary"></i>
                 <a href="index.htm">
-                    <img src="./img/logo_small.png" width="116" height="24" alt="logo" />
+                    <img src="./img/logo_small.png" width="116" height="24"
+                        class="max-w-[116px] max-h-[24px] min-w-[116px] min-h-[24px]" alt="logo" />
                 </a>
             </div>
 
-            <div class="max-tablet:hidden flex items-center gap-x-[40px] lg:gap-x-[80px] xl:gap-x-[166px]">
+            <div class="max-tablet:hidden flex items-center gap-x-[30px] lg:gap-x-[60px] xl:gap-x-[166px]">
                 <div id="searchAndCategoryParentDiv"
                     class="w-[450px] relative rounded-[6px] h-[45px] bg-[#F7F7F7] flex items-center">
                     <button id="categoryDropDownBtn" onclick="hideCategoryDropDown()"
@@ -56,7 +58,6 @@
                     <input type="text" name="search" id="searchInp" placeholder="search"
                         class="w-[300px] h-[28px] outline-none text-[14px] pl-4 pr-11 border-l border-l-[#7C7C7C]" />
                     <img src="./img/search.png" alt="search" class="absolute right-4" width="14" height="14" />
-                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
 
                     <!-- Category dropdown div -->
                     <div id="categoryDropDownDiv"
@@ -185,23 +186,27 @@
                     <span>Pro Membership</span>
                     <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
                 </a>
-                <button onclick="hideLoginModal()" class="relative cursor-pointer">
-                    <img id="openBtn" src="./img/group.png" alt="group"
-                        class="max-w-[18px] max-h-[22px] w-full h-full" />
+                <button id="openBtn" onclick="hideLoginModal()" class="relative cursor-pointer">
+                    <img src="./img/group.png" alt="group"
+                        class="max-w-[18px] min-w-[18px] max-h-[22px] min-h-[22px] w-full h-full pointer-events-none" />
+                    <i
+                        class="fa-solid fa-crown text-[#F79E1B] absolute top-[-16px] text-[17px] left-[-2px] pointer-events-none"></i>
                     <div onclick="event.stopPropagation()" id="loginModal"
                         class="w-[211px] h-[130px] hidden shadow-[4px_4px_15px_5px_#00000026] flex flex-col gap-y-[10px] justify-center items-center rounded-[6px] right-0 top-[42px] z-[999] bg-white absolute">
-                        <a href="login.htm"
+                        <a href="register.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-white text-[14px] font-[500] bg-primary">Sign
                             up</a>
-                        <a href="register.htm"
+                        <a href="login.htm"
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
                     </div>
                 </button>
                 <a href="#">
-                    <img src="./img/heart.png" alt="heart" class="max-w-[25px] max-h-[22px] w-full h-full" />
+                    <img src="./img/heart.png" alt="heart"
+                        class="max-w-[25px] max-h-[22px] min-w-[25px] min-h-[22px] w-full h-full" />
                 </a>
                 <a href="#">
-                    <img src="./img/shop.png" alt="shop" class="max-w-[18px] max-h-[22px] w-full h-full" />
+                    <img src="./img/shop.png" alt="shop"
+                        class="max-w-[18px] max-h-[22px] min-w-[18px] min-h-[22px] w-full h-full" />
                 </a>
             </div>
         </div>
@@ -233,7 +238,7 @@
 
         <!-- Hamburger menu mobile -->
         <div onclick="hideHamburgerMenu()" id="hamburgerMenuDiv"
-            class="fixed hidden inset-0 bg-[#0F0F3240] z-[9999999]">
+            class="fixed hidden inset-0 bg-[#0F0F3240] z-[999999999]">
             <div onclick="event.stopPropagation()" id="sideBar"
                 class="w-[313px] h-[100vh] fixed left-[-100%] pt-[30px] bg-primary transition-all duration-300 px-5 overflow-y-auto">
                 <div
@@ -243,7 +248,7 @@
                 </div>
                 <div class="relative mb-10">
                     <input type="text" name="search" id="searchInp" placeholder="search"
-                        class="w-full bg-white h-[45px] rounded-[6px] outline-none text-[14px] pl-4 pr-11" />
+                        class="w-full bg-white h-[45px] rounded-[6px] outline-none focus:border focus:border-[#868686] text-[14px] pl-4 pr-11" />
                     <img src="./img/search.png" alt="search" class="absolute right-4 top-[15px]" width="14"
                         height="14" />
                 </div>
@@ -285,8 +290,8 @@
                     </li>
                 </menu>
                 <div class="mt-10 pb-10 border-b border-[#E7EEFF] flex flex-col">
-                    <a href="#" class="text-white w-fit font-[500] mb-10">News</a>
-                    <a href="#" class="text-white w-fit font-[500]">Contact</a>
+                    <a href="latest-post.htm" class="text-white w-fit font-[500] mb-10">News</a>
+                    <a href="contact.htm" class="text-white w-fit font-[500]">Contact</a>
                 </div>
                 <div class="mt-10 mb-20 flex justify-between">
                     <select name="" id="" class="text-[15px] font-[500] text-white">
@@ -363,83 +368,289 @@
         </div>
     </header>
 
+    <main class="max-w-[1152px] w-full mx-auto md:px-3">
+        <section class="mt-5 md:mt-[60px] font-['Inter'] max-md:px-4 mb-[100px] md:mb-[200px]">
+            <div class="flex justify-between items-center max-w-[991px]">
+                <img onclick="goBack()" src="./img/arrow-turn-left.svg" alt="left arrow" class="cursor-pointer w-[20px]" />
 
-    <main class="max-w-[1152px] w-full mx-auto px-4 md:px-3">
-        <section class="mt-5 md:mt-[57px] font-['Inter']">
-            <div class="md:flex justify-end">
-                <div class="md:w-1/2">
-                    <h1 class="mb-[20px] font-['Clash_Display'] font-[700] text-[22px] md:text-[52px] leading-[153%] md:leading-[121%]">About Us</h1>
-                    <p class="max-md:text-[14px] leading-[25px] mb-[20px] md:mb-[40px]">Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an lorem ipsum </p>
-                </div>
-            </div>
-
-            <div class="mb-[30px] md:mb-[50px]">
-                <img src="./img/about-us-img.jpg" alt="about-us-img" class="max-h-[245px] md:max-h-[529px] w-full object-cover" />
-            </div>
-
-            <div class="md:flex justify-between gap-x-5 mb-[75px] md:mb-[100px]">
-                <h3 class="font-['Clash_Display'] font-[700] text-[20px] md:text-[38px] md:max-w-[400px] leading-[130%] max-md:mb-[35px]">Lorem Ipsum Dolor lorem inmuto lorem ipsum doloret color for lor</h3>
-                <div class="space-y-[19px] md:space-y-[27px] md:w-1/2">
-                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
-                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.d more recently with desktop publishing software like Aldus PageMaker including versions </p>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap gap-y-5 md:gap-[24px] mb-[50px] md:mb-[100px] md:justify-between">
-                <div class="w-full h-[225px] md:w-[48%] bg-[#F6F6F6] rounded-[6px] flex flex-col justify-between items-start">
-                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-black">Brand count</span>
-                    <span class="text-[70px] font-['Clash_Display'] leading-[74%] font-[300]">1256</span>
-                </div>
-
-                <div class="w-full h-[225px] md:w-[48%] bg-primary rounded-[6px] flex flex-col justify-between items-start">
-                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-white text-white">Customer count</span>
-                    <div class="font-['Clash_Display'] font-[300] flex justify-between items-center w-full">
-                        <span class="text-[80px] leading-[74%] text-white">235</span>
-                        <span class="pr-5 text-[16px] text-white font-[600]">MLN</span>
+                <div class="flex md:max-w-[863px] w-full max-md:justify-end">
+                    <div data-step="1" class="relative w-[125px] md:w-full h-[56px] rounded-[6px]">
+                        <div
+                            class="[clip-path:polygon(0%_1%,75%_1%,80%_50%,75%_100%,0%_100%)] bg-primary w-full h-full absolute top-0 left-0 rounded-[6px]">
+                        </div>
+                        <div
+                            class="[clip-path:polygon(0%_0%,75%_0%,80%_50%,75%_101%,0%_101%)] bg-[#F5FBFF] absolute top-[1px] left-[1px] right-[1px] bottom-[1px] rounded-l-[5px]">
+                        </div>
+                        <span
+                            class="relative z-[1] flex items-center px-[25px] flex-wrap w-full h-full text-[13px] md:text-[14px] leading-5 font-[500] text-primary">Shipping
+                            address</span>
                     </div>
-                </div>
 
-                <div class="w-full h-[225px] md:w-[48%] bg-[#C0C0C0] rounded-[6px] flex flex-col justify-between items-start">
-                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-white text-white">Product count</span>
-                    <div class="font-['Clash_Display'] font-[300] flex justify-between items-center w-full">
-                        <span class="text-[80px] leading-[74%] text-white">50</span>
-                        <span class="pr-5 text-[16px] text-white font-[600]">MLN</span>
+                    <div data-step="2" class="relative w-[125px] md:w-full h-[56px] ml-[-31px] md:ml-[-9%]">
+                        <div
+                            class="[clip-path:polygon(0%_1%,75%_1%,80%_50%,75%_100%,0%_100%,5%_50%)] bg-[#C4C4C4] w-full h-full absolute top-0 left-0">
+                        </div>
+                        <div
+                            class="[clip-path:polygon(0%_0%,75%_0%,80%_50%,75%_101%,0%_101%,5%_50%)] bg-white absolute top-[1px] left-[1px] right-[1px] bottom-[1px]">
+                        </div>
+                        <span
+                            class="relative z-[1] flex items-center px-[25px] md:pl-[20%] flex-wrap w-full h-full text-[13px] md:text-[14px] leading-5 text-[#848484]">Shipping
+                            method</span>
                     </div>
-                </div>
-                
-                <div class="w-full h-[225px] md:w-[48%] bg-[#D4FF05] rounded-[6px] flex flex-col justify-between items-start">
-                    <span class="table leading-[74%] pt-[20px] pb-[12px] ml-[20px] font-['Clash_Display'] border-b border-black">Brand count</span>
-                    <div class="font-['Clash_Display'] font-[300] flex justify-between items-center w-full">
-                        <span class="text-[80px] leading-[74%]">1256</span>
-                        <span class="pr-5 text-[16px] font-[600]">MLN</span>
+
+                    <div data-step="3"
+                        class="relative w-[125px] md:w-full h-[56px] ml-[-31px] md:ml-[-9%] rounded-r-[6px]">
+                        <div
+                            class="[clip-path:polygon(0%_1%,100%_1%,100%_100%,75%_100%,0%_100%,5%_50%)] bg-[#C4C4C4] w-full h-full absolute top-0 left-0 rounded-r-[6px]">
+                        </div>
+                        <div
+                            class="[clip-path:polygon(0%_0%,100%_0%,100%_101%,74%_101%,0%_101%,5%_50%)] bg-white absolute top-[1px] left-[1px] right-[1px] bottom-[1px] rounded-r-[5px]">
+                        </div>
+                        <span
+                            class="relative z-[1] flex items-center px-[25px] md:pl-[20%] flex-wrap w-full h-full text-[13px] md:text-[14px] leading-5 text-[#848484]">Payment
+                            method</span>
                     </div>
                 </div>
             </div>
 
-            <div class="md:flex justify-between gap-x-5 mb-[120px] md:mb-[200px]">
-                <h3 class="font-['Clash_Display'] font-[700] text-[20px] md:text-[38px] md:max-w-[400px] leading-[130%] max-md:mb-[35px] md:text-right md:order-2">Lorem Ipsum Dolor lorem inmuto</h3>
-                <div class="space-y-[19px] md:space-y-[27px] md:w-1/2 md:order-1">
-                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever stype and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
-                    <p class="max-md:text-[14px] leading-[30px] md:leading-[34px]">But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum</p>
+            <div id="shippingAddressDiv" class="mt-[30px] md:mt-[50px] md:flex md:gap-x-6">
+                <div class="md:w-[69%] w-full bg-[#F8F8F8] rounded-[6px] p-[20px_16px_27px] md:p-[30px_30px_60px]">
+                    <p class="text-[20px] font-[600] leading-[100%]">Delivery Address</p>
+                    <div class="mt-5 flex gap-5 md:justify-between flex-wrap">
+                        <div class="w-full md:w-[47%]">
+                            <label class="text-[14px] leading-[100%]">Country*</label>
+                            <select
+                                class="w-full h-[50px] md:h-[45px] p-2 bg-white rounded-[4px] border border-[#979797] outline-none mt-[10px]"></select>
+                        </div>
+
+                        <div class="w-full md:w-[47%]">
+                            <label class="text-[14px] leading-[100%]">City*</label>
+                            <select
+                                class="w-full h-[50px] md:h-[45px] p-2 bg-white rounded-[4px] border border-[#979797] outline-none mt-[10px]"></select>
+                        </div>
+
+                        <div class="w-full md:w-[47%]">
+                            <label class="text-[14px] leading-[100%]">Street Address*</label>
+                            <input type="text"
+                                class="w-full h-[50px] p-2 md:h-[45px] bg-white rounded-[4px] border border-[#979797] outline-none mt-[10px]"></input>
+                        </div>
+
+                        <div class="w-full md:w-[47%]">
+                            <label class="text-[14px] leading-[100%]">Number*</label>
+                            <input type="number"
+                                class="w-full h-[50px] p-2 md:h-[45px] bg-white rounded-[4px] border border-[#979797] outline-none mt-[10px]"></input>
+                        </div>
+
+                        <div class="w-full md:w-[47%]">
+                            <label class="text-[14px] leading-[100%]">Zip Code*</label>
+                            <input type="text"
+                                class="w-full h-[50px] p-2 md:h-[45px] bg-white rounded-[4px] border border-[#979797] outline-none mt-[10px]"></input>
+                        </div>
+
+                        <div class="w-full md:w-[47%]">
+                            <label class="text-[14px] leading-[100%]">Additional Details</label>
+                            <input type="text"
+                                class="w-full h-[50px] p-2 md:h-[45px] bg-white rounded-[4px] border border-[#979797] outline-none mt-[10px]"></input>
+                        </div>
+
+                        <div class="flex items-center gap-x-[10px] md:gap-x-[6px] md:mt-[13px]">
+                            <input type="checkbox" class="w-[15px] h-[15px]" />
+                            <label class="text-[12px]">Billing address is the same as delivery addres</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-[31%] w-full">
+                    <div class="bg-[#F8F8F8] rounded-[6px] p-[20px_16px_24px] md:p-[30px_20px_20px]">
+                        <p class="text-[17px] md:text-[18px] font-[600] leading-[100%]">Summary</p>
+
+                        <div class="mt-5 flex flex-col gap-y-5 pb-5 border-b border-[#C1C1C1]">
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/watch-snake.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/gold-watch.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-[14px] leading-[100%] font-medium pb-5 border-b border-[#C1C1C1]">
+                            <p class="flex justify-between items-center">
+                                <span class="md:text-[16px]">Total price</span>
+                                <span>AED 2895</span>
+                            </p>
+                            <p class="flex justify-between items-center mt-5">
+                                <span class="md:text-[16px]">Delivery</span>
+                                <span>AED 5</span>
+                            </p>
+                            <p class="flex justify-between items-center mt-5">
+                                <span class="md:text-[16px]">Coupon Sale</span>
+                                <span class="text-[#C30000]">- AED 35</span>
+                            </p>
+                        </div>
+
+                        <p class="flex justify-between leading-[100%] font-medium items-center mt-5">
+                            <span class="text-[14px] md:text-[16px]">SubTotal:</span>
+                            <span class="text-primary font-[700]">AED 2895</span>
+                        </p>
+                    </div>
+
+                    <div
+                        class="max-md:fixed max-md:z-20 bottom-0 w-full max-md:bg-white left-0 max-md:p-[20px_16px] max-md:h-[124px] max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
+                        <p class="md:hidden font-medium flex items-center justify-between mb-5 leading-[100%]">
+                            <span>SubTotal:</span>
+                            <span class="text-primary font-[700] leading-6">AED 2895</span>
+                        </p>
+                        <button onclick="goShippingMethod()"
+                            class="w-full bg-primary cursor-pointer h-[50px] text-white rounded-[6px] md:mt-5 active:scale-95 transition-all duration-200">Save
+                            and Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="shippingMethodDiv" class="hidden! mt-[30px] md:mt-[50px] md:flex md:gap-x-6">
+                <div class="md:w-[69%] w-full">
+                    <div class="bg-[#F8F8F8] rounded-[6px] pb-[26px]">
+                        <p class="text-[20px] font-[600] p-[20px_16px_0] md:p-[26px_30px_0] leading-[100%]">Shipment
+                            Method</p>
+
+                        <div class="mt-5 p-[20px_16px_0] md:p-[25px_30px_20px] bg-white">
+                            <div class="pb-5 md:pb-[25px] border-b border-[#E4E4E4]">
+                                <div class="flex justify-between">
+                                    <p class="font-[700] flex items-center gap-x-[14px] leading-[100%]">
+                                        Standart
+                                        <i class="fa-solid fa-check text-[12px]"></i>
+                                    </p>
+
+                                    <p class="font-[700] flex items-center gap-x-[14px] leading-[100%]">
+                                        AED 35
+                                    </p>
+                                </div>
+                                <p class="text-[12px] text-[#818181] leading-[100%] mt-[10px]">Your items will be sent
+                                    for faster possible delivery</p>
+                            </div>
+
+                            <div class="mt-5 md:mt-7 md:flex justify-between items-center">
+                                <div>
+                                    <p class="font-[700] flex items-center gap-x-[14px] leading-[100%]">FREE</p>
+                                    <p class="text-[12px] text-[#818181] leading-[100%] mt-[10px]">Get free shipping on
+                                        your items with PRO MEMBERSHIP</p>
+                                </div>
+                                <a href="#"
+                                    class="w-full md:w-[186px] max-md:mt-5 relative px-[15px] flex items-center text-[14px] font-[500] font-['Clash_Display'] text-white h-[45px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF] cursor-pointer">
+                                    <i
+                                        class="fa-solid fa-crown absolute text-[#F79E1B] text-[10px] left-[23px] top-[9px]"></i>
+                                    <span class="text-nowrap">Pro Membership</span>
+                                    <img src="./img/group-right-arrow.png" alt="right arrow"
+                                        class="w-[24px] h-[12px] ml-[15px]" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full bg-[#FBFBFB] rounded-[6px] mt-5 p-[16px_16px_38px] max-md:mb-5 md:p-[26px_30px_38px_36px]">
+                        <p class="font-[600] leading-[100%] flex justify-between items-center">
+                            <span>Address</span>
+                            <a href="#" class="underline">Edit</a>
+                        </p>
+                        <p class="font-[600] leading-[100%] mt-5">UAE, Dubai</p>
+                        <p class="text-[14px] font-[500] mt-[15px]">TZB740732 Tazbeeb, 15 Lorem ipsum. Dol. no 65. Blok
+                            D.13</p>
+                        <p class="text-[14px] font-[500] leading-[100%] mt-[15px]">+99674408434</p>
+                    </div>
+                </div>
+
+                <div class="md:w-[31%] w-full">
+                    <div class="bg-[#F8F8F8] rounded-[6px] p-[20px_16px_24px] md:p-[30px_20px_20px]">
+                        <p class="text-[17px] md:text-[18px] font-[600] leading-[100%]">Summary</p>
+
+                        <div class="mt-5 flex flex-col gap-y-5 pb-5 border-b border-[#C1C1C1]">
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/watch-snake.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/gold-watch.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-[14px] leading-[100%] font-medium pb-5 border-b border-[#C1C1C1]">
+                            <p class="flex justify-between items-center">
+                                <span class="md:text-[16px]">Total price</span>
+                                <span>AED 2895</span>
+                            </p>
+                            <p class="flex justify-between items-center mt-5">
+                                <span class="md:text-[16px]">Delivery</span>
+                                <span>AED 5</span>
+                            </p>
+                            <p class="flex justify-between items-center mt-5">
+                                <span class="md:text-[16px]">Coupon Sale</span>
+                                <span class="text-[#C30000]">- AED 35</span>
+                            </p>
+                        </div>
+
+                        <p class="flex justify-between leading-[100%] font-medium items-center mt-5">
+                            <span class="text-[14px] md:text-[16px]">SubTotal:</span>
+                            <span class="text-primary font-[700]">AED 2895</span>
+                        </p>
+                    </div>
+
+                    <div
+                        class="max-md:fixed max-md:z-20 bottom-0 w-full max-md:bg-white left-0 max-md:p-[20px_16px] max-md:h-[124px] max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
+                        <p class="md:hidden font-medium flex items-center justify-between mb-5 leading-[100%]">
+                            <span>SubTotal:</span>
+                            <span class="text-primary font-[700] leading-6">AED 2895</span>
+                        </p>
+                        <button disabled id="saveContinueBtn"
+                            class="w-full disabled:bg-[#C8C8C8] disabled:active:scale-none disabled:cursor-not-allowed bg-primary cursor-pointer h-[50px] text-white rounded-[6px] md:mt-5 active:scale-95 transition-all duration-200">Save
+                            and Continue</button>
+                    </div>
+
+                    <div class="mt-5 md:mt-[30px] flex items-start gap-x-3">
+                        <input id="termsConditionsCheckbox" onchange="termsConditionsChange()" type="checkbox"
+                            class="min-w-[20px] min-h-[20px] md:min-w-[15px] md:min-h-[15px]" />
+                        <p class="text-[12px] text-[#888888] leading-5">
+                            I have read and approve the <a href="./terms-conditions.htm"
+                                class="text-primary font-medium underline underline-offset-2">Terms & Conditions.</a>
+                            <br>
+                            I agree that I cannot refuse to perform the contract once the product has been shipped.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="w-full bg-primary font-['Inter'] max-md:pb-[130px] text-white">
-        <!-- Pro membership/mobile -->
-        <div
-            class="bg-white p-[25px] w-full md:hidden fixed bottom-0 h-[100px] z-[999999] shadow-[0px_0px_10px_6px_#002C961F] left-0 right-0">
-            <a href="#"
-                class="w-full relative px-[15px] flex items-center justify-between font-[500] font-['Clash_Display'] text-white h-[50px] rounded-[6px] bg-gradient-to-r from-primary to-[#00AEFF]">
-                <span>
-                    <i class="fa-solid fa-crown text-[#F79E1B] text-[17px]"></i>
-                    Pro Membership
-                </span>
-                <img src="./img/group-right-arrow.png" alt="right arrow" width="24" height="12" class="ml-[15px]" />
-            </a>
-        </div>
-
         <div class="max-w-[1152px] w-full mx-auto md:px-3 md:flex justify-between md:mb-[50px]">
             <div
                 class="flex w-full justify-between pt-[30px] md:pt-[84px] max-md:px-4 max-md:pb-[30px] max-md:border-b border-[#FFFFFF] gap-x-2 md:mx-5 md:max-w-[535px] md:order-5">
@@ -603,6 +814,70 @@
     </footer>
 
     <script>
+        const termsConditionsCheckbox = document.getElementById('termsConditionsCheckbox')
+        const saveContinueBtn = document.getElementById('saveContinueBtn')
+        const shippingAddressDiv = document.getElementById('shippingAddressDiv')
+        const shippingMethodDiv = document.getElementById('shippingMethodDiv')
+
+        function termsConditionsChange() {
+            saveContinueBtn.disabled = termsConditionsCheckbox.checked ? false : true
+        }
+
+        function goShippingMethod() {
+            const step1 = document.querySelector('[data-step="1"]');
+            const step2 = document.querySelector('[data-step="2"]');
+            const step3 = document.querySelector('[data-step="3"]');
+
+            // Step dəyişimi: Address → Method
+            shippingAddressDiv.classList.add("hidden!");
+            shippingMethodDiv.classList.remove("hidden!");
+
+            // helper function - rəng dəyişimi
+            const setStepState = (stepEl, isActive) => {
+                const outers = stepEl.querySelectorAll("div");
+                const innerDiv = outers[1];
+                const outerDiv = outers[0];
+                const label = stepEl.querySelector("span");
+
+                if (isActive) {
+                    outerDiv.classList.remove("bg-[#C4C4C4]");
+                    outerDiv.classList.add("bg-primary");
+
+                    innerDiv.classList.remove("bg-white");
+                    innerDiv.classList.add("bg-[#F5FBFF]");
+
+                    label.classList.remove("text-[#848484]");
+                    label.classList.add("text-primary", "font-[500]");
+                } else {
+                    outerDiv.classList.remove("bg-primary");
+                    outerDiv.classList.add("bg-[#C4C4C4]");
+
+                    innerDiv.classList.remove("bg-[#F5FBFF]");
+                    innerDiv.classList.add("bg-white");
+
+                    label.classList.remove("text-primary", "font-[500]");
+                    label.classList.add("text-[#848484]");
+                }
+            };
+
+            // Step 1 → passiv
+            setStepState(step1, false);
+
+            // Step 2 → aktiv
+            setStepState(step2, true);
+
+            // Step 3 → passiv (hələlik)
+            setStepState(step3, false);
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function goBack() {
+
+        }
+    </script>
+
+    <script>
         // Header scripts
         const loginModal = document.getElementById('loginModal');
         const openBtn = document.getElementById('openBtn');
@@ -615,14 +890,14 @@
         const sideBar = document.getElementById('sideBar');
         const categorySideBar = document.getElementById('categorySideBar');
 
-        const hideLoginModal = () => loginModal.classList.toggle('hidden')
+        const hideLoginModal = () => loginModal.classList.toggle('hidden');
         document.addEventListener('click', function (e) {
             if (!loginModal.contains(e.target) && e.target !== openBtn) {
                 loginModal.classList.add('hidden');
             }
         });
 
-        const hideCategoryDropDown = () => categoryDropDownDiv.classList.toggle('hidden')
+        const hideCategoryDropDown = () => categoryDropDownDiv.classList.toggle('hidden');
         document.addEventListener('click', function (e) {
             if (!categoryDropDownDiv.contains(e.target) && e.target !== categoryDropDownBtn) {
                 categoryDropDownDiv.classList.add('hidden');
