@@ -14,6 +14,65 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./src/output.css" />
+
+    <style>
+        /* custom input checkbox */
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 12px;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .custom-checkbox .checkmark {
+            width: 15px;
+            height: 15px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-checkbox input:checked+.checkmark {
+            border-color: #0000EE;
+        }
+
+        .custom-checkbox .checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 4px;
+            top: 1px;
+            width: 4px;
+            height: 9px;
+            border: solid #0000EE;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input:checked+.checkmark::after {
+            display: block;
+        }
+
+
+        /* number input css */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: none;
+        }
+    </style>
 </head>
 
 <body class="overflow-x-hidden">
@@ -371,48 +430,51 @@
     <main class="max-w-[1152px] w-full mx-auto md:px-3">
         <section class="mt-5 md:mt-[60px] font-['Inter'] max-md:px-4 mb-[100px] md:mb-[200px]">
             <div class="flex justify-between items-center max-w-[991px]">
-                <img onclick="goBack()" src="./img/arrow-turn-left.svg" alt="left arrow" class="cursor-pointer w-[20px]" />
+                <a href="./shopping-card.htm">
+                    <img src="./img/arrow-turn-left.svg" alt="left arrow" class="cursor-pointer w-[20px]" />
+                </a>
 
                 <div class="flex md:max-w-[863px] w-full max-md:justify-end">
                     <div data-step="1" class="relative w-[125px] md:w-full h-[56px] rounded-[6px]">
-                        <div
+                        <div id="shipAddressBorder"
                             class="[clip-path:polygon(0%_1%,75%_1%,80%_50%,75%_100%,0%_100%)] bg-primary w-full h-full absolute top-0 left-0 rounded-[6px]">
                         </div>
-                        <div
+                        <div id="shipAddressBg"
                             class="[clip-path:polygon(0%_0%,75%_0%,80%_50%,75%_101%,0%_101%)] bg-[#F5FBFF] absolute top-[1px] left-[1px] right-[1px] bottom-[1px] rounded-l-[5px]">
                         </div>
-                        <span
+                        <span id="shipAddressSpan"
                             class="relative z-[1] flex items-center px-[25px] flex-wrap w-full h-full text-[13px] md:text-[14px] leading-5 font-[500] text-primary">Shipping
                             address</span>
                     </div>
 
                     <div data-step="2" class="relative w-[125px] md:w-full h-[56px] ml-[-31px] md:ml-[-9%]">
-                        <div
+                        <div id="shipMethodBorder"
                             class="[clip-path:polygon(0%_1%,75%_1%,80%_50%,75%_100%,0%_100%,5%_50%)] bg-[#C4C4C4] w-full h-full absolute top-0 left-0">
                         </div>
-                        <div
+                        <div id="shipMethodBg"
                             class="[clip-path:polygon(0%_0%,75%_0%,80%_50%,75%_101%,0%_101%,5%_50%)] bg-white absolute top-[1px] left-[1px] right-[1px] bottom-[1px]">
                         </div>
-                        <span
+                        <span id="shipMethodSpan"
                             class="relative z-[1] flex items-center px-[25px] md:pl-[20%] flex-wrap w-full h-full text-[13px] md:text-[14px] leading-5 text-[#848484]">Shipping
                             method</span>
                     </div>
 
                     <div data-step="3"
                         class="relative w-[125px] md:w-full h-[56px] ml-[-31px] md:ml-[-9%] rounded-r-[6px]">
-                        <div
+                        <div id="paymentMethodBorder"
                             class="[clip-path:polygon(0%_1%,100%_1%,100%_100%,75%_100%,0%_100%,5%_50%)] bg-[#C4C4C4] w-full h-full absolute top-0 left-0 rounded-r-[6px]">
                         </div>
-                        <div
+                        <div id="paymentMethodBg"
                             class="[clip-path:polygon(0%_0%,100%_0%,100%_101%,74%_101%,0%_101%,5%_50%)] bg-white absolute top-[1px] left-[1px] right-[1px] bottom-[1px] rounded-r-[5px]">
                         </div>
-                        <span
+                        <span id="paymentMethodSpan"
                             class="relative z-[1] flex items-center px-[25px] md:pl-[20%] flex-wrap w-full h-full text-[13px] md:text-[14px] leading-5 text-[#848484]">Payment
                             method</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Shipping Address -->
             <div id="shippingAddressDiv" class="mt-[30px] md:mt-[50px] md:flex md:gap-x-6">
                 <div class="md:w-[69%] w-full bg-[#F8F8F8] rounded-[6px] p-[20px_16px_27px] md:p-[30px_30px_60px]">
                     <p class="text-[20px] font-[600] leading-[100%]">Delivery Address</p>
@@ -515,21 +577,22 @@
                             <span>SubTotal:</span>
                             <span class="text-primary font-[700] leading-6">AED 2895</span>
                         </p>
-                        <button onclick="goShippingMethod()"
+                        <button onclick="updateStep(1)"
                             class="w-full bg-primary cursor-pointer h-[50px] text-white rounded-[6px] md:mt-5 active:scale-95 transition-all duration-200">Save
                             and Continue</button>
                     </div>
                 </div>
             </div>
 
+            <!-- Shipping Method -->
             <div id="shippingMethodDiv" class="hidden! mt-[30px] md:mt-[50px] md:flex md:gap-x-6">
                 <div class="md:w-[69%] w-full">
                     <div class="bg-[#F8F8F8] rounded-[6px] pb-[26px]">
                         <p class="text-[20px] font-[600] p-[20px_16px_0] md:p-[26px_30px_0] leading-[100%]">Shipment
                             Method</p>
 
-                        <div class="mt-5 p-[20px_16px_0] md:p-[25px_30px_20px] bg-white">
-                            <div class="pb-5 md:pb-[25px] border-b border-[#E4E4E4]">
+                        <div class="mt-5 md:mt-[25px] p-[20px_16px_0] md:p-[25px_30px_20px] bg-white">
+                            <div class="pb-5 md:pb-[25px] cursor-pointer border-b border-[#E4E4E4]">
                                 <div class="flex justify-between">
                                     <p class="font-[700] flex items-center gap-x-[14px] leading-[100%]">
                                         Standart
@@ -566,7 +629,7 @@
                         class="w-full bg-[#FBFBFB] rounded-[6px] mt-5 p-[16px_16px_38px] max-md:mb-5 md:p-[26px_30px_38px_36px]">
                         <p class="font-[600] leading-[100%] flex justify-between items-center">
                             <span>Address</span>
-                            <a href="#" class="underline">Edit</a>
+                            <button onclick="updateStep(0)" class="underline cursor-pointer">Edit</button>
                         </p>
                         <p class="font-[600] leading-[100%] mt-5">UAE, Dubai</p>
                         <p class="text-[14px] font-[500] mt-[15px]">TZB740732 Tazbeeb, 15 Lorem ipsum. Dol. no 65. Blok
@@ -630,7 +693,7 @@
                             <span>SubTotal:</span>
                             <span class="text-primary font-[700] leading-6">AED 2895</span>
                         </p>
-                        <button disabled id="saveContinueBtn"
+                        <button onclick="updateStep(2)" disabled id="saveContinueBtn"
                             class="w-full disabled:bg-[#C8C8C8] disabled:active:scale-none disabled:cursor-not-allowed bg-primary cursor-pointer h-[50px] text-white rounded-[6px] md:mt-5 active:scale-95 transition-all duration-200">Save
                             and Continue</button>
                     </div>
@@ -647,7 +710,313 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Payment Method -->
+            <div id="paymentMethodDiv" class="hidden! mt-[30px] md:mt-[50px] md:flex md:gap-x-6">
+                <div class="md:w-[69%] w-full">
+                    <div class="bg-[#F8F8F8] rounded-[6px] pb-5 md:pb-[26px]">
+                        <p class="text-[20px] font-[600] p-[20px_16px_0] md:p-[26px_30px_0] leading-[100%]">Payment
+                            Method</p>
+
+                        <div class="mt-5 md:mt-[25px] p-[20px_16px] md:p-[25px] bg-white">
+                            <div class="pb-5 md:pb-[25px] flex gap-x-5 md:gap-x-[15px] border-b border-[#E4E4E4]">
+                                <label class="custom-checkbox text-[16px] items-start! font-[600]">
+                                    <input onclick="changePayMethod()" type="radio" id="cardPayCheck" name="payMethod"
+                                        class="w-[16px] h-[16px]" />
+                                    <span class="checkmark"></span>
+                                </label>
+
+                                <p class="text-[12px] text-[#818181] leading-[100%] items-start flex flex-col gap-y-2">
+                                    <span class="text-[16px] text-black font-[600]">Card</span>
+                                    <span>You will be adding card details</span>
+                                </p>
+                            </div>
+
+                            <div class="pt-5 md:pt-[25px] flex gap-x-5 md:gap-x-[15px]">
+                                <label class="custom-checkbox text-[16px] items-start! font-[600]">
+                                    <input onclick="changePayMethod()" type="radio" name="payMethod"
+                                        class="w-[16px] h-[16px]" />
+                                    <span class="checkmark"></span>
+                                </label>
+
+                                <p class="text-[12px] text-[#818181] leading-[100%] items-start flex flex-col gap-y-2">
+                                    <span class="text-[16px] text-black font-[600]">Apple Pay, Google Pay</span>
+                                    <span>You will be redirected to a secure payment gateway to complete your
+                                        order</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="cardDetails" class="hidden p-[20px_16px_0] md:p-[30px_24px_0]">
+                            <p class="font-[600] leading-[100%]">Card Details</p>
+
+                            <div class="flex flex-wrap gap-5 justify-between mt-5 md:mt-[25px]">
+                                <label class="text-[14px] w-full md:w-[47%]">
+                                    Cardholder name
+                                    <input type="text"
+                                        class="w-full h-[50px] md:h-[45px] mt-[10px] rounded-[4px] outline-none px-5 border border-[#979797] focus:border-[#868686] text-[14px]" />
+                                </label>
+
+                                <label class="text-[14px] w-full md:w-[47%]">
+                                    Card number
+                                    <input type="number"
+                                        class="w-full h-[50px] md:h-[45px] mt-[10px] rounded-[4px] outline-none px-5 border border-[#979797] focus:border-[#868686] text-[14px]" />
+                                </label>
+
+                                <label class="text-[14px] w-full md:w-[47%]">
+                                    Expiration date
+                                    <input type="text" id="expiry" maxlength="5" placeholder="MM/YY"
+                                        class="w-full h-[50px] md:h-[45px] mt-[10px] rounded-[4px] outline-none px-5 border border-[#979797] focus:border-[#868686] text-[14px]" />
+                                </label>
+
+                                <label class="text-[14px] w-full md:w-[47%]">
+                                    Security code
+                                    <input type="number" placeholder="CVV"
+                                        class="w-full h-[50px] md:h-[45px] mt-[10px] rounded-[4px] outline-none px-5 border border-[#979797] focus:border-[#868686] text-[14px]" />
+                                </label>
+                            </div>
+
+                            <label
+                                class="text-[12px] cursor-pointer leading-[100%] flex items-center gap-x-[18px] md:gap-x-[10px] mt-[30px] md:mt-[15px]">
+                                <label class="custom-checkbox cursor-pointer text-[16px] items-start! font-[600]">
+                                    <input type="checkbox" />
+                                    <span class="checkmark"></span>
+                                </label>
+                                Save card details
+                            </label>
+                        </div>
+
+                        <div id="saveCards" class="hidden p-[33px_16px_0] md:p-[30px_24px_0]">
+                            <div class="flex justify-between items-start">
+                                <p class="font-[600] leading-[100%]">Saved Cards</p>
+                                <button onclick="addNewCard()"
+                                    class="max-md:hidden flex justify-center cursor-pointer gap-x-[14px] items-center w-[139px] h-[45px] border border-primary text-[12px] font-medium rounded-[6px] text-primary">
+                                    <span
+                                        class="w-[17px] h-[17px] border border-primary rounded-full flex items-center justify-center">
+                                        +
+                                    </span>
+                                    Add new card
+                                </button>
+                            </div>
+
+                            <div class="max-md:mt-[25px] flex gap-x-5">
+                                <div class="w-[48%] md:max-w-[191px]">
+                                    <label class="custom-checkbox cursor-pointer text-[16px] items-start! font-[600]">
+                                        <input type="radio" name="cardSave" />
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                    <div
+                                        class=" md:w-full h-[114px] flex flex-col mt-[10px] items-end text-[12px] font-[600] leading-[100%] text-white p-[20px_10px_20px_0px] md:p-5 rounded-[20px] bg-[linear-gradient(289.13deg,#00EEC6_0%,#6E6EFF_94.39%)]">
+                                        <img src="./img/visa.png" alt="visa logo" class="w-[30px] h-[9px]" />
+                                        <p class="mt-[27px]">5566 77** **** 9999</p>
+                                        <p class="mt-3">01/ 2022</p>
+                                    </div>
+                                </div>
+
+                                <div class="w-[48%] md:max-w-[191px]">
+                                    <label class="custom-checkbox cursor-pointer text-[16px] items-start! font-[600]">
+                                        <input type="radio" name="cardSave" />
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                    <div
+                                        class=" md:w-full h-[114px] flex flex-col mt-[10px] items-end text-[12px] font-[600] leading-[100%] text-white p-[20px_10px_20px_0px] md:p-5 rounded-[20px] bg-[linear-gradient(289.13deg,#FF6961_0%,#FF9F00_94.39%)]">
+                                        <div class="text-[4px] flex flex-col items-center">
+                                            <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp"
+                                                class=" w-[20px]" alt="mastercard" />
+                                            <span class="mt-[-5px] text-black cursor-default">mastercard</span>
+                                        </div>
+
+                                        <p class="mt-[9px]">5566 77** **** 9999</p>
+                                        <p class="mt-3">01/ 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="addNewCard()"
+                                class="md:hidden w-full h-[45px] mt-[30px] flex justify-center cursor-pointer gap-x-[14px] items-center border border-primary text-[12px] font-medium rounded-[6px] text-primary">
+                                <span
+                                    class="w-[17px] h-[17px] border border-primary rounded-full flex items-center justify-center">
+                                    +
+                                </span>
+                                Add new card
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="w-full bg-[#FBFBFB] rounded-[6px] mt-5 p-[20px_16px_25px] max-md:mb-5 md:p-[25px_30px]">
+                        <p class="font-[600] leading-[100%] flex justify-between items-center">
+                            <span>Shipment</span>
+                            <button onclick="updateStep(1)" class="underline cursor-pointer">Edit</button>
+                        </p>
+                        <p class="font-[600] leading-[100%] mt-5">Standart</p>
+                        <p class="text-[12px] text-[#818181] mt-[15px]">Your items will be sent for faster possible
+                            delivery</p>
+                    </div>
+
+                    <div
+                        class="w-full bg-[#FBFBFB] rounded-[6px] mt-5 p-[16px_16px_38px] max-md:mb-5 md:p-[26px_30px_38px_36px]">
+                        <p class="font-[600] leading-[100%] flex justify-between items-center">
+                            <span>Address</span>
+                            <button onclick="updateStep(0)" class="underline cursor-pointer">Edit</button>
+                        </p>
+                        <p class="font-[600] leading-[100%] mt-5">UAE, Dubai</p>
+                        <p class="text-[14px] font-[500] mt-[15px]">TZB740732 Tazbeeb, 15 Lorem ipsum. Dol. no 65. Blok
+                            D.13</p>
+                        <p class="text-[14px] font-[500] leading-[100%] mt-[15px]">+99674408434</p>
+                    </div>
+                </div>
+
+                <div class="md:w-[31%] w-full">
+                    <div class="bg-[#F8F8F8] rounded-[6px] p-[20px_16px_24px] md:p-[30px_20px_20px]">
+                        <p class="text-[17px] md:text-[18px] font-[600] leading-[100%]">Summary</p>
+
+                        <div class="mt-5 flex flex-col gap-y-5 pb-5 border-b border-[#C1C1C1]">
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/watch-snake.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/gold-watch.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-[14px] leading-[100%] font-medium pb-5 border-b border-[#C1C1C1]">
+                            <p class="flex justify-between items-center">
+                                <span class="md:text-[16px]">Total price</span>
+                                <span>AED 2895</span>
+                            </p>
+                            <p class="flex justify-between items-center mt-5">
+                                <span class="md:text-[16px]">Delivery</span>
+                                <span>AED 5</span>
+                            </p>
+                            <p class="flex justify-between items-center mt-5">
+                                <span class="md:text-[16px]">Coupon Sale</span>
+                                <span class="text-[#C30000]">- AED 35</span>
+                            </p>
+                        </div>
+
+                        <p class="flex justify-between leading-[100%] font-medium items-center mt-5">
+                            <span class="text-[14px] md:text-[16px]">SubTotal:</span>
+                            <span class="text-primary font-[700]">AED 2895</span>
+                        </p>
+                    </div>
+
+                    <div
+                        class="max-md:fixed max-md:z-20 bottom-0 w-full max-md:bg-white left-0 max-md:p-[20px_16px] max-md:h-[124px] max-md:shadow-[0px_-4px_10px_0px_#005AFF1A]">
+                        <p class="md:hidden font-medium flex items-center justify-between mb-5 leading-[100%]">
+                            <span>SubTotal:</span>
+                            <span class="text-primary font-[700] leading-6">AED 2895</span>
+                        </p>
+                        <button onclick="showHidePayModal(true)"
+                            class="w-full bg-primary cursor-pointer h-[50px] text-white rounded-[6px] md:mt-5 active:scale-95 transition-all duration-200">Save
+                            and Checkout</button>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Modal pay -->
+        <div id="modalPay" class="hidden overflow-y-scroll fixed inset-0 z-[99] bg-[#00002D80] max-md:px-4">
+
+            <div class="w-full min-h-full py-[50px] flex items-center justify-center">
+                <!-- Confirm modal -->
+                <div id="modalConfirm" class="w-full md:max-w-[350px] h-[148px] bg-white rounded-[6px] relative">
+                    <img onclick="showHidePayModal(false)" src="./img/close.png" alt="close"
+                        class="absolute right-5 top-5 w-[10px] cursor-pointer" />
+                    <p class="max-w-[223px] text-center my-[27px] mx-auto px-1 leading-[119%]">Are you sure want to make
+                        the
+                        payment?</p>
+                    <div class="border-t h-[56px] border-[#C4C4C4] flex">
+                        <button onclick="showHidePayModal(false)"
+                            class="w-full h-full border-r border-[#C4C4C4] cursor-pointer">No</button>
+                        <button onclick="paymentConfirm()"
+                            class="w-full h-full text-[#005AFF] font-medium cursor-pointer">Yes</button>
+                    </div>
+                </div>
+
+                <!-- Thanks order -->
+                <div id="thanksOrderDiv"
+                    class="hidden bg-white w-full md:max-w-[744px] rounded-[6px] p-5 md:p-[30px_50px_45px]">
+                    <p
+                        class="text-[18px] md:text-[22px] text-primary font-[600] leading-[100%] text-center font-['Clash_Display']">
+                        Thanks for your order!</p>
+                    <p class="md:text-[18px] font-[600] mt-5 leading-[100%] text-center">Order Details - 1234567890</p>
+                    <p class="text-[14px] text-[#747474] font-medium mt-[10px] leading-[100%] text-center">Delivery:
+                        Home
+                        delivery (2-4working days)</p>
+
+                    <div class="mt-8 md:mt-5 md:flex border-b border-[#C1C1C1]">
+                        <div
+                            class="md:w-1/2 flex text-[#2C2C2C] flex-col gap-y-5 md:gap-y-9 pb-5 md:pb-[30px] max-md:border-b md:border-r border-[#C1C1C1]">
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/watch-snake.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-x-[14px]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/gold-watch.png" alt="watch photo" class="max-h-[39px]" />
+                                </div>
+                                <div class="w-[80%]">
+                                    <p class="text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[7px] text-[#848484] leading-4 truncate">Lorem ipsum dolor
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:w-1/2 max-md:mt-5 md:pl-[50px] pb-5 md:pb-[30px]">
+                            <p class="text-[14px] text-[#2C2C2C] font-[600] leading-4">Delivery address</p>
+                            <p class="text-[14px] text-[#848484] leading-4 mt-[10px] truncate">45str lorem ipsum,
+                                Frankfurt,
+                                Germany</p>
+
+                            <p class="text-[14px] text-[#2C2C2C] font-[600] mt-[25px] leading-4">Payment method</p>
+                            <div class="flex items-center gap-x-[15px] mt-[10px]">
+                                <div class="text-[4px] w-[21px] flex flex-col items-center">
+                                    <img src="./img/free-mastercard-logo-icon-svg-download-png-2944982.webp"
+                                        class=" w-[20px]" alt="mastercard" />
+                                    <span class="mt-[-5px] text-black cursor-default">mastercard</span>
+                                </div>
+                                <p class="text-[14px] text-[#848484]">**** 5555</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:max-w-[251px] md:mx-auto mt-5 md:mt-[35px] text-[18px] font-medium leading-[100%] flex items-center justify-between">
+                        <span>Total:</span>
+                        <span class="text-[18px] text-primary font-[700] leading-6">2895 AED</span>
+                    </div>
+
+                    <a href="./index.htm"
+                        class="w-full md:max-w-[343px] h-[50px] rounded-[6px] mt-[35px] md:mt-10 font-medium text-primary capitalize flex justify-center items-center md:mx-auto border border-primary bg-white">return
+                        to homepage</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="w-full bg-primary font-['Inter'] max-md:pb-[130px] text-white">
@@ -814,67 +1183,159 @@
     </footer>
 
     <script>
-        const termsConditionsCheckbox = document.getElementById('termsConditionsCheckbox')
-        const saveContinueBtn = document.getElementById('saveContinueBtn')
-        const shippingAddressDiv = document.getElementById('shippingAddressDiv')
-        const shippingMethodDiv = document.getElementById('shippingMethodDiv')
+        const termsConditionsCheckbox = document.getElementById('termsConditionsCheckbox');
+        const saveContinueBtn = document.getElementById('saveContinueBtn');
+
+        const shippingAddressDiv = document.getElementById('shippingAddressDiv');
+        const shippingMethodDiv = document.getElementById('shippingMethodDiv');
+        const paymentMethodDiv = document.getElementById('paymentMethodDiv');
+
+        const shipAddressBorder = document.getElementById('shipAddressBorder');
+        const shipAddressBg = document.getElementById('shipAddressBg');
+        const shipAddressSpan = document.getElementById('shipAddressSpan');
+
+        const shipMethodBorder = document.getElementById('shipMethodBorder');
+        const shipMethodBg = document.getElementById('shipMethodBg');
+        const shipMethodSpan = document.getElementById('shipMethodSpan');
+
+        const paymentMethodBorder = document.getElementById('paymentMethodBorder');
+        const paymentMethodBg = document.getElementById('paymentMethodBg');
+        const paymentMethodSpan = document.getElementById('paymentMethodSpan');
 
         function termsConditionsChange() {
             saveContinueBtn.disabled = termsConditionsCheckbox.checked ? false : true
         }
 
-        function goShippingMethod() {
-            const step1 = document.querySelector('[data-step="1"]');
-            const step2 = document.querySelector('[data-step="2"]');
-            const step3 = document.querySelector('[data-step="3"]');
-
-            // Step dəyişimi: Address → Method
-            shippingAddressDiv.classList.add("hidden!");
-            shippingMethodDiv.classList.remove("hidden!");
-
-            // helper function - rəng dəyişimi
-            const setStepState = (stepEl, isActive) => {
-                const outers = stepEl.querySelectorAll("div");
-                const innerDiv = outers[1];
-                const outerDiv = outers[0];
-                const label = stepEl.querySelector("span");
-
-                if (isActive) {
-                    outerDiv.classList.remove("bg-[#C4C4C4]");
-                    outerDiv.classList.add("bg-primary");
-
-                    innerDiv.classList.remove("bg-white");
-                    innerDiv.classList.add("bg-[#F5FBFF]");
-
-                    label.classList.remove("text-[#848484]");
-                    label.classList.add("text-primary", "font-[500]");
-                } else {
-                    outerDiv.classList.remove("bg-primary");
-                    outerDiv.classList.add("bg-[#C4C4C4]");
-
-                    innerDiv.classList.remove("bg-[#F5FBFF]");
-                    innerDiv.classList.add("bg-white");
-
-                    label.classList.remove("text-primary", "font-[500]");
-                    label.classList.add("text-[#848484]");
+        function updateStep(active) {
+            const steps = [
+                {
+                    border: shipAddressBorder,
+                    bg: shipAddressBg,
+                    text: shipAddressSpan,
+                    div: shippingAddressDiv
+                },
+                {
+                    border: shipMethodBorder,
+                    bg: shipMethodBg,
+                    text: shipMethodSpan,
+                    div: shippingMethodDiv
+                },
+                {
+                    border: paymentMethodBorder,
+                    bg: paymentMethodBg,
+                    text: paymentMethodSpan,
+                    div: paymentMethodDiv
                 }
-            };
+            ];
 
-            // Step 1 → passiv
-            setStepState(step1, false);
+            steps.forEach((step, index) => {
+                const isActive = index === active;
 
-            // Step 2 → aktiv
-            setStepState(step2, true);
+                step.border.classList.toggle("bg-primary", isActive);
+                step.bg.classList.toggle("bg-[#F5FBFF]", isActive);
+                step.text.classList.toggle("font-[500]", isActive);
+                step.text.classList.toggle("text-primary", isActive);
 
-            // Step 3 → passiv (hələlik)
-            setStepState(step3, false);
+                step.border.classList.toggle("bg-[#C4C4C4]", !isActive);
+                step.bg.classList.toggle("bg-white", !isActive);
+                step.text.classList.toggle("text-[#848484]", !isActive);
+
+                step.div.classList.toggle("hidden!", !isActive);
+            });
 
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
-        function goBack() {
+        // Card month and year
+        const expiry = document.getElementById("expiry");
 
+        expiry.addEventListener("input", function () {
+            let value = this.value.replace(/\D/g, "");
+
+            if (value.length >= 3) {
+                value = value.substring(0, 2) + "/" + value.substring(2, 4);
+            }
+
+            this.value = value;
+
+            const month = parseInt(value.substring(0, 2), 10);
+            if (month > 12) {
+                this.value = "12" + this.value.substring(2);
+            }
+        });
+
+
+        // Change payment method card or google pay
+        const cardDetails = document.getElementById('cardDetails');
+        const saveCards = document.getElementById('saveCards');
+        const cardInputs = document.querySelectorAll('#cardDetails input');
+        const saveCardInputs = document.querySelectorAll('#saveCards input');
+
+        const cardLength = true;
+
+        function changePayMethod() {
+            const isCardPay = cardPayCheck.checked;
+
+            if (isCardPay && cardLength) {
+                // Saved cards göstər, new card gizlə
+                saveCards.classList.remove('hidden');
+                cardDetails.classList.add('hidden');
+
+                cardInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        input.checked = false;
+                    } else {
+                        input.value = '';
+                    }
+                });
+            }
+            else if (isCardPay && !cardLength) {
+                // New card hissəsini göstər
+                saveCards.classList.add('hidden');
+                cardDetails.classList.remove('hidden');
+            }
+            else {
+                // Apple pay secilibse hər şeyi gizlə və reset et
+                saveCards.classList.add('hidden');
+                cardDetails.classList.add('hidden');
+
+                cardInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        input.checked = false;
+                    } else {
+                        input.value = '';
+                    }
+                });
+
+                saveCardInputs.forEach(input => input.checked = false);
+            }
         }
+
+        function addNewCard() {
+            // Yeni kart əlavə etmək istəyir
+            saveCards.classList.add('hidden');
+            cardDetails.classList.remove('hidden');
+
+            // Saved card seçimini təmizləyək
+            saveCardInputs.forEach(input => input.checked = false);
+        }
+
+        // Odenis tesdiqlenmesi
+        const modalPay = document.getElementById('modalPay')
+        const modalConfirm = document.getElementById('modalConfirm')
+        const thanksOrderDiv = document.getElementById('thanksOrderDiv')
+
+
+        function showHidePayModal(arg) {
+            modalPay.classList.toggle('hidden', !arg);
+            document.body.classList.toggle('overflow-hidden', arg);
+        }
+
+        function paymentConfirm() {
+            modalConfirm.classList.add('hidden')
+            thanksOrderDiv.classList.remove('hidden')
+        }
+
     </script>
 
     <script>
