@@ -9,9 +9,14 @@
         rel="stylesheet" />
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@900,800,700,600,500,400,300&display=swap"
         rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.css" />
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./src/swiper.css">
     <link rel="stylesheet" href="./src/output.css" />
@@ -67,7 +72,7 @@
     </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-white">
     <header class="font-['Inter']">
         <div class="w-full font-['Clash_Display'] h-[35px] max-tablet:hidden bg-primary flex items-center gap-x-10">
             <div class="max-w-[1152px] w-full px-3 mx-auto flex justify-between items-center">
@@ -251,7 +256,7 @@
                             class="w-[148px] flex justify-center items-center h-[40px] rounded-[6px] text-black border border-black text-[14px] font-[500] bg-white">Login</a>
                     </div>
                 </button>
-                <a href="#">
+                <a href="./favorites.htm">
                     <img src="./img/heart.png" alt="heart"
                         class="max-w-[25px] max-h-[22px] min-w-[25px] min-h-[22px] w-full h-full" />
                 </a>
@@ -1988,7 +1993,17 @@
 
 
 
-    <!-- Swiper script -->
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <!-- jQuery UI and touch punch -->
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- Pagination plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
+
+    <!-- Swiper scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/swiper.js"></script>
 

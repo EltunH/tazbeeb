@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main page</title>
+    <title>All products page</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500,400,300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -1115,7 +1115,7 @@
             </div>
 
             <!-- Pagination -->
-            <button class="max-md:w-full h-[45px] md:w-[328px] cursor-pointer block mx-auto text-[14px] font-[600] leading-[100%] rounded-[6px] mt-10 mb-5 md:mt-[50px] bg-primary text-white">Load the Next Page</button>
+            <button id="loadNextPage" class="max-md:w-full h-[45px] md:w-[328px] cursor-pointer block mx-auto text-[14px] font-[600] leading-[100%] rounded-[6px] mt-10 mb-5 md:mt-[50px] disabled:active:scale-none disabled:cursor-not-allowed disabled:bg-[#C8C8C8] bg-primary text-white active:scale-95 transition-all duration-200">Load the Next Page</button>
             <div id="pageBtn" class=""></div>
         </section>
     </main>
@@ -1316,13 +1316,23 @@
             }
         });
 
+        // Pagination
         const pageBtn = $('#pageBtn');
         $('#pageBtn').pagination({
             dataSource: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
             pageSize: 1,
             pageNumber: 1,
             callback: function (data, pagination) {
+                $('#loadNextPage').prop('disabled', (pagination.totalNumber == pagination.pageNumber));
+            }
+        });
 
+        $('#loadNextPage').on('click', function () {
+            let currentPage = pageBtn.pagination('getSelectedPageNum');
+            let totalPage = pageBtn.pagination('getTotalPage');
+
+            if (currentPage < totalPage) {
+                pageBtn.pagination('next');
             }
         });
     });
