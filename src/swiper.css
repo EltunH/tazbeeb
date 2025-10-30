@@ -177,6 +177,18 @@
     height: 406px;
 }
 
+/* Brand main swiper */
+.brandMainSwiper.swiper {
+    width: 100%;
+    height: 461px;
+}
+
+/* Brand new ones swiper */
+.brandNeWOnesSwiper.swiper {
+    width: 100%;
+    height: 406px;
+}
+
 @media screen and (max-width: 768px) {
     .swiper-pagination-bullets.swiper-pagination-horizontal {
         bottom: 0;
@@ -252,6 +264,18 @@
     }
 
     .similarProductSwiper .swiper-slide {
+        height: 246px;
+    }
+
+    .brandMainSwiper.swiper {
+        height: 505px;
+    }
+
+    .brandMainSwiper .swiper-slide {
+        height: 461px;
+    }
+
+    .brandNeWOnesSwiper.swiper {
         height: 246px;
     }
 }

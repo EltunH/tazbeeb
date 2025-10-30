@@ -224,3 +224,41 @@ var swiper = new Swiper(".popularBrandSwiper", {
         }
     }
 });
+
+// Brand main swiper
+var swiper = new Swiper(".brandMainSwiper", {
+    pagination: {
+        el: ".brand-main-swiper-pagination",
+        clickable: true,
+    },
+    slidesPerView: '1',
+    spaceBetween: 16,
+    watchOverflow: false,
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+        },
+        991: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+        },
+    }
+});
+
+// Brand new ones swiper
+var swiper = new Swiper(".brandNeWOnesSwiper", {
+    slidesPerView: '2',
+    spaceBetween: 16,
+    watchOverflow: false,
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+        },
+        991: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+        },
+    }
+});

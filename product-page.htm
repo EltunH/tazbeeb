@@ -462,7 +462,7 @@
 
                 <div class="md:w-[40%] max-md:mt-[43px] md:pt-2">
                     <p class="text-[16px] md:text-[22px] text-black font-[600] leading-[20px] max-md:px-4">
-                        <span class="font-[900] underline">Bvlgari</span> Serpenti Tubogas watch
+                        <a href="./brand-page.htm" class="font-[900] underline">Bvlgari</a> Serpenti Tubogas watch
                     </p>
 
                     <div class="mt-5 md:flex md:items-center gap-x-[50px] gap-y-4 flex-wrap max-md:px-4">
@@ -842,8 +842,8 @@
                                 <p class="ml-[6px]">4.7</p>
                             </div>
                         </div>
-                        <button
-                            class="w-full h-[45px] md:w-[168px] border border-[#B1B1B1] rounded-[6px] cursor-pointer text-[14px] font-medium leading-[100%]">Write
+                        <button onclick="showHideCommentModal(true)"
+                            class="w-full h-[45px] md:w-[168px] border border-[#B1B1B1] rounded-[6px] cursor-pointer text-[14px] font-medium leading-[100%] active:scale-95 transition-all duration-200">Write
                             a comment</button>
                     </div>
                     <div class="max-md:mt-[30px]">
@@ -976,6 +976,52 @@
             </div>
 
             <hr class="my-5 text-[#7E7E7E] max-w-[972px]" />
+
+            <!-- Comment modal -->
+            <div id="commentModal" class="hidden overflow-y-scroll fixed inset-0 bg-[#00002D80] z-[9999] max-md:px-4 px-3">
+                <div class="w-full min-h-full py-[50px] flex items-center justify-center">
+                    <!-- Comment div-->
+                    <div id="commentDiv" class="w-full md:max-w-[615px] relative bg-white rounded-[6px] p-[30px_20px_25px] md:p-[30px_30px_25px]">
+                        <img onclick="showHideCommentModal(false)" src="./img/close.png" alt="close" class="absolute top-[30px] right-5 md:right-[30px] cursor-pointer" />
+                        <p class="text-[18px] md:text-[22px] text-primary text-center font-[600] font-['Clash_Display'] leading-[100%]">Write a comment</p>
+                        <div class="mt-[30px] md:flex justify-between items-center">
+                            <div class="flex gap-x-[14px] items-center max-md:pb-[25px] max-md:border-b max-md:border-[#E3E3E3]">
+                                <div class="min-w-[50px]">
+                                    <img src="./img/watch-snake.png" alt="watch photo" class="max-h-[68px]" />
+                                </div>
+                                <div class="w-[70%]">
+                                    <p class="max-md:text-[14px] font-[600] leading-4 truncate">Bvlgari Sarpenti Watch</p>
+                                    <p class="text-[14px] mt-[10px] text-[#848484] leading-4 truncate">Lorem ipsum dolor</p>
+                                </div>
+                            </div>
+                            <div id="ratingStars" class=" md:min-w-[149px] max-md:mt-5 max-md:pb-5 max-md:border-b max-md:border-[#E3E3E3] text-[#D4D4D4] select-none">
+                                <i class="fa-solid fa-star text-[20px] cursor-pointer hover:scale-125 transition-transform duration-150" data-value="1"></i>
+                                <i class="fa-solid fa-star text-[20px] cursor-pointer hover:scale-125 transition-transform duration-150" data-value="2"></i>
+                                <i class="fa-solid fa-star text-[20px] cursor-pointer hover:scale-125 transition-transform duration-150" data-value="3"></i>
+                                <i class="fa-solid fa-star text-[20px] cursor-pointer hover:scale-125 transition-transform duration-150" data-value="4"></i>
+                                <i class="fa-solid fa-star text-[20px] cursor-pointer hover:scale-125 transition-transform duration-150" data-value="5"></i>
+                                <p class="text-[13px] leading-[100%] mt-[6px] text-[#505050]">Please rate the product</p>
+                            </div>
+                        </div>
+                        <p class="text-[14px] font-medium leading-[100%] mt-5 md:mt-10 mb-3">Comment</p>
+                        <textarea placeholder="Write a comment" class="w-full h-[131px] bg-[#F6F6F6] text-[14px] rounded-[6px] outline-none p-5"></textarea>
+                        <button onclick="showConfirmDiv()" class="w-full md:max-w-[160px] block md:mx-auto h-[50px] rounded-[6px] bg-primary text-white font-medium leading-[100%] mt-[30px] cursor-pointer active:scale-95 transition-all duration-200">Send</button>
+                    </div>
+
+                    <!-- Confirm modal -->
+                    <div id="confirmDiv" class="hidden w-full md:max-w-[350px] h-[148px] bg-white rounded-[6px] relative">
+                        <img onclick="showHideCommentModal(false)" src="./img/close.png" alt="close"
+                            class="absolute right-5 top-5 w-[10px] cursor-pointer" />
+                        <p class="max-w-[223px] text-center my-[27px] mx-auto px-1 leading-[119%]">Are you sure  want to send the comment?</p>
+                        <div class="border-t h-[56px] border-[#C4C4C4] flex">
+                            <button onclick="showHideCommentModal(false)"
+                                class="w-full h-full border-r border-[#C4C4C4] cursor-pointer">No</button>
+                            <button onclick="showHideCommentModal(false)"
+                                class="w-full h-full text-[#005AFF] font-medium cursor-pointer">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="mt-5 md:mt-[100px] font-['Inter'] mb-[100px] md:mb-[200px]">
@@ -1523,6 +1569,59 @@
                 changeBorderReviews.style.fontWeight = '700';
             }
         }
+
+        // Comment modal
+        const commentModal = document.getElementById('commentModal')
+        const confirmDiv = document.getElementById('confirmDiv')
+        const commentDiv = document.getElementById('commentDiv')
+
+        function showHideCommentModal(arg) {
+            commentModal.classList.toggle('hidden', !arg);
+            document.body.classList.toggle('overflow-hidden', arg);
+            if(!arg) {
+                commentDiv.classList.remove('hidden')
+                confirmDiv.classList.add('hidden')
+            }
+        }
+
+        function showConfirmDiv() {
+            commentDiv.classList.add('hidden')
+            confirmDiv.classList.remove('hidden')
+        }
+
+        // Rating 
+        const stars = document.querySelectorAll('#ratingStars i');
+        let currentRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                currentRating = this.getAttribute('data-value');
+                updateStars();
+            });
+
+            star.addEventListener('mouseover', function () {
+                const hoverValue = this.getAttribute('data-value');
+                updateStars(hoverValue);
+            });
+
+            star.addEventListener('mouseout', function () {
+                updateStars();
+            });
+        });
+
+        function updateStars(hoverValue = 0) {
+            stars.forEach(star => {
+                const value = star.getAttribute('data-value');
+                if (hoverValue >= value || currentRating >= value) {
+                    star.classList.add('text-[#FFB800]');
+                    star.classList.remove('text-[#D4D4D4]');
+                } else {
+                    star.classList.add('text-[#D4D4D4]');
+                    star.classList.remove('text-[#FFB800]');
+                }
+            });
+        }
+
     </script>
 
 
