@@ -2020,6 +2020,8 @@
         const sideBar = document.getElementById('sideBar');
         const categorySideBar = document.getElementById('categorySideBar');
 
+        console.log('test')
+
         const hideLoginModal = () => loginModal.classList.toggle('hidden');
         document.addEventListener('click', function (e) {
             if (!loginModal.contains(e.target) && e.target !== openBtn) {
